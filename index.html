@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Vikas Prajapati — Technical Lead, Full Stack &amp; Shopify</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#15140F; --surface:#1D1B15; --surface2:#242119; --border:#332F24;
+  --accent:#C98A3B; --accent-soft:#E8B978; --text:#F2EFE7; --muted:#A6A093; --muted2:#726C5C;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --bg:#FAF8F3; --surface:#F2EEE3; --surface2:#EBE5D6; --border:#DBD3BE;
+    --accent:#A5661C; --accent-soft:#8A5216; --text:#1E1B12; --muted:#5F5A4A; --muted2:#8A8571;
+  }
+}
+:root[data-theme="light"]{
+  --bg:#FAF8F3; --surface:#F2EEE3; --surface2:#EBE5D6; --border:#DBD3BE;
+  --accent:#A5661C; --accent-soft:#8A5216; --text:#1E1B12; --muted:#5F5A4A; --muted2:#8A8571;
+}
+:root[data-theme="dark"]{
+  --bg:#15140F; --surface:#1D1B15; --surface2:#242119; --border:#332F24;
+  --accent:#C98A3B; --accent-soft:#E8B978; --text:#F2EFE7; --muted:#A6A093; --muted2:#726C5C;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{background:var(--bg);color:var(--text);font-family:'Manrope',sans-serif;line-height:1.6;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-0.01em}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+section{padding:96px 0}
+@media(max-width:640px){section{padding:64px 0}}
+
+nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--border);
+  padding-top:env(safe-area-inset-top,0px)}
+.nav-inner{max-width:1080px;margin:0 auto;padding:18px 28px;display:flex;justify-content:space-between;align-items:center}
+.brand{font-family:'Fraunces',serif;font-weight:600;font-size:18px;text-decoration:none}
+.brand em{color:var(--accent);font-style:normal}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:14px;text-decoration:none;color:var(--muted)}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{border:1px solid var(--border);padding:8px 18px;border-radius:6px;font-size:14px;text-decoration:none}
+.nav-cta:hover{border-color:var(--accent);color:var(--accent)}
+@media(max-width:720px){.nav-links{display:none}}
+
+/* hero */
+#hero{padding-top:88px}
+.eyebrow{font-size:14px;color:var(--accent);margin-bottom:18px}
+h1{font-size:clamp(38px,6vw,66px);line-height:1.05;max-width:16ch;margin-bottom:22px}
+.lead{font-size:clamp(16px,2vw,19px);color:var(--muted);max-width:56ch;margin-bottom:36px}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:64px}
+.btn{padding:13px 26px;border-radius:6px;font-size:14.5px;font-weight:600;text-decoration:none;display:inline-block}
+.btn-fill{background:var(--accent);color:#161310}
+.btn-fill:hover{background:var(--accent-soft)}
+.btn-line{border:1px solid var(--border)}
+.btn-line:hover{border-color:var(--accent);color:var(--accent)}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--border)}
+.stat{padding:28px 24px 0;border-left:1px solid var(--border)}
+.stat:first-child{border-left:none;padding-left:0}
+.stat b{display:block;font-family:'Fraunces',serif;font-size:clamp(26px,3vw,34px);font-weight:600}
+.stat span{font-size:13.5px;color:var(--muted)}
+@media(max-width:720px){.stats{grid-template-columns:1fr 1fr;row-gap:24px}
+  .stat{border-left:none;padding-left:0}
+  .stat:nth-child(2n){padding-left:24px;border-left:1px solid var(--border)}}
+
+/* section headers */
+.s-head{margin-bottom:44px;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.s-head h2{font-size:clamp(26px,3.2vw,36px)}
+.s-head p{color:var(--muted);max-width:44ch;font-size:15px}
+
+/* experience */
+.timeline{display:flex;flex-direction:column}
+.tl-item{display:grid;grid-template-columns:140px 1fr;gap:28px;padding:28px 0;border-top:1px solid var(--border)}
+.tl-item:last-child{border-bottom:1px solid var(--border)}
+.tl-date{color:var(--muted);font-size:14px;padding-top:4px}
+.tl-role{font-family:'Fraunces',serif;font-size:20px;font-weight:600;margin-bottom:6px}
+.tl-org{color:var(--accent);font-size:14px;margin-bottom:12px}
+.tl-desc{color:var(--muted);font-size:15px;max-width:64ch}
+.tl-desc li{margin-left:18px;margin-top:6px}
+@media(max-width:640px){.tl-item{grid-template-columns:1fr}}
+
+/* work */
+.work-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border)}
+.work-card{background:var(--bg);padding:32px}
+.work-tag{font-size:13px;color:var(--accent);margin-bottom:14px}
+.work-title{font-family:'Fraunces',serif;font-size:21px;font-weight:600;margin-bottom:12px}
+.work-desc{color:var(--muted);font-size:14.5px;margin-bottom:20px}
+.work-metrics{display:flex;gap:28px}
+.work-metrics b{display:block;font-family:'Fraunces',serif;font-size:20px}
+.work-metrics span{font-size:12.5px;color:var(--muted2)}
+@media(max-width:720px){.work-grid{grid-template-columns:1fr}}
+
+/* d2c / shopify */
+#d2c{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.d2c-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:48px}
+.d2c-stat{background:var(--surface);padding:24px}
+.d2c-stat b{display:block;font-family:'Fraunces',serif;font-size:clamp(24px,3vw,32px)}
+.d2c-stat span{font-size:13px;color:var(--muted)}
+.d2c-list{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border)}
+.d2c-row{background:var(--surface);padding:22px 26px;display:grid;grid-template-columns:1fr 2fr auto;gap:20px;align-items:center}
+.d2c-row .name{font-family:'Fraunces',serif;font-weight:600;font-size:17px}
+.d2c-row .desc{color:var(--muted);font-size:14px}
+.d2c-row .tag{border:1px solid var(--border);padding:5px 12px;border-radius:100px;font-size:12.5px;white-space:nowrap}
+@media(max-width:720px){.d2c-stats{grid-template-columns:1fr}
+  .d2c-row{grid-template-columns:1fr;gap:8px}}
+
+/* skills */
+.skill-groups{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.skill-group h3{font-size:14px;color:var(--muted);font-weight:600;margin-bottom:16px}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{border:1px solid var(--border);padding:6px 14px;border-radius:100px;font-size:13.5px}
+@media(max-width:720px){.skill-groups{grid-template-columns:1fr;gap:28px}}
+
+/* about + contact */
+.about-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:56px;align-items:start}
+.about-grid p{color:var(--muted);margin-bottom:16px;font-size:15.5px}
+.about-facts{list-style:none;border-top:1px solid var(--border)}
+.about-facts li{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--border);font-size:14.5px}
+.about-facts span:first-child{color:var(--muted);flex-shrink:0}
+.about-facts span:last-child{text-align:right}
+@media(max-width:720px){.about-grid{grid-template-columns:1fr}
+  .about-facts li{flex-direction:column;gap:4px}
+  .about-facts span:last-child{text-align:left}}
+
+#contact{background:var(--surface);border-top:1px solid var(--border)}
+.contact-inner{text-align:left}
+#contact h2{font-size:clamp(30px,4vw,46px);max-width:14ch;margin-bottom:18px}
+.contact-links{display:flex;gap:16px;flex-wrap:wrap;margin-top:32px}
+.clink{border:1px solid var(--border);padding:12px 22px;border-radius:6px;text-decoration:none;font-size:14.5px}
+.clink:hover{border-color:var(--accent);color:var(--accent)}
+
+footer{padding:32px 0;display:flex;justify-content:space-between;color:var(--muted2);font-size:13px;flex-wrap:wrap;gap:8px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#hero" class="brand">Vikas<em>.</em></a>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#d2c">D2C &amp; Shopify</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:14px">
+      <button id="theme-toggle" aria-label="Toggle dark and light view" style="background:transparent;border:1px solid var(--border);color:var(--text);width:36px;height:36px;border-radius:6px;cursor:pointer;font-size:15px;line-height:1">◐</button>
+      <a href="#contact" class="nav-cta">Get in touch</a>
+    </div>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="wrap">
+    <div class="eyebrow">Technical Lead · Mumbai, India</div>
+    <h1>Full-stack engineering for applications and platforms that scale.</h1>
+    <p class="lead">I'm Vikas — a Technical Lead who builds full-stack applications end to end, from PHP/Laravel and CodeIgniter systems to modern React and Node.js products. I've spent 4+ years owning technical delivery across web apps, internal tools, and e-commerce platforms, and I currently lead a small team building a field-force HRMS from the ground up.</p>
+    <div class="cta-row">
+      <a href="#work" class="btn btn-fill">See my work</a>
+      <a href="mailto:vikasprajapati.dev@gmail.com" class="btn btn-line">Email me</a>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat"><b>4+ yrs</b><span>Full-stack experience</span></div>
+      <div class="stat"><b>10+</b><span>Production apps shipped</span></div>
+      <div class="stat"><b>PHP → React</b><span>Laravel, CodeIgniter to modern stacks</span></div>
+      <div class="stat"><b>$15–20M</b><span>Revenue owned, e-commerce vertical</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="s-head">
+      <h2>Where I've worked</h2>
+      <p>A track record of ownership — from a single D2C vertical to a freelance product built with a team.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-date">Aug 2026 — Present</div>
+        <div>
+          <div class="tl-role">Freelance Lead Full Stack Developer</div>
+          <div class="tl-org">Zob Connect · Field-force HRMS</div>
+          <p class="tl-desc">Leading a team of four building a Node.js/Express + PostgreSQL API, a React admin app, and a React Native mobile app for client SD Computronix. Shipped three production apps in about a month, building AI-first with Claude Code for implementation, review, and testing.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Jul 2022 — Present</div>
+        <div>
+          <div class="tl-role">Technical Lead, Full Stack Applications &amp; E-commerce</div>
+          <div class="tl-org">Full Stack Developer</div>
+          <p class="tl-desc">Own technical delivery across PHP/Laravel and CodeIgniter applications alongside a D2C e-commerce vertical spanning 20+ Shopify stores, reporting to the VP. Drove daily sales from $3–4K to $40–70K through platform migration and automation, built an automation platform cutting manual ops by 60%, and integrated the ChatGPT API into support workflows, reducing tickets by 30–40%.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="s-head">
+      <h2>Selected work</h2>
+      <p>Projects that show the range — from AI-first product builds to backend integration engineering.</p>
+    </div>
+    <div class="work-grid">
+      <div class="work-card">
+        <div class="work-tag">Node.js, React, React Native, Claude Code</div>
+        <div class="work-title">Zob Connect — field-force HRMS</div>
+        <p class="work-desc">Geofenced attendance with selfie verification, KYC onboarding (PAN, Aadhaar, bank), role-based access for HR and zone managers, and localisation across 10 Indian languages.</p>
+        <div class="work-metrics"><div><b>3</b><span>Apps shipped</span></div><div><b>~1 mo</b><span>Build time</span></div></div>
+      </div>
+      <div class="work-card">
+        <div class="work-tag">PHP, Laravel, MySQL</div>
+        <div class="work-title">Order &amp; supplier management system</div>
+        <p class="work-desc">A Laravel-based internal application handling supplier orders, inventory sync, and fulfillment tracking — built from scratch to replace a manual, spreadsheet-driven process across multiple teams.</p>
+        <div class="work-metrics"><div><b>60%</b><span>Fewer manual ops</span></div><div><b>50%</b><span>Fewer errors</span></div></div>
+      </div>
+      <div class="work-card">
+        <div class="work-tag">CodeIgniter, PHP, REST APIs</div>
+        <div class="work-title">Third-party integration platform</div>
+        <p class="work-desc">A CodeIgniter application integrating 10+ external systems — Amazon MWS, FedEx, Signifyd, payment gateways, and supplier APIs — into a single operational backend.</p>
+        <div class="work-metrics"><div><b>10+</b><span>APIs integrated</span></div><div><b>PCI</b><span>Compliant payments</span></div></div>
+      </div>
+      <div class="work-card">
+        <div class="work-tag">ChatGPT API, workflow automation</div>
+        <div class="work-title">AI-assisted support triage</div>
+        <p class="work-desc">Integrated the ChatGPT API into customer support to auto-draft responses for order status, returns, and sizing queries, with escalation rules for anything the model can't resolve.</p>
+        <div class="work-metrics"><div><b>30–40%</b><span>Fewer tickets</span></div><div><b>3rd</b><span>Place, AI Hackathon</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="d2c">
+  <div class="wrap">
+    <div class="s-head">
+      <h2>D2C &amp; Shopify specialisation</h2>
+      <p>Alongside general application development, I'm the sole technical owner of a full D2C e-commerce vertical — this is where I go deep.</p>
+    </div>
+    <div class="d2c-stats">
+      <div class="d2c-stat"><b>20+</b><span>Shopify stores managed solo</span></div>
+      <div class="d2c-stat"><b>10–20x</b><span>Revenue growth driven</span></div>
+      <div class="d2c-stat"><b>$3–4K → $40–70K</b><span>Daily sales scaled</span></div>
+    </div>
+    <div class="d2c-list">
+      <div class="d2c-row">
+        <div class="name">Multi-store payment reconciliation</div>
+        <div class="desc">Shopify GraphQL automation pulling transaction data across 20+ stores, enriched with discount and shipping data, generating finance-ready reports — cut a days-long process to minutes.</div>
+        <div class="tag">Shopify GraphQL · AWS Lambda</div>
+      </div>
+      <div class="d2c-row">
+        <div class="name">Custom Shopify theme, built from scratch</div>
+        <div class="desc">No third-party builder — custom Liquid section architecture, mega-menu navigation, mobile-first layout, and performance tuning for fast loads on every device.</div>
+        <div class="tag">Liquid · Custom theme</div>
+      </div>
+      <div class="d2c-row">
+        <div class="name">Marketplace &amp; logistics integrations</div>
+        <div class="desc">Connected stores to Amazon MWS, FedEx, and Signifyd for fraud detection, plus PCI-compliant payment gateways — the operational backbone behind every store.</div>
+        <div class="tag">Amazon MWS · FedEx · Signifyd</div>
+      </div>
+      <div class="d2c-row">
+        <div class="name">AWS infrastructure for storefronts</div>
+        <div class="desc">Architected S3, Lambda, CloudFront and EC2 infrastructure behind the stores — 40% faster page loads and a 30% lift in transaction completion.</div>
+        <div class="tag">S3 · Lambda · CloudFront</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="s-head">
+      <h2>Technical toolkit</h2>
+      <p>Full-stack depth with a Shopify and AI-driven development specialisation.</p>
+    </div>
+    <div class="skill-groups">
+      <div class="skill-group">
+        <h3>Languages &amp; frameworks</h3>
+        <div class="tags">
+          <span class="tag">PHP</span><span class="tag">Laravel</span>
+          <span class="tag">CodeIgniter</span><span class="tag">JavaScript / TypeScript</span>
+          <span class="tag">React.js</span><span class="tag">Next.js</span>
+          <span class="tag">Node.js / Express</span><span class="tag">Python</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Data, cloud &amp; infra</h3>
+        <div class="tags">
+          <span class="tag">MySQL / PostgreSQL</span><span class="tag">AWS</span>
+          <span class="tag">REST APIs</span><span class="tag">Git &amp; CI/CD</span>
+          <span class="tag">Shopify (Liquid, GraphQL)</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>AI-driven development</h3>
+        <div class="tags">
+          <span class="tag">Claude Code</span><span class="tag">Cursor</span>
+          <span class="tag">GitHub Copilot</span><span class="tag">ChatGPT API</span>
+          <span class="tag">Signifyd · FedEx · Amazon MWS</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div>
+        <div class="s-head" style="margin-bottom:20px"><h2>About</h2></div>
+        <p>I'm based in Navi Mumbai, and I've built my career across PHP/Laravel applications, CodeIgniter systems, and modern React/Node.js products — with e-commerce as one area of deep specialisation, not the whole story.</p>
+        <p>Lately that means building AI-first: using tools like Claude Code to move faster while still reviewing and owning every piece of what ships.</p>
+      </div>
+      <ul class="about-facts">
+        <li><span>Location</span><span>Navi Mumbai, India (open to remote)</span></li>
+        <li><span>Education</span><span>B.E. Computer Science, CGPA 8.9/10</span></li>
+        <li><span>Certifications</span><span>AWS Fundamentals · Python Programming</span></li>
+        <li><span>Recognition</span><span>3rd place, company-wide AI Hackathon</span></li>
+        <li><span>Published</span><span>Research paper in IJRASET, hardware monitoring</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact-inner">
+    <h2>Let's build something that scales.</h2>
+    <p class="lead" style="margin-bottom:0">Open to Technical Lead, Team Lead, and Senior Full Stack roles — across application development, e-commerce, and AI-driven products.</p>
+    <div class="contact-links">
+      <a href="mailto:vikasprajapati.dev@gmail.com" class="clink">vikasprajapati.dev@gmail.com</a>
+      <a href="tel:+918600290199" class="clink">+91 86002 90199</a>
+      <a href="https://www.linkedin.com/in/vkasprajapati/" class="clink" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/VikasSprajapati" class="clink" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex;justify-content:space-between;width:100%;flex-wrap:wrap;gap:8px">
+    <span>© 2026 Vikas Prajapati</span>
+    <span>Built with Claude</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root = document.documentElement;
+  var btn = document.getElementById('theme-toggle');
+  var saved = null;
+  try { saved = localStorage.getItem('vp-theme'); } catch(e) {}
+  if (saved === 'light' || saved === 'dark') { root.setAttribute('data-theme', saved); }
+  function current(){
+    var attr = root.getAttribute('data-theme');
+    if (attr) return attr;
+    return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  }
+  btn.addEventListener('click', function(){
+    var next = current() === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    btn.textContent = next === 'dark' ? '◐' : '◑';
+    try { localStorage.setItem('vp-theme', next); } catch(e) {}
+  });
+  btn.textContent = current() === 'dark' ? '◐' : '◑';
+})();
+</script>
+</body>
+</html>
