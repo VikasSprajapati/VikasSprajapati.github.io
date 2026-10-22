@@ -97,6 +97,56 @@ h1{font-size:clamp(38px,6vw,66px);line-height:1.05;max-width:16ch;margin-bottom:
 .work-metrics span{font-size:12.5px;color:var(--muted2)}
 @media(max-width:720px){.work-grid{grid-template-columns:1fr}}
 
+/* case study */
+#case,#case2{border-top:1px solid var(--border)}
+.case-kicker{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:13.5px;color:var(--accent);margin-bottom:16px}
+.case-kicker .pill{border:1px solid var(--border);padding:3px 12px;border-radius:100px;color:var(--muted);font-size:12.5px}
+.case-title{font-size:clamp(30px,4.6vw,50px);line-height:1.08;max-width:22ch;margin-bottom:20px}
+.case-lead{color:var(--muted);font-size:clamp(16px,1.9vw,18px);max-width:64ch;margin-bottom:36px}
+.case-meta{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:72px}
+.case-meta > div{padding:18px 24px;border-left:1px solid var(--border);min-width:0}
+.case-meta > div:first-child{border-left:none;padding-left:0}
+.case-meta span{display:block;font-size:12.5px;color:var(--muted);margin-bottom:4px}
+.case-meta b{display:block;font-weight:600;font-size:14.5px;line-height:1.5}
+.case-block{margin-bottom:72px}
+.case-block:last-child{margin-bottom:0}
+.case-block h3{font-size:clamp(22px,2.6vw,28px);margin-bottom:10px}
+.case-block > p{color:var(--muted);max-width:66ch;font-size:15.5px;margin-bottom:26px}
+.case-grid{display:grid;gap:1px;background:var(--border);border:1px solid var(--border)}
+.case-grid.c3{grid-template-columns:repeat(3,1fr)}
+.case-cell{background:var(--surface);padding:24px 26px;min-width:0}
+.case-cell .label{display:block;font-size:12.5px;color:var(--accent);margin-bottom:8px;font-weight:600}
+.case-cell b{display:block;font-family:'Fraunces',serif;font-size:18px;font-weight:600;line-height:1.3;margin-bottom:8px}
+.case-cell p{color:var(--muted);font-size:14.5px}
+.case-cell.big b{font-size:clamp(28px,3.4vw,38px);margin-bottom:6px}
+.case-cell code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.86em;background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:1px 6px;color:var(--text)}
+.loop{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;counter-reset:step}
+.loop-step{border:1px solid var(--border);border-radius:8px;padding:22px 24px;background:var(--surface);min-width:0}
+.loop-step::before{counter-increment:step;content:counter(step);display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--accent);color:var(--bg);font-weight:700;font-size:13px;margin-bottom:14px}
+.loop-step b{display:block;font-family:'Fraunces',serif;font-size:17px;font-weight:600;margin-bottom:6px}
+.loop-step p{color:var(--muted);font-size:14.5px}
+.callout{margin-top:20px;border-left:3px solid var(--accent);padding:14px 22px;background:var(--surface);font-size:15.5px}
+.case-sub{font-size:14px;font-weight:600;color:var(--muted);margin:36px 0 14px}
+.case-list{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.case-list li{border:1px solid var(--border);border-radius:8px;padding:14px 18px;font-size:14.5px;color:var(--muted);min-width:0}
+.case-list li b{color:var(--text);font-weight:600}
+.stack-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px 32px}
+.stack-grid h4{font-size:13.5px;font-weight:600;color:var(--muted);margin-bottom:12px}
+@media(max-width:900px){
+  .case-grid.c3{grid-template-columns:1fr 1fr}
+}
+@media(max-width:720px){
+  .case-meta{grid-template-columns:1fr}
+  .case-meta > div{border-left:none;padding:14px 0;border-top:1px solid var(--border)}
+  .case-meta > div:first-child{border-top:none}
+  .case-grid.c3{grid-template-columns:1fr}
+  .loop{grid-template-columns:1fr}
+  .case-list{grid-template-columns:1fr}
+  .stack-grid{grid-template-columns:1fr}
+  .case-block{margin-bottom:56px}
+  .case-meta{margin-bottom:56px}
+}
+
 /* d2c / shopify */
 #d2c{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .d2c-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:48px}
@@ -145,6 +195,7 @@ footer{padding:32px 0;display:flex;justify-content:space-between;color:var(--mut
   <div class="nav-inner">
     <a href="#hero" class="brand">Vikas<em>.</em></a>
     <ul class="nav-links">
+      <li><a href="#case">Case studies</a></li>
       <li><a href="#work">Work</a></li>
       <li><a href="#d2c">D2C &amp; Shopify</a></li>
       <li><a href="#experience">Experience</a></li>
@@ -162,7 +213,7 @@ footer{padding:32px 0;display:flex;justify-content:space-between;color:var(--mut
   <div class="wrap">
     <div class="eyebrow">Technical Lead · Mumbai, India</div>
     <h1>Full-stack engineering for applications and platforms that scale.</h1>
-    <p class="lead">I'm Vikas — a Technical Lead who builds full-stack applications end to end, from PHP/Laravel and CodeIgniter systems to modern React and Node.js products. I've spent 4+ years owning technical delivery across web apps, internal tools, and e-commerce platforms, and I currently lead a small team building a field-force HRMS from the ground up.</p>
+    <p class="lead">I'm Vikas — a Technical Lead who builds full-stack applications end to end, from PHP/Laravel and CodeIgniter systems to modern React and Node.js products. I've spent 4+ years owning technical delivery across web apps, internal tools, and e-commerce platforms, and I currently lead a small team building a field-force HRMS from the ground up. I also build AI products: an SEO agent that proves its own fixes, and a multi-store analytics platform where people approve every AI action.</p>
     <div class="cta-row">
       <a href="#work" class="btn btn-fill">See my work</a>
       <a href="mailto:vikasprajapati.dev@gmail.com" class="btn btn-line">Email me</a>
@@ -171,9 +222,201 @@ footer{padding:32px 0;display:flex;justify-content:space-between;color:var(--mut
   <div class="wrap">
     <div class="stats">
       <div class="stat"><b>4+ yrs</b><span>Full-stack experience</span></div>
-      <div class="stat"><b>10+</b><span>Production apps shipped</span></div>
+      <div class="stat"><b>10+</b><span>Third-party APIs integrated</span></div>
       <div class="stat"><b>PHP → React</b><span>Laravel, CodeIgniter to modern stacks</span></div>
       <div class="stat"><b>$15–20M</b><span>Revenue owned, e-commerce vertical</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="case">
+  <div class="wrap">
+    <div class="case-kicker">
+      <span>Case study 01</span>
+      <span class="pill">Live in production</span>
+      <span class="pill">Internal tool</span>
+    </div>
+    <h2 class="case-title">Search Optimizer: an AI agent that fixes Shopify SEO, AEO and GEO issues and proves it worked.</h2>
+    <p class="case-lead">An internal platform I designed, built and shipped end to end. It audits every store with eight tools, scores them on one comparable scale, then uses an autonomous AI agent to fix the issues. A fix only counts when the audit tool confirms it.</p>
+
+    <div class="case-meta">
+      <div><span>My role</span><b>Product decisions, full-stack build and deployment, working with an AI coding assistant</b></div>
+      <div><span>Used by</span><b>The SEO team and management</b></div>
+      <div><span>Scale</span><b>A portfolio of 20–25 Shopify stores</b></div>
+    </div>
+
+    <div class="case-block">
+      <h3>The problem</h3>
+      <p>Store performance depends on classic search (SEO), answer engines (AEO) and AI search engines like ChatGPT and Perplexity (GEO). The team's workflow couldn't keep up with all three.</p>
+      <div class="case-grid c3">
+        <div class="case-cell"><b>Fragmented audits</b><p>Results came from many separate tools, and the scores weren't comparable.</p></div>
+        <div class="case-cell"><b>Manual fixing</b><p>Fixing meant uploading audit files to a chat AI and copying the edits into Shopify by hand.</p></div>
+        <div class="case-cell"><b>No proof</b><p>Nobody could tell which fixes had actually worked.</p></div>
+      </div>
+    </div>
+
+    <div class="case-block">
+      <h3>What the app does</h3>
+      <p>One workspace per store, and one portfolio view across all of them.</p>
+      <div class="case-grid c3">
+        <div class="case-cell"><span class="label">Audit</span><b>Unified audits</b><p>Eight tools run per store: SEOmator (365 rules), Google PageSpeed (median of 3 runs), a GEO optimizer, AI citability, brand presence, rich results, a deep site crawl and Search Console. They combine into Overall, SEO, AEO and GEO scores with configurable weights.</p></div>
+        <div class="case-cell"><span class="label">Understand</span><b>Portfolio dashboards</b><p>A store switcher, prioritised opportunities, trends and store comparison. Each store has Overview, Issues, Pages, Tool reports and History tabs, with period comparison, interactive charts and CSV/Excel export.</p></div>
+        <div class="case-cell"><span class="label">Fix</span><b>AI fixes, the core feature</b><p>An autonomous agent (Claude or Gemini, using tool calls) fixes issues in a copy of the store's theme and, through the Shopify Admin API, in products, pages, blog posts, SEO titles and alt text.</p></div>
+        <div class="case-cell"><span class="label">Trust</span><b>Safe by design</b><p>Every change goes through preview, review, publish and one-click roll back, with an automatic theme backup. Careful mode makes no design changes; Fix it mode does.</p></div>
+        <div class="case-cell"><span class="label">Control</span><b>Cost and control</b><p>Spend limits per fix, batch planning with estimates, and skip or stop for batches or single issues mid-run, with a live per-issue status list.</p></div>
+        <div class="case-cell"><span class="label">Show</span><b>Visible progress</b><p>"Why did the score change?" explanations, before/after for every fix, a celebration screen for each confirmed gain, a Fixed issues view with export, an activity log, and "Learn more" guidance on every issue.</p></div>
+      </div>
+    </div>
+
+    <div class="case-block">
+      <h3>An agent that checks its own work</h3>
+      <p>The agent doesn't get to declare victory. Every fix goes through a verification loop before it is counted.</p>
+      <div class="loop">
+        <div class="loop-step"><b>It sees the real page</b><p>It views the actual rendered pages on a live preview served by Shopify CLI.</p></div>
+        <div class="loop-step"><b>It runs the audit's own rule</b><p>It executes the audit tool's exact rule against its changes.</p></div>
+        <div class="loop-step"><b>It retries with evidence</b><p>Issues that still fail go back to it automatically, along with the evidence.</p></div>
+      </div>
+      <div class="callout">"Fixed" only counts when the audit tool agrees.</div>
+
+      <div class="case-sub">Measurement built to be honest</div>
+      <ul class="case-list">
+        <li><b>Like-for-like comparisons</b> that cancel out scoring-settings changes</li>
+        <li><b>Per-page progress</b> and a confirmation audit that waits for Shopify to update the store</li>
+        <li><b>"Can't be fixed by an app" detection</b> based on evidence</li>
+        <li><b>A highest-reachable-score estimate</b> for each store</li>
+        <li><b>An AI track record</b> per issue type and per AI model</li>
+      </ul>
+    </div>
+
+    <div class="case-block">
+      <h3>Results</h3>
+      <p>First measured run of the rebuilt agent, on one store: SEO score +1, with every confirmed fix verified by the audit tool itself.</p>
+      <div class="case-grid c3">
+        <div class="case-cell big"><span class="label">Measured run</span><b>40% fewer</b><p>Page-level problems on that store, down from 35 to 21</p></div>
+        <div class="case-cell big"><span class="label">Measured run</span><b>2 of 7</b><p>Issues fixed and confirmed by the audit. The preview check had predicted exactly those 2.</p></div>
+        <div class="case-cell big"><span class="label">Measured run</span><b>$3.09</b><p>Total AI cost of the whole run</p></div>
+        <div class="case-cell big"><span class="label">Scale</span><b>8 tools, 1 score</b><p>Audit tools unified into comparable Overall, SEO, AEO and GEO scores per store</p></div>
+        <div class="case-cell big"><span class="label">Scale</span><b>365 rules</b><p>Checked per store by SEOmator alone, alongside PageSpeed, crawl and Search Console data</p></div>
+        <div class="case-cell big"><span class="label">Scale</span><b>20–25 stores</b><p>Managed from one app by the SEO team and management</p></div>
+      </div>
+      <div class="case-sub">The bigger win: finding out why earlier fixes looked ineffective</div>
+      <p style="margin-bottom:16px">Only about 10% of issues were being confirmed. Root-cause analysis found four causes, and the redesign fixed all of them.</p>
+      <ul class="case-list">
+        <li>Scoring settings were changing mid-test</li>
+        <li>The AI was working without seeing the pages</li>
+        <li>Issues were being routed to the wrong place</li>
+        <li>The confirmation audit ran before the store had updated</li>
+      </ul>
+    </div>
+
+    <div class="case-block">
+      <h3>Tech stack</h3>
+      <div class="stack-grid" style="margin-top:22px">
+        <div><h4>Backend</h4><div class="tags"><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">TypeScript</span><span class="tag">Drizzle ORM</span><span class="tag">MySQL on AWS RDS</span><span class="tag">Background workers</span></div></div>
+        <div><h4>Frontend</h4><div class="tags"><span class="tag">React 19</span><span class="tag">Vite</span><span class="tag">Tailwind CSS v4</span><span class="tag">Accessible (axe-tested)</span><span class="tag">Light and dark themes</span></div></div>
+        <div><h4>AI</h4><div class="tags"><span class="tag">Claude API (Opus, Sonnet)</span><span class="tag">Gemini API</span><span class="tag">Shared tool-use agent framework</span></div></div>
+        <div><h4>Shopify</h4><div class="tags"><span class="tag">Shopify CLI</span><span class="tag">Admin GraphQL API</span><span class="tag">Theme pull, push, dev preview</span></div></div>
+        <div><h4>Quality &amp; delivery</h4><div class="tags"><span class="tag">Playwright</span><span class="tag">zod</span><span class="tag">cheerio</span><span class="tag">ExcelJS</span><span class="tag">SSO sign-in</span><span class="tag">GitLab CI</span></div></div>
+        <div><h4>What this demonstrates</h4><div class="tags"><span class="tag">AI agent design</span><span class="tag">Self-verification loops</span><span class="tag">Cost control</span><span class="tag">Measurement design</span><span class="tag">Root-cause analysis</span><span class="tag">Production deployment</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="case2">
+  <div class="wrap">
+    <div class="case-kicker">
+      <span>Case study 02</span>
+      <span class="pill">Live in production, 2026</span>
+      <span class="pill">Internal tool, company SSO</span>
+    </div>
+    <h2 class="case-title">Commerce Optimizer: one trusted view of every store, with AI that proposes and people approve.</h2>
+    <p class="case-lead">A multi-store e-commerce intelligence platform. It brings each Shopify store's sales, advertising (Google, Meta, Bing), web analytics (GA4) and on-site behaviour (Microsoft Clarity) into one dashboard, flags what changed and why, and proposes fixes that a person approves before anything changes.</p>
+
+    <div class="case-meta">
+      <div><span>My role</span><b>Designed and built the full application: architecture, back end, front end, data pipeline and AI features, working with Claude Code as an AI pair-programmer</b></div>
+      <div><span>Built for</span><b>An e-commerce company running several Shopify stores</b></div>
+      <div><span>Workflow</span><b>Task branches, UAT, then production on GitLab. A DevOps colleague handled server deployment and sign-in.</b></div>
+    </div>
+
+    <div class="case-block">
+      <h3>The problem</h3>
+      <p>The team checked Shopify, three ad platforms and two analytics tools separately, and reconciled the numbers by hand. Commerce Optimizer gives one trusted view per store and across all stores, explains changes in plain language, and turns analysis into approved actions.</p>
+      <div class="case-grid c3">
+        <div class="case-cell big"><span class="label">Impact</span><b>6 sources</b><p>Shopify, Google Ads, Meta Ads, Bing Ads, GA4 and Clarity in one view, replacing manual cross-checking</p></div>
+        <div class="case-cell big"><span class="label">Impact</span><b>To the cent</b><p>Sales figures reconcile exactly with Shopify's own sales reports</p></div>
+        <div class="case-cell big"><span class="label">Impact</span><b>±20%</b><p>Cap on AI-proposed budget changes; every action is approved, logged and reversible</p></div>
+        <div class="case-cell big"><span class="label">Engineering</span><b>85% smaller</b><p>Main JavaScript bundle, from 814 kB to 123 kB, through code splitting</p></div>
+        <div class="case-cell big"><span class="label">Engineering</span><b>~0.3 s</b><p>Revisited pages appear from cache, with duplicate requests removed</p></div>
+        <div class="case-cell big"><span class="label">Engineering</span><b>65 tests</b><p>Unit tests, plus linting and responsive checks on phone, tablet and desktop</p></div>
+      </div>
+    </div>
+
+    <div class="case-block">
+      <h3>What the app does</h3>
+      <p>A portfolio view across all stores, and a workspace for each one.</p>
+      <div class="case-grid c3">
+        <div class="case-cell"><span class="label">Overview</span><b>Portfolio overview</b><p>KPI cards with trends (sales, orders, AOV, ad spend, ROAS, MER, conversion rate), a checkout-loss summary, an interactive trend chart, "what moved sales" and a store comparison table.</p></div>
+        <div class="case-cell"><span class="label">Analytics</span><b>Per-store analytics</b><p>Sales with refunds, customer mix, channels, discount codes and fulfilment speed; marketing with an Ads health score; traffic with the GA4 funnel and Clarity frustration signals.</p></div>
+        <div class="case-cell"><span class="label">Advertising</span><b>One ads dashboard</b><p>Google Ads, Meta Ads and Bing Ads compared on a single page, with campaign-level flags for spend without return.</p></div>
+        <div class="case-cell"><span class="label">Insights</span><b>Insights engine</b><p>Rule-based alerts with evidence, likely causes, money impact and next steps: sales and ROAS drops, refund spikes, unshipped orders, checkout abandonment, "page not found" traffic and budget-capped winning campaigns.</p></div>
+        <div class="case-cell"><span class="label">Health</span><b>Ads health checks</b><p>A 0–100 score from five data-driven checks: conversion tracking, non-converting search terms, budget-limited winning campaigns, Meta ad fatigue, and spend without sales.</p></div>
+        <div class="case-cell"><span class="label">AI</span><b>AI layer</b><p>Claude, with Gemini as fallback: root-cause analysis of any insight, weekly strategy briefs per store and across all stores, and an "Ask AI" chat grounded in the store's own data.</p></div>
+      </div>
+      <ul class="case-list" style="margin-top:12px">
+        <li><b>Date filtering everywhere:</b> presets and custom ranges up to a year, each compared with the previous period, in each store's own time zone</li>
+        <li><b>Exports:</b> branded PDF reports, Excel workbooks and CSV, for any period or set of stores</li>
+        <li><b>Store onboarding:</b> a guided "Add store" flow with automatic syncing</li>
+        <li><b>Connection health:</b> plain-language diagnosis when a data source stops working</li>
+      </ul>
+    </div>
+
+    <div class="case-block">
+      <h3>AI that proposes, people approve</h3>
+      <p>The AI can act on live ad accounts, which is exactly why it is not allowed to act alone.</p>
+      <div class="loop">
+        <div class="loop-step"><b>The AI proposes a fix</b><p>Pause or enable campaigns, change budgets (capped at ±20%), add negative keywords, or create discount codes.</p></div>
+        <div class="loop-step"><b>A person approves</b><p>Each proposed action is reviewed and approved individually before it runs.</p></div>
+        <div class="loop-step"><b>Everything is reversible</b><p>Guardrails on every action, a full audit log and one-click undo.</p></div>
+      </div>
+      <div class="callout">Nothing runs until a person approves it.</div>
+
+      <div class="case-sub">AI cost transparency</div>
+      <ul class="case-list">
+        <li><b>Every request is stored</b> with its answer, tokens, time and cost</li>
+        <li><b>A History &amp; Costs view</b> shows spend by feature, store and day</li>
+        <li><b>Waste is visible:</b> money lost on failed requests, and savings from caching</li>
+        <li><b>Spend is controlled</b> by a monthly budget cap and free reuse of identical analyses</li>
+      </ul>
+    </div>
+
+    <div class="case-block">
+      <h3>Technical highlights</h3>
+      <p>The parts that make the numbers trustworthy and the AI affordable.</p>
+      <div class="case-grid c3">
+        <div class="case-cell"><span class="label">Data</span><b>A resilient sync pipeline</b><p>A background worker with database-level job claiming (<code>FOR UPDATE SKIP LOCKED</code>), incremental syncs from every 30 minutes to daily by source, a 180-day history import via Shopify's GraphQL bulk operations, and re-checks of recent ad days because conversions arrive late.</p></div>
+        <div class="case-cell"><span class="label">Accuracy</span><b>Two refund bases, one truth</b><p>Refund accounting supports two reporting bases: one reconciles with Shopify's reports to the cent, the other suits judging ad efficiency. Ratios are computed from period totals, never by averaging daily ratios.</p></div>
+        <div class="case-cell"><span class="label">Limits</span><b>Budgeting a tight API</b><p>Microsoft Clarity's export API allows 10 requests a day per project, so the app budgets itself to at most 8 and keeps raw responses so data can be rebuilt without new calls.</p></div>
+        <div class="case-cell"><span class="label">AI engineering</span><b>Reliable, cheap AI</b><p>Structured JSON outputs validated with Zod, prompt caching of store facts that cut follow-up costs, automatic reuse of identical analyses, retries when an answer is cut off, and per-request cost metering with AsyncLocalStorage.</p></div>
+        <div class="case-cell"><span class="label">Performance</span><b>Fast to load, fast to revisit</b><p>Code splitting took the main bundle from 814 kB to 123 kB. Data loading moved to TanStack Query, so a revisited page appears from cache in about 0.3 s, duplicate requests disappear and data refreshes in the background.</p></div>
+        <div class="case-cell"><span class="label">Security</span><b>Privacy by design</b><p>Platform tokens encrypted at rest (AES-256-GCM), no customer names, emails or addresses stored for abandoned checkouts, and company SSO with domain-restricted access.</p></div>
+      </div>
+      <ul class="case-list" style="margin-top:12px">
+        <li><b>Database:</b> MySQL 8 on AWS RDS, shared with another internal app through prefixed tables and a separate migration history, with composite keys and indexes designed per query</li>
+        <li><b>Quality:</b> 65 unit tests, Oxlint including the React Hooks rules, Prettier, and layouts checked in light and dark mode</li>
+      </ul>
+    </div>
+
+    <div class="case-block">
+      <h3>Tech stack</h3>
+      <div class="stack-grid" style="margin-top:22px">
+        <div><h4>Back end</h4><div class="tags"><span class="tag">Node.js 24</span><span class="tag">TypeScript</span><span class="tag">Express</span><span class="tag">Drizzle ORM</span><span class="tag">Zod</span><span class="tag">MySQL 8 on AWS RDS</span></div></div>
+        <div><h4>Front end</h4><div class="tags"><span class="tag">React 19</span><span class="tag">Vite</span><span class="tag">Tailwind CSS 4</span><span class="tag">TanStack Query</span><span class="tag">Recharts</span><span class="tag">react-day-picker</span></div></div>
+        <div><h4>Integrations</h4><div class="tags"><span class="tag">Shopify Admin GraphQL (bulk operations)</span><span class="tag">Google Ads API</span><span class="tag">Meta Marketing API</span><span class="tag">Microsoft Advertising API</span><span class="tag">GA4 Data API</span><span class="tag">Clarity Data Export API</span></div></div>
+        <div><h4>AI</h4><div class="tags"><span class="tag">Claude API (Opus for analysis, Sonnet for chat)</span><span class="tag">Gemini fallback</span><span class="tag">Prompt caching</span></div></div>
+        <div><h4>Tooling</h4><div class="tags"><span class="tag">Playwright</span><span class="tag">ExcelJS</span><span class="tag">Oxlint</span><span class="tag">Prettier</span><span class="tag">Node test runner</span><span class="tag">GitLab</span></div></div>
+        <div><h4>What this demonstrates</h4><div class="tags"><span class="tag">Data pipeline design</span><span class="tag">Human-in-the-loop AI</span><span class="tag">AI cost engineering</span><span class="tag">Financial accuracy</span><span class="tag">Performance tuning</span><span class="tag">Security and privacy</span></div></div>
+      </div>
     </div>
   </div>
 </section>
@@ -290,22 +533,26 @@ footer{padding:32px 0;display:flex;justify-content:space-between;color:var(--mut
           <span class="tag">CodeIgniter</span><span class="tag">JavaScript / TypeScript</span>
           <span class="tag">React.js</span><span class="tag">Next.js</span>
           <span class="tag">Node.js / Express</span><span class="tag">Python</span>
+          <span class="tag">Tailwind CSS</span><span class="tag">TanStack Query</span>
         </div>
       </div>
       <div class="skill-group">
         <h3>Data, cloud &amp; infra</h3>
         <div class="tags">
           <span class="tag">MySQL / PostgreSQL</span><span class="tag">AWS</span>
-          <span class="tag">REST APIs</span><span class="tag">Git &amp; CI/CD</span>
-          <span class="tag">Shopify (Liquid, GraphQL)</span>
+          <span class="tag">REST APIs</span><span class="tag">Git · GitLab CI</span>
+          <span class="tag">Shopify (Liquid, GraphQL, CLI)</span><span class="tag">Playwright</span>
+          <span class="tag">Amazon MWS · FedEx · Signifyd</span>
+          <span class="tag">Ads &amp; analytics APIs</span>
         </div>
       </div>
       <div class="skill-group">
-        <h3>AI-driven development</h3>
+        <h3>AI &amp; agents</h3>
         <div class="tags">
+          <span class="tag">Claude API</span><span class="tag">Gemini API</span>
+          <span class="tag">ChatGPT API</span><span class="tag">Tool-use agents</span>
           <span class="tag">Claude Code</span><span class="tag">Cursor</span>
-          <span class="tag">GitHub Copilot</span><span class="tag">ChatGPT API</span>
-          <span class="tag">Signifyd · FedEx · Amazon MWS</span>
+          <span class="tag">GitHub Copilot</span>
         </div>
       </div>
     </div>
