@@ -58,6 +58,7 @@ body{margin:0}
 
 <nav role="tablist" id="tabs">
 <button role="tab" data-t="start" aria-selected="true">Start</button>
+<button role="tab" data-t="must" aria-selected="false">Must know</button>
 <button role="tab" data-t="sc" aria-selected="false">Scenarios</button>
 <button role="tab" data-t="fe" aria-selected="false">Frontend</button>
 <button role="tab" data-t="be" aria-selected="false">Backend</button>
@@ -94,6 +95,53 @@ body{margin:0}
 
 <h3>Why this role?</h3>
 <p>"It's a full stack role on digital products with a team spread across locations, which is how I work best. I like owning a feature from requirement to release, and I want to grow in architecture and code quality."</p>
+</section>
+
+<section id="must" hidden>
+<h2>Must-know topics (in priority order)</h2>
+<p class="sub">If time is short, study these first.</p>
+
+<div class="box"><b>1. Introduction and projects (10 min)</b>
+<ul><li>Say the 60-second introduction aloud once.</li>
+<li>Know Zob Connect: your role, the stack (Node, Express, PostgreSQL, React, React Native), and what AI did versus what you did.</li>
+<li>Have one real bug or hard problem from any project.</li></ul></div>
+
+<div class="box"><b>2. Scenario answers (20 min)</b>
+<p>Pattern: <b>understand, reproduce, isolate, fix, verify, prevent.</b></p>
+<ul><li>Slow API or slow query: logs, <code>EXPLAIN</code>, index, N+1, caching.</li>
+<li>Slow React page: Lighthouse, bundle size, lazy loading, re-renders.</li>
+<li>Bug after a release: roll back first, then find the cause, fix, add a test.</li>
+<li>Duplicate records: idempotency plus a unique constraint.</li>
+<li>Third-party API failure: timeouts, retries with backoff, fallback.</li></ul></div>
+
+<div class="box"><b>3. Backend (15 min)</b>
+<ul><li><b>Laravel:</b> request lifecycle (route, middleware, controller, model), Eloquent relationships, migrations, validation, N+1 with <code>with()</code>.</li>
+<li><b>REST:</b> methods, status codes (200, 201, 400, 401, 403, 404, 422, 429, 500), idempotency.</li>
+<li><b>Auth:</b> session vs JWT vs OAuth 2.0, authentication vs authorization.</li></ul></div>
+
+<div class="box"><b>4. Database (10 min)</b>
+<ul><li>What an index is, and when it helps or hurts.</li>
+<li>INNER vs LEFT JOIN. ACID and transactions.</li>
+<li>Write these: top N by group, duplicates with <code>HAVING</code>, and a <code>LEFT JOIN</code> for "no match".</li>
+<li>Redis: in-memory cache, sessions, rate limiting.</li></ul></div>
+
+<div class="box"><b>5. Frontend (10 min)</b>
+<ul><li>Hooks: <code>useState</code>, <code>useEffect</code> (dependency array and cleanup), <code>useMemo</code>, <code>useCallback</code>.</li>
+<li>Why lists need a <code>key</code>. Controlled components.</li>
+<li>JavaScript: closures, the event loop, promises and async/await.</li>
+<li>TypeScript: <code>interface</code> vs <code>type</code>, <code>any</code> vs <code>unknown</code>, generics.</li></ul></div>
+
+<div class="box"><b>6. General (10 min)</b>
+<ul><li>SOLID with one example each.</li>
+<li>Git: merge vs rebase, and your task branch, UAT, production workflow.</li>
+<li>Testing: unit, integration and end to end. CI/CD in one sentence.</li></ul></div>
+
+<div class="note"><b>7. Your gaps (5 min).</b> Have one honest line each for Redis, Docker and Jira: "I know the concept and haven't used it in production, and I'd learn it quickly." Do not claim them.</div>
+
+<h3>Skip if short on time</h3>
+<p>Next.js rendering details, accessibility, and Python framework differences.</p>
+<h3>In the call</h3>
+<ul><li>Pause, then answer in steps.</li><li>Say what you know, and say honestly what you don't.</li><li>Ask two or three questions at the end.</li></ul>
 </section>
 
 <section id="sc" hidden>
