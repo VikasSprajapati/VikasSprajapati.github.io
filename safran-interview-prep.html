@@ -1,5 +1,9 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Safran Interview Prep</title>
-<meta name="claude:viewport-fit-sides" content="cover">
 <style>
 /* Layout: one column, tab row, collapsible answers */
 :root{--bg:#f6f7f9;--panel:#fff;--fg:#1c2430;--muted:#5d6877;--line:#dde1e7;--accent:#1f5fbf;--accent-soft:#e6eefb;--warn:#9a5b00;--warn-soft:#fdf1dc;--ok:#1d7a4a;--ok-soft:#e2f4ea;--code:#eef1f5;color-scheme:light}
@@ -25,9 +29,9 @@ section[hidden]{display:none}
 ul,ol{margin:0 0 10px;padding-left:22px}
 li{margin:3px 0}
 details{background:var(--panel);border:1px solid var(--line);border-radius:8px;margin:0 0 8px}
-summary{cursor:pointer;padding:11px 14px;font-weight:600;list-style:none;display:flex;gap:10px;justify-content:space-between;align-items:flex-start}
+summary{cursor:pointer;padding:11px 36px 11px 14px;font-weight:600;list-style:none;display:block;position:relative}
 summary::-webkit-details-marker{display:none}
-summary::after{content:"+";color:var(--accent);font-weight:700;flex:none}
+summary::after{content:"+";color:var(--accent);font-weight:700;position:absolute;right:14px;top:11px}
 details[open] summary::after{content:"−"}
 details .a{padding:0 14px 12px}
 .tbl{overflow-x:auto;margin:0 0 14px}
@@ -41,7 +45,11 @@ th{background:var(--accent-soft)}
 code{background:var(--code);padding:1px 5px;border-radius:4px;font-size:.9em}
 pre{background:var(--code);border-radius:6px;padding:12px;overflow-x:auto;font-size:.85rem;line-height:1.5;margin:0 0 12px}
 pre code{background:none;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{margin:0}
 </style>
+</head>
+<body>
 
 <div class="wrap">
 <button id="theme" type="button" aria-label="Switch between light and dark mode">Light / Dark</button>
@@ -498,3 +506,5 @@ items.forEach(function(t,i){
 });
 })();
 </script>
+</body>
+</html>
