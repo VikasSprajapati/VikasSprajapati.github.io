@@ -1,0 +1,493 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Safran Interview Prep</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* Layout: one column, tab row, collapsible answers */
+:root{--bg:#f6f7f9;--panel:#fff;--fg:#1c2430;--muted:#5d6877;--line:#dde1e7;--accent:#1f5fbf;--accent-soft:#e6eefb;--warn:#9a5b00;--warn-soft:#fdf1dc;--ok:#1d7a4a;--ok-soft:#e2f4ea;--code:#eef1f5;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12161c;--panel:#1a2029;--fg:#e6eaf0;--muted:#97a2b1;--line:#2b3441;--accent:#6ea2f0;--accent-soft:#1d2a3f;--warn:#e8b45c;--warn-soft:#352a17;--ok:#62c28d;--ok-soft:#17301f;--code:#222b37;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#12161c;--panel:#1a2029;--fg:#e6eaf0;--muted:#97a2b1;--line:#2b3441;--accent:#6ea2f0;--accent-soft:#1d2a3f;--warn:#e8b45c;--warn-soft:#352a17;--ok:#62c28d;--ok-soft:#17301f;--code:#222b37;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 48px}
+.wrap{max-width:760px;margin:0 auto}
+h1{font-size:1.6rem;line-height:1.25;margin:0 0 4px;text-wrap:balance}
+h2{font-size:1.2rem;margin:0 0 12px}
+h3{font-size:1rem;margin:18px 0 6px}
+p{margin:0 0 10px}
+.sub{color:var(--muted);margin:0 0 16px}
+nav{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 18px}
+nav button{font:inherit;font-size:.9rem;padding:6px 12px;border:1px solid var(--line);background:var(--panel);color:var(--fg);border-radius:6px;cursor:pointer}
+nav button[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+button:focus-visible,summary:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+section[hidden]{display:none}
+.box{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin:0 0 14px}
+.note{background:var(--warn-soft);border-left:3px solid var(--warn);padding:10px 14px;margin:0 0 14px;border-radius:4px}
+.good{background:var(--ok-soft);border-left:3px solid var(--ok);padding:10px 14px;margin:0 0 14px;border-radius:4px}
+ul,ol{margin:0 0 10px;padding-left:22px}
+li{margin:3px 0}
+details{background:var(--panel);border:1px solid var(--line);border-radius:8px;margin:0 0 8px}
+summary{cursor:pointer;padding:11px 14px;font-weight:600;list-style:none;display:flex;gap:10px;justify-content:space-between;align-items:flex-start}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--accent);font-weight:700;flex:none}
+details[open] summary::after{content:"−"}
+details .a{padding:0 14px 12px}
+.tbl{overflow-x:auto;margin:0 0 14px}
+table{border-collapse:collapse;width:100%;min-width:460px;font-size:.92rem;background:var(--panel)}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--accent-soft)}
+.tag{font-size:.78rem;padding:1px 8px;border-radius:99px;white-space:nowrap}
+.s{background:var(--ok-soft);color:var(--ok)}.m{background:var(--accent-soft);color:var(--accent)}.g{background:var(--warn-soft);color:var(--warn)}
+.chk{display:flex;gap:10px;align-items:flex-start;padding:6px 0}
+.chk input{margin-top:5px;width:18px;height:18px;flex:none}
+code{background:var(--code);padding:1px 5px;border-radius:4px;font-size:.9em}
+pre{background:var(--code);border-radius:6px;padding:12px;overflow-x:auto;font-size:.85rem;line-height:1.5;margin:0 0 12px}
+pre code{background:none;padding:0}
+</style>
+
+<div class="wrap">
+<h1>Safran full stack interview prep</h1>
+<p class="sub">Full Stack Developer, Digital Factory. Tap a tab, then tap a question to see the answer.</p>
+
+<nav role="tablist" id="tabs">
+<button role="tab" data-t="start" aria-selected="true">Start</button>
+<button role="tab" data-t="sc" aria-selected="false">Scenarios</button>
+<button role="tab" data-t="fe" aria-selected="false">Frontend</button>
+<button role="tab" data-t="be" aria-selected="false">Backend</button>
+<button role="tab" data-t="db" aria-selected="false">Database</button>
+<button role="tab" data-t="gen" aria-selected="false">General</button>
+<button role="tab" data-t="code" aria-selected="false">Code</button>
+<button role="tab" data-t="proj" aria-selected="false">Your projects</button>
+<button role="tab" data-t="list" aria-selected="false">Checklist</button>
+</nav>
+
+<section id="start">
+<h2>Introduction and fit</h2>
+<div class="box">
+<p><b>Tell me about yourself (60 seconds):</b></p>
+<p>"I'm a full stack developer with over four years of experience. On the frontend I work with React, Next.js, TypeScript and Tailwind CSS. On the backend I use Node.js and Express, PHP with Laravel and CodeIgniter, and Python, with MySQL and PostgreSQL.</p>
+<p>Recently I built three production platforms: a field-force HRMS for a client with a Node.js API, a React web app and React Native apps for Android and iOS; an AI SEO platform; and a multi-store analytics platform. I work closely with business stakeholders, use Git, code review, UAT and CI/CD, and use AI tools like Claude Code daily, but I review and test everything that ships."</p>
+</div>
+
+<div class="tbl"><table>
+<tr><th>Their requirement</th><th>Your evidence</th><th>Level</th></tr>
+<tr><td>React, Next.js, TypeScript, Tailwind, JS ES6+</td><td>Commerce Optimizer (React 19, TanStack Query, Tailwind 4), Zob Connect web</td><td><span class="tag s">Strong</span></td></tr>
+<tr><td>PHP (Laravel) or Python</td><td>Laravel, CodeIgniter, PHP automation scripts, Python certification</td><td><span class="tag m">Good</span></td></tr>
+<tr><td>REST APIs, auth, third-party integration</td><td>Many integrations, OAuth 2.0, JWT, webhooks</td><td><span class="tag s">Strong</span></td></tr>
+<tr><td>MySQL, PostgreSQL, SQL optimization</td><td>Both databases in production, Drizzle ORM, migrations</td><td><span class="tag s">Strong</span></td></tr>
+<tr><td>Git, CI/CD</td><td>GitLab CI, task branches to UAT to production</td><td><span class="tag s">Strong</span></td></tr>
+<tr><td>Redis, NoSQL</td><td>Not on your resume. Know the concepts</td><td><span class="tag g">Gap</span></td></tr>
+<tr><td>Docker, microservices</td><td>Not on your resume. Know the concepts</td><td><span class="tag g">Gap</span></td></tr>
+<tr><td>Jira / Asana</td><td>Not on your resume. Say what you use instead</td><td><span class="tag g">Gap</span></td></tr>
+</table></div>
+
+<h3>How to handle a gap</h3>
+<div class="box">"I haven't used Redis in production yet. I understand it as an in-memory store for caching, sessions and rate limiting, and I've solved the same problems with database indexes, query caching and in-process caches. I'd pick it up quickly."</div>
+<div class="note">Never say you used something you didn't. They will ask a follow-up. Say what you know, and say how you would learn the rest.</div>
+
+<h3>Why this role?</h3>
+<p>"It's a full stack role on digital products with a team spread across locations, which is how I work best. I like owning a feature from requirement to release, and I want to grow in architecture and code quality."</p>
+</section>
+
+<section id="sc" hidden>
+<h2>Scenario questions, with step-by-step resolution</h2>
+<p class="sub">Use this pattern for every scenario: understand, reproduce, isolate, fix, verify, prevent.</p>
+
+<details><summary>1. An API that used to be fast is now slow in production. What do you do?</summary><div class="a"><ol>
+<li><b>Confirm and scope it:</b> which endpoint, since when, how slow, for whom. Check if a release or traffic spike matches the start time.</li>
+<li><b>Look at monitoring and logs:</b> response times, error rates, CPU, memory, database load.</li>
+<li><b>Isolate the layer:</b> time the request in parts: network, application code, database, external API calls.</li>
+<li><b>If it's the database:</b> find the slow query (slow query log or <code>EXPLAIN</code>), look for a missing index, a full table scan or an N+1 pattern.</li>
+<li><b>Fix:</b> add an index, rewrite the query, batch or eager-load, add caching (Redis or in-memory) for data that rarely changes, paginate large results.</li>
+<li><b>Verify:</b> compare response times before and after under similar load.</li>
+<li><b>Prevent:</b> add monitoring and an alert on response time, and a performance check in the release process.</li></ol></div></details>
+
+<details><summary>2. A React page loads slowly. How do you fix it?</summary><div class="a"><ol>
+<li><b>Measure first:</b> Lighthouse and the browser Performance tab. Check LCP, INP and CLS.</li>
+<li><b>Check the bundle:</b> find large packages, and split code with lazy loading (<code>React.lazy</code>, dynamic imports) per route. I cut one app's main bundle from 814 kB to 123 kB this way.</li>
+<li><b>Check network:</b> compress images, use modern formats and lazy-load them, cache API responses (for example with TanStack Query).</li>
+<li><b>Check rendering:</b> find unnecessary re-renders with React DevTools Profiler, then use <code>memo</code>, <code>useMemo</code> or <code>useCallback</code> where it actually helps, and virtualise long lists.</li>
+<li><b>Verify and monitor:</b> re-run Lighthouse and compare.</li></ol></div></details>
+
+<details><summary>3. Duplicate orders or records are being created. How do you debug and fix it?</summary><div class="a"><ol>
+<li><b>Find the pattern:</b> are the duplicates from the same request time, user double-clicks, retries or webhooks delivered twice?</li>
+<li><b>Check logs</b> for the same request or event ID appearing twice.</li>
+<li><b>Fix at three levels:</b> disable the button after the first click, make the API idempotent (idempotency key or unique order ID), and add a database unique constraint as the final safety net.</li>
+<li><b>Clean up:</b> find duplicates with <code>GROUP BY ... HAVING COUNT(*) &gt; 1</code> and merge or remove them safely.</li>
+<li><b>Verify</b> with a test that sends the same request twice.</li></ol></div></details>
+
+<details><summary>4. Users are randomly logged out. What do you check?</summary><div class="a"><ol>
+<li>Token or session expiry time: is the access token too short, and is the refresh flow working?</li>
+<li>Whether the refresh token call fails or races (two requests refreshing at once).</li>
+<li>Cookie settings: domain, <code>SameSite</code>, <code>Secure</code>, and whether a proxy or load balancer drops them.</li>
+<li>Session storage: if sessions are in server memory and there are multiple servers, a shared store like Redis or the database is needed.</li>
+<li>Clock differences between servers that break token validation.</li>
+<li>Fix the cause, then test with an expired token and with two tabs.</li></ol></div></details>
+
+<details><summary>5. A release broke production. What do you do?</summary><div class="a"><ol>
+<li><b>Stabilise first:</b> roll back to the last good version if impact is high, and tell stakeholders.</li>
+<li><b>Find the cause</b> from logs, error monitoring and the release diff.</li>
+<li><b>Fix on a branch,</b> add a test that reproduces the bug, and review it.</li>
+<li><b>Release through UAT</b> and check the fix in production.</li>
+<li><b>Write a short post-mortem:</b> cause, fix and what we add to prevent it, such as a regression test or checklist item.</li></ol></div></details>
+
+<details><summary>6. A third-party API is down or very slow. How does your app cope?</summary><div class="a"><ol>
+<li>Set timeouts so requests don't hang.</li>
+<li>Retry only safe requests, with exponential backoff, and stop after a limit.</li>
+<li>Use a circuit breaker or a failure counter so the app stops calling a broken service.</li>
+<li>Show a clear fallback to the user, such as cached data or a "try again" message.</li>
+<li>Queue work that can wait and process it when the service recovers.</li>
+<li>Log and alert, and keep the response and request IDs for support.</li></ol></div></details>
+
+<details><summary>7. A SQL query takes 20 seconds. How do you optimise it?</summary><div class="a"><ol>
+<li>Run <code>EXPLAIN</code> to see whether it uses an index or scans the whole table.</li>
+<li>Add an index on the columns used in <code>WHERE</code>, <code>JOIN</code> and <code>ORDER BY</code> (a composite index when they are used together).</li>
+<li>Select only the columns needed, not <code>SELECT *</code>.</li>
+<li>Avoid functions on indexed columns in <code>WHERE</code>, and avoid N+1 queries.</li>
+<li>Paginate, and consider caching or a summary table for heavy reports.</li>
+<li>Compare timing before and after.</li></ol></div></details>
+
+<details><summary>8. The frontend and backend teams disagree on an API contract. What do you do?</summary><div class="a"><ol>
+<li>Write down the exact request and response: fields, types, errors and status codes.</li>
+<li>Agree it in a short document or an OpenAPI spec that both teams review.</li>
+<li>Mock the API so the frontend can continue while the backend finishes.</li>
+<li>Validate on both sides (for example with Zod), and use versioning when a change would break clients.</li></ol></div></details>
+
+<details><summary>9. A stakeholder keeps changing requirements mid-sprint. How do you manage it?</summary><div class="a"><ol>
+<li>Confirm the goal behind the change, not just the request.</li>
+<li>Explain the impact on time and other work, in plain words.</li>
+<li>Offer options: add it to the next sprint, swap it for a lower-priority item, or reduce the scope.</li>
+<li>Get the decision in writing and update the ticket and the acceptance criteria.</li></ol></div></details>
+
+<details><summary>10. Your app has a security issue (SQL injection or XSS). How do you prevent and fix it?</summary><div class="a"><ul>
+<li><b>SQL injection:</b> use parameterised queries or an ORM, never string concatenation. Validate input.</li>
+<li><b>XSS:</b> escape output (React escapes by default; avoid <code>dangerouslySetInnerHTML</code>), and set a Content Security Policy.</li>
+<li><b>CSRF:</b> CSRF tokens (Laravel includes them) or <code>SameSite</code> cookies.</li>
+<li><b>Secrets:</b> keep them in environment variables or a secrets manager, never in Git.</li>
+<li><b>Auth:</b> hash passwords, limit login attempts, and use short-lived tokens with HTTPS.</li>
+<li><b>If found:</b> patch, check logs for abuse, rotate any exposed secrets and add a test.</li></ul></div></details>
+
+<details><summary>11. How would you add caching with Redis to a slow endpoint?</summary><div class="a"><ol>
+<li>Identify data that is read often and changes rarely.</li>
+<li>On a request: check Redis by a key first; on a miss, query the database and store the result with a time-to-live (TTL).</li>
+<li>Invalidate or update the key when the data changes.</li>
+<li>Watch for stampedes (many requests missing at once) and stale data.</li>
+<li>Measure the hit rate and the response time.</li></ol>
+<p>Also useful for sessions and rate limiting.</p></div></details>
+
+<details><summary>12. A bug exists only on one developer's machine, or only in production. What do you do?</summary><div class="a"><ol>
+<li>Compare environments: versions, environment variables, config, data and operating system.</li>
+<li>Check logs and the exact input that triggers it.</li>
+<li>Reproduce with the same data in a staging environment.</li>
+<li>Fix and add a test. Use the same configuration in all environments, ideally with containers or a documented setup.</li></ol></div></details>
+</section>
+
+<section id="fe" hidden>
+<h2>Frontend questions</h2>
+
+<details><summary>What is the virtual DOM?</summary><div class="a"><p>A lightweight copy of the UI in memory. When state changes, React builds a new virtual tree, compares it with the old one (diffing) and updates only the parts of the real DOM that changed. This makes updates efficient.</p></div></details>
+
+<details><summary>useState vs useEffect vs useRef vs useMemo vs useCallback?</summary><div class="a"><ul>
+<li><code>useState</code>: state that triggers a re-render when it changes.</li>
+<li><code>useEffect</code>: side effects after render (fetching, subscriptions). The dependency array controls when it runs, and the returned function cleans up.</li>
+<li><code>useRef</code>: a value that persists without causing a re-render, or a reference to a DOM element.</li>
+<li><code>useMemo</code>: caches a calculated value. <code>useCallback</code>: caches a function. Use them only when there is a measured performance need.</li></ul></div></details>
+
+<details><summary>Why do lists need a <code>key</code>?</summary><div class="a"><p>The key lets React identify which items changed, were added or removed. Use a stable unique ID, not the array index when the list can reorder.</p></div></details>
+
+<details><summary>Controlled vs uncontrolled components?</summary><div class="a"><p>Controlled: React state holds the input value and updates it through <code>onChange</code>. Uncontrolled: the DOM holds the value and you read it with a ref when needed. Controlled is the default for forms with validation.</p></div></details>
+
+<details><summary>How do you manage state in a bigger React app?</summary><div class="a"><p>Keep state local where possible, lift it up when siblings share it, use Context for rarely changing global values (such as theme or user), and use a library for complex or shared state. For server data I use TanStack Query, which handles caching, refetching and loading states.</p></div></details>
+
+<details><summary>Next.js: SSR vs SSG vs CSR?</summary><div class="a"><ul>
+<li><b>CSR:</b> rendered in the browser. Good for dashboards behind login.</li>
+<li><b>SSR:</b> rendered on the server per request. Good for fresh, SEO-sensitive pages.</li>
+<li><b>SSG:</b> rendered at build time. Fastest, for content that rarely changes.</li></ul></div></details>
+
+<details><summary>Closures, the event loop, promises and async/await?</summary><div class="a"><ul>
+<li><b>Closure:</b> a function that remembers variables from the scope where it was created.</li>
+<li><b>Event loop:</b> JavaScript is single-threaded. Synchronous code runs first, then microtasks (promise callbacks), then macrotasks (timers).</li>
+<li><b>Promise:</b> represents a future value (pending, fulfilled, rejected). <code>async/await</code> is cleaner syntax on top, with <code>try/catch</code> for errors. Use <code>Promise.all</code> to run independent calls in parallel.</li></ul></div></details>
+
+<details><summary><code>==</code> vs <code>===</code>, <code>let</code> vs <code>const</code> vs <code>var</code>?</summary><div class="a"><p><code>===</code> compares value and type without conversion, so prefer it. <code>const</code> and <code>let</code> are block-scoped; <code>const</code> can't be reassigned. <code>var</code> is function-scoped and hoisted, so avoid it.</p></div></details>
+
+<details><summary>TypeScript: <code>interface</code> vs <code>type</code>, <code>any</code> vs <code>unknown</code>, generics?</summary><div class="a"><ul>
+<li><b>interface vs type:</b> both describe shapes. Interfaces can be extended and merged. Types can also describe unions and other forms.</li>
+<li><b>any vs unknown:</b> <code>any</code> turns off type checking. <code>unknown</code> must be checked or narrowed before use, so it's safer.</li>
+<li><b>Generics:</b> reusable types with a parameter, such as <code>function first&lt;T&gt;(a: T[]): T</code>.</li>
+<li>Useful utility types: <code>Partial</code>, <code>Pick</code>, <code>Omit</code>, <code>Record</code>.</li></ul></div></details>
+
+<details><summary>Flexbox vs Grid, and how do you make a page responsive?</summary><div class="a"><p>Flexbox lays out in one dimension (a row or column). Grid lays out in two dimensions. For responsive design I use a mobile-first approach with relative units, Tailwind breakpoints (<code>sm:</code>, <code>md:</code>, <code>lg:</code>), and test at phone, tablet and desktop widths.</p></div></details>
+
+<details><summary>How do you improve accessibility?</summary><div class="a"><p>Semantic HTML, labels on inputs, alt text, keyboard navigation with visible focus, enough colour contrast, and ARIA only when semantic HTML isn't enough.</p></div></details>
+</section>
+
+<section id="be" hidden>
+<h2>Backend questions</h2>
+
+<details><summary>Explain Laravel's MVC and request lifecycle.</summary><div class="a"><p>A request goes through <code>public/index.php</code> to the HTTP kernel, then global middleware, then the router, which finds the route. Route middleware runs (such as auth), then the controller. The controller uses models (Eloquent) to read or write the database and returns a response, such as JSON or a view (Blade).</p></div></details>
+
+<details><summary>Eloquent ORM, migrations and the N+1 problem?</summary><div class="a"><ul>
+<li><b>Eloquent:</b> maps tables to model classes with relationships (<code>hasMany</code>, <code>belongsTo</code>).</li>
+<li><b>Migrations:</b> versioned scripts that change the database structure, so every environment stays in sync.</li>
+<li><b>N+1:</b> looping over records and running one query for each related record. Fix it with eager loading: <code>Order::with('items')-&gt;get()</code>.</li></ul></div></details>
+
+<details><summary>Middleware, validation, queues and the service container in Laravel?</summary><div class="a"><ul>
+<li><b>Middleware:</b> code that runs before or after a request, for example authentication or rate limiting.</li>
+<li><b>Validation:</b> <code>$request-&gt;validate([...])</code> or a Form Request class.</li>
+<li><b>Queues:</b> run slow work (emails, imports) in the background through a worker.</li>
+<li><b>Service container:</b> resolves class dependencies automatically (dependency injection).</li></ul></div></details>
+
+<details><summary>Node and Express: how do you structure an API?</summary><div class="a"><p>Routes, controllers for the request handling, a service layer for business logic, a data layer (ORM) for the database, middleware for auth, validation and error handling, and central error responses with consistent status codes. I validate input with Zod and keep configuration in environment variables.</p></div></details>
+
+<details><summary>FastAPI vs Django vs Flask?</summary><div class="a"><ul>
+<li><b>Flask:</b> small and flexible, you add what you need.</li>
+<li><b>Django:</b> full framework with ORM, admin and authentication built in.</li>
+<li><b>FastAPI:</b> modern and fast, async, type hints and automatic validation and API docs.</li></ul>
+<div class="note">Your main Python use is scripting. Say so, and say you'd use Laravel for the PHP side. Don't overclaim framework experience.</div></div></details>
+
+<details><summary>REST: methods, status codes and good API design?</summary><div class="a"><ul>
+<li><b>Methods:</b> GET reads, POST creates, PUT replaces, PATCH changes part, DELETE removes. GET, PUT and DELETE are idempotent.</li>
+<li><b>Codes:</b> 200 OK, 201 Created, 204 No Content, 400 bad request, 401 not authenticated, 403 forbidden, 404 not found, 409 conflict, 422 validation, 429 too many requests, 500 server error.</li>
+<li><b>Design:</b> nouns in URLs (<code>/orders/123</code>), consistent responses, pagination, filtering, versioning (<code>/v1</code>), clear error messages.</li></ul></div></details>
+
+<details><summary>Authentication: session vs JWT vs OAuth 2.0?</summary><div class="a"><ul>
+<li><b>Session:</b> server stores the session, the client holds a cookie. Simple, easy to revoke.</li>
+<li><b>JWT:</b> a signed token with claims, stateless. Keep it short-lived and use a refresh token. It is harder to revoke before expiry.</li>
+<li><b>OAuth 2.0:</b> lets an app access another service on a user's behalf without their password. The user approves, the app gets an authorization code, exchanges it for an access token (and refresh token), and calls the API with it. I used this for Google Drive in Zob Connect.</li></ul></div></details>
+
+<details><summary>Authentication vs authorization? How do you do role-based access?</summary><div class="a"><p>Authentication proves who you are. Authorization decides what you can do. For role-based access I store a role per user and check it in middleware or policies on each protected route. In Zob Connect I used roles for HR, zone managers, site managers and team leads.</p></div></details>
+
+<details><summary>How do you handle webhooks safely?</summary><div class="a"><p>Verify the signature, respond quickly with 200 and process in the background, make handlers idempotent by storing event IDs, and log failures so events can be replayed.</p></div></details>
+
+<details><summary>How do you handle errors and logging?</summary><div class="a"><p>A central error handler, consistent error responses, no secrets or stack traces to the client, structured logs with a request ID, and alerts on error spikes.</p></div></details>
+</section>
+
+<section id="db" hidden>
+<h2>Database questions</h2>
+
+<details><summary>What is an index? When does it help or hurt?</summary><div class="a"><p>A data structure (usually a B-tree) that lets the database find rows without scanning the whole table. It speeds up reads on columns used in <code>WHERE</code>, <code>JOIN</code> and <code>ORDER BY</code>, but slows down writes and uses space, so index what you query, not everything.</p></div></details>
+
+<details><summary>Joins, and the difference between INNER, LEFT and RIGHT?</summary><div class="a"><p><code>INNER JOIN</code> returns rows that match in both tables. <code>LEFT JOIN</code> returns all rows from the left table and matches from the right (nulls where none). <code>RIGHT JOIN</code> is the reverse.</p></div></details>
+
+<details><summary>Normalisation, and when to denormalise?</summary><div class="a"><p>Normalisation splits data into related tables to avoid duplication and update problems (1NF, 2NF, 3NF). Denormalise on purpose when read speed matters more, for example a summary table for reports.</p></div></details>
+
+<details><summary>ACID and transactions?</summary><div class="a"><p>Atomicity (all or nothing), Consistency (rules stay valid), Isolation (concurrent transactions don't interfere), Durability (committed data survives a crash). Use a transaction when several writes must succeed together, for example creating an order and reducing stock.</p></div></details>
+
+<details><summary>SQL vs NoSQL? When do you pick which?</summary><div class="a"><p>SQL fits structured, related data and strong consistency (orders, payments, users). NoSQL (for example MongoDB or DynamoDB) fits flexible or very high-volume data, such as documents, logs or events. I've used SQL databases in production, and I know the NoSQL concepts.</p></div></details>
+
+<details><summary>What is Redis and what do you use it for?</summary><div class="a"><p>An in-memory key-value store. Common uses: caching, session storage, rate limiting, queues and counters. Data has an optional time-to-live, and it's very fast because it is in memory.</p></div></details>
+
+<details><summary>How do you handle database changes safely?</summary><div class="a"><p>Use migrations in version control, test them on a copy of production data, make changes backward-compatible where possible (add a column before removing one), take a backup, and have a rollback plan.</p></div></details>
+
+<details><summary>MySQL vs PostgreSQL?</summary><div class="a"><p>Both are relational and reliable. PostgreSQL has richer features (advanced types like JSONB, stronger standards support). MySQL is simple and widely used. I've used both: MySQL in two platforms, and PostgreSQL in Zob Connect.</p></div></details>
+</section>
+
+<section id="gen" hidden>
+<h2>General engineering questions</h2>
+
+<details><summary>Explain the SOLID principles.</summary><div class="a"><ul>
+<li><b>S: Single Responsibility.</b> A class or module has one reason to change.</li>
+<li><b>O: Open/Closed.</b> Open for extension, closed for modification. Add behaviour without editing tested code.</li>
+<li><b>L: Liskov Substitution.</b> A subclass should work wherever its parent is expected.</li>
+<li><b>I: Interface Segregation.</b> Prefer small, specific interfaces to one large one.</li>
+<li><b>D: Dependency Inversion.</b> Depend on abstractions, not concrete classes (dependency injection).</li></ul>
+<p>Example: a payment service that depends on a <code>PaymentGateway</code> interface, so adding a new gateway doesn't change the checkout code.</p></div></details>
+
+<details><summary>Git: merge vs rebase, and your branching workflow?</summary><div class="a"><p>Merge keeps full history with a merge commit. Rebase replays your commits on top of the latest branch for a linear history (never rebase shared branches). My workflow: a task branch per ticket, a pull request with review, UAT, then production. I resolve conflicts locally and re-test before merging.</p></div></details>
+
+<details><summary>How do you keep code quality high?</summary><div class="a"><p>Code review, small pull requests, linting and formatting, unit and integration tests, clear naming, no duplicated logic, and documentation of decisions. I also review AI-generated code the same way as any other code.</p></div></details>
+
+<details><summary>What do you test, and how?</summary><div class="a"><p>Unit tests for logic (I wrote 65 on one project), integration tests for APIs and the database, and end-to-end tests for key user flows (Playwright). I test edge cases and failures, not just the happy path.</p></div></details>
+
+<details><summary>What is CI/CD?</summary><div class="a"><p>Continuous Integration runs the build and tests on every push. Continuous Delivery deploys to an environment automatically or with one click. I use GitLab CI, and deploy with task branches, then UAT, then production.</p></div></details>
+
+<details><summary>Docker and microservices: what do you know?</summary><div class="a"><p>Docker packages an app with its dependencies into a container that runs the same everywhere (a <code>Dockerfile</code> builds an image, and Compose runs several containers). Microservices split an app into small services that each own one capability and talk through APIs or events. They scale and deploy independently, but add complexity (networking, monitoring, data consistency), so I'd start with a well-structured monolith unless there's a clear need.</p>
+<div class="note">Be honest that you haven't used Docker or microservices in production, if that's the case.</div></div></details>
+
+<details><summary>How do you work with a remote, international team?</summary><div class="a"><p>Clear written communication, short status updates, documented decisions, agreed overlap hours, and asking early when something is unclear. I've delivered a project with a four-person team and worked directly with stakeholders.</p></div></details>
+
+<details><summary>How do you use AI tools in development?</summary><div class="a"><p>I use Claude Code, Cursor and Copilot for implementation, reviews, tests and debugging. I set the architecture and write the prompts, review every change, run the tests, and I'm responsible for what ships. AI makes me faster, but it doesn't replace understanding the code.</p></div></details>
+
+<details><summary>Tell me about a time you disagreed with a teammate or stakeholder.</summary><div class="a"><p>Use a real example. Shape: the disagreement, how you listened to their reason, what data or example you used, and the outcome. End with what you learned.</p></div></details>
+
+<details><summary>What are your strengths and weaknesses?</summary><div class="a"><p>Strengths: owning features end to end, integrations and APIs, and learning fast. Weakness (pick one that's true): for example, I used to spend too long perfecting something, so now I agree a "good enough" with the team and ship in small steps.</p></div></details>
+</section>
+
+<section id="code" hidden>
+<h2>Code you may need to write</h2>
+<div class="note">Practise talking while you write. Explain your thinking, check edge cases, and say what you would test.</div>
+
+<h3>Debounce (JavaScript)</h3>
+<pre><code>function debounce(fn, delay) {
+  let timer;
+  return (...args) =&gt; {
+    clearTimeout(timer);
+    timer = setTimeout(() =&gt; fn(...args), delay);
+  };
+}</code></pre>
+
+<h3>Fetch data in React with cleanup (TypeScript)</h3>
+<pre><code>function Users() {
+  const [users, setUsers] = useState&lt;User[]&gt;([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState&lt;string | null&gt;(null);
+
+  useEffect(() =&gt; {
+    const ctrl = new AbortController();
+    fetch("/api/users", { signal: ctrl.signal })
+      .then(r =&gt; { if (!r.ok) throw new Error("Request failed"); return r.json(); })
+      .then(setUsers)
+      .catch(e =&gt; { if (e.name !== "AbortError") setError(e.message); })
+      .finally(() =&gt; setLoading(false));
+    return () =&gt; ctrl.abort();
+  }, []);
+
+  if (loading) return &lt;p&gt;Loading...&lt;/p&gt;;
+  if (error) return &lt;p&gt;{error}&lt;/p&gt;;
+  return &lt;ul&gt;{users.map(u =&gt; &lt;li key={u.id}&gt;{u.name}&lt;/li&gt;)}&lt;/ul&gt;;
+}</code></pre>
+
+<h3>Laravel: route, validation and eager loading</h3>
+<pre><code>// routes/api.php
+Route::post('/orders', [OrderController::class, 'store'])
+     -&gt;middleware('auth:sanctum');
+
+// OrderController
+public function store(Request $request)
+{
+    $data = $request-&gt;validate([
+        'customer_id' =&gt; 'required|exists:customers,id',
+        'items'       =&gt; 'required|array|min:1',
+        'items.*.sku' =&gt; 'required|string',
+        'items.*.qty' =&gt; 'required|integer|min:1',
+    ]);
+    $order = Order::create(['customer_id' =&gt; $data['customer_id']]);
+    $order-&gt;items()-&gt;createMany($data['items']);
+    return response()-&gt;json($order-&gt;load('items'), 201);
+}</code></pre>
+
+<h3>Node and Express: simple endpoint with error handling</h3>
+<pre><code>app.get("/api/orders/:id", async (req, res, next) =&gt; {
+  try {
+    const order = await db.order.findById(req.params.id);
+    if (!order) return res.status(404).json({ error: "Not found" });
+    res.json(order);
+  } catch (err) {
+    next(err); // handled by the central error middleware
+  }
+});</code></pre>
+
+<h3>SQL practice</h3>
+<pre><code>-- Top 5 customers by total spend
+SELECT c.id, c.name, SUM(o.total) AS spend
+FROM customers c
+JOIN orders o ON o.customer_id = c.id
+GROUP BY c.id, c.name
+ORDER BY spend DESC
+LIMIT 5;
+
+-- Duplicate emails
+SELECT email, COUNT(*) AS n
+FROM users
+GROUP BY email
+HAVING COUNT(*) &gt; 1;
+
+-- Customers with no orders
+SELECT c.*
+FROM customers c
+LEFT JOIN orders o ON o.customer_id = c.id
+WHERE o.id IS NULL;
+
+-- Second highest salary
+SELECT MAX(salary) FROM employees
+WHERE salary &lt; (SELECT MAX(salary) FROM employees);</code></pre>
+
+<h3>Python: group and count</h3>
+<pre><code>from collections import Counter
+
+def count_words(text):
+    return Counter(text.lower().split())</code></pre>
+</section>
+
+<section id="proj" hidden>
+<h2>Your projects: how to describe them</h2>
+<p class="sub">Interviewers will ask "what did you do yourself?". Say it clearly.</p>
+
+<div class="box"><b>Zob Connect (freelance, for a client)</b>
+<ul>
+<li>Led a team of four. Node.js/Express and PostgreSQL REST API, React admin web app, React Native (Expo) apps for Android and iOS, built and published in about a month.</li>
+<li>Features: geofenced selfie attendance, KYC checks (PAN, Aadhaar, bank) with an access gate, Google Drive document system with OAuth 2.0, access logs and masked IDs, role-based access, 10 Indian languages.</li>
+<li>Delivery: Linux server with PM2, push-to-deploy CI/CD, Expo EAS builds and over-the-air updates.</li>
+<li>Built with Claude Code as the AI pair-programmer.</li></ul></div>
+
+<div class="box"><b>Commerce Optimizer (internal, current employer)</b>
+<ul>
+<li>Node.js, TypeScript, Express, MySQL, React 19, TanStack Query, Zod.</li>
+<li>Six data sources per store (Shopify, Google Ads, Meta Ads, Bing Ads, GA4, Clarity) through API integrations and a sync pipeline. Sales reconcile with Shopify to the cent.</li>
+<li>AI proposes actions, people approve them. Tokens encrypted with AES-256-GCM, 65 unit tests, bundle cut from 814 kB to 123 kB.</li>
+<li>Released through task branches, UAT and production on GitLab. A DevOps colleague handled server deployment and sign-in.</li></ul></div>
+
+<div class="box"><b>Search Optimizer (internal, current employer)</b>
+<ul>
+<li>Node.js, TypeScript, MySQL (Drizzle), React, Claude and Gemini APIs.</li>
+<li>Runs 8 audit tools per store. An AI agent fixes issues through the Shopify Admin API and re-runs the audit to prove each fix, with preview, rollback and spend limits.</li></ul></div>
+
+<h3>Questions to expect about them</h3>
+<ul>
+<li><b>"Why did you choose this stack?"</b> Node and TypeScript for one language across frontend and backend, PostgreSQL or MySQL for relational data, React Native to ship Android and iOS from one codebase.</li>
+<li><b>"What was the hardest bug or problem?"</b> Prepare one real story from these projects: what failed, how you found it, how you fixed it.</li>
+<li><b>"What would you improve?"</b> For example, more automated end-to-end tests, caching for heavy reports, or monitoring and alerting.</li>
+<li><b>"How did AI help, and how did you control quality?"</b> It wrote and reviewed code; I owned the design, reviewed every change and ran the tests.</li></ul>
+</section>
+
+<section id="list" hidden>
+<h2>Checklist for today</h2>
+<p class="sub">Ticks are saved in this browser only.</p>
+<div class="box" id="chk"></div>
+<h3>Questions to ask them</h3>
+<ul>
+<li>What does the team look like, and how is work split between frontend and backend?</li>
+<li>What is the tech stack for this project, and is there Laravel, Python or both?</li>
+<li>How do code review, testing and releases work?</li>
+<li>How does the team work with international colleagues across time zones?</li>
+<li>What does success look like in the first three months?</li></ul>
+<h3>During the interview</h3>
+<ul>
+<li>Pause before answering. Structure: understand, reproduce, isolate, fix, verify, prevent.</li>
+<li>If you don't know something, say so, then say how you would find out.</li>
+<li>Have your resume and portfolio open. Test your camera and microphone.</li></ul>
+</section>
+</div>
+
+<script>
+(function(){
+var tabs=document.querySelectorAll('#tabs button'),secs=document.querySelectorAll('section');
+function show(id){
+  tabs.forEach(function(b){b.setAttribute('aria-selected',b.dataset.t===id?'true':'false')});
+  secs.forEach(function(s){s.hidden=s.id!==id});
+}
+tabs.forEach(function(b){b.addEventListener('click',function(){show(b.dataset.t);window.scrollTo(0,0)})});
+var items=[
+"Read the Scenarios tab once, using the pattern: understand, reproduce, isolate, fix, verify, prevent",
+"Read the Backend tab: Laravel lifecycle, Eloquent, N+1, OAuth, JWT",
+"Skim Frontend: hooks, key, state, closures, async, TypeScript",
+"Practise the SQL queries and explain an index and EXPLAIN",
+"Know the SOLID principles with one example",
+"Prepare one real bug story and one disagreement story",
+"Decide what you will say about Redis, Docker and Jira",
+"Practise the 60-second introduction aloud",
+"Test camera, microphone and internet before 4:30 pm"
+];
+var store={};
+try{store=JSON.parse(localStorage.getItem('safran-chk')||'{}')}catch(e){}
+var c=document.getElementById('chk');
+items.forEach(function(t,i){
+  var l=document.createElement('label');l.className='chk';
+  var cb=document.createElement('input');cb.type='checkbox';cb.id='s'+i;cb.checked=!!store[i];
+  cb.addEventListener('change',function(){store[i]=cb.checked;try{localStorage.setItem('safran-chk',JSON.stringify(store))}catch(e){}});
+  var sp=document.createElement('span');sp.textContent=t;
+  l.appendChild(cb);l.appendChild(sp);c.appendChild(l);
+});
+})();
+</script>
+
+</body></html>
