@@ -1,4 +1,3 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>Safran Interview Prep</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <style>
@@ -17,6 +16,7 @@ p{margin:0 0 10px}
 nav{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 18px}
 nav button{font:inherit;font-size:.9rem;padding:6px 12px;border:1px solid var(--line);background:var(--panel);color:var(--fg);border-radius:6px;cursor:pointer}
 nav button[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+#theme{font:inherit;font-size:.85rem;padding:5px 12px;border:1px solid var(--line);background:var(--panel);color:var(--fg);border-radius:6px;cursor:pointer;float:right;margin:2px 0 0 8px}
 button:focus-visible,summary:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 section[hidden]{display:none}
 .box{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin:0 0 14px}
@@ -44,6 +44,7 @@ pre code{background:none;padding:0}
 </style>
 
 <div class="wrap">
+<button id="theme" type="button" aria-label="Switch between light and dark mode">Light / Dark</button>
 <h1>Safran full stack interview prep</h1>
 <p class="sub">Full Stack Developer, Digital Factory. Tap a tab, then tap a question to see the answer.</p>
 
@@ -466,6 +467,14 @@ function show(id){
   secs.forEach(function(s){s.hidden=s.id!==id});
 }
 tabs.forEach(function(b){b.addEventListener('click',function(){show(b.dataset.t);window.scrollTo(0,0)})});
+var root=document.documentElement;
+try{var saved=localStorage.getItem('safran-theme');if(saved==='light'||saved==='dark')root.setAttribute('data-theme',saved)}catch(e){}
+document.getElementById('theme').addEventListener('click',function(){
+  var cur=root.getAttribute('data-theme')||(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+  var next=cur==='dark'?'light':'dark';
+  root.setAttribute('data-theme',next);
+  try{localStorage.setItem('safran-theme',next)}catch(e){}
+});
 var items=[
 "Read the Scenarios tab once, using the pattern: understand, reproduce, isolate, fix, verify, prevent",
 "Read the Backend tab: Laravel lifecycle, Eloquent, N+1, OAuth, JWT",
@@ -489,5 +498,3 @@ items.forEach(function(t,i){
 });
 })();
 </script>
-
-</body></html>
