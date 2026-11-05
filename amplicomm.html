@@ -1,0 +1,1353 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amplicomm Interview Prep</title>
+<meta name="description" content="Interview prep for Customer Onboarding Engineer (Channel Integrations): Amazon SP-API, Amazon Ads API, Shopify, Google, OAuth, FastAPI, SQL, scenarios and answers.">
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --text:#1b1f24; --muted:#5b6470; --line:#e3e6ea;
+  --accent:#14376e; --accent-soft:#e8eef8; --good:#0f7a4a; --good-soft:#e6f5ee;
+  --warn:#9a5b00; --warn-soft:#fff4e0; --bad:#b42318; --bad-soft:#fdecea;
+  --code-bg:#0f172a; --code-text:#e2e8f0; --kbd:#eef0f3;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1116; --panel:#161b22; --text:#e6e8eb; --muted:#9aa4b2; --line:#2a313b;
+    --accent:#8fb4ff; --accent-soft:#1a2740; --good:#5fd39a; --good-soft:#13261d;
+    --warn:#f2b45a; --warn-soft:#2a2112; --bad:#ff8a80; --bad-soft:#2c1715;
+    --code-bg:#0a0d12; --code-text:#e2e8f0; --kbd:#222a35;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1116; --panel:#161b22; --text:#e6e8eb; --muted:#9aa4b2; --line:#2a313b;
+  --accent:#8fb4ff; --accent-soft:#1a2740; --good:#5fd39a; --good-soft:#13261d;
+  --warn:#f2b45a; --warn-soft:#2a2112; --bad:#ff8a80; --bad-soft:#2c1715;
+  --code-bg:#0a0d12; --code-text:#e2e8f0; --kbd:#222a35;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);
+  font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+a{color:var(--accent)}
+.layout{display:grid;grid-template-columns:270px minmax(0,1fr);max-width:1280px;margin:0 auto}
+nav.toc{position:sticky;top:0;height:100vh;overflow:auto;padding:20px 16px;border-right:1px solid var(--line)}
+nav.toc h2{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+nav.toc a{display:block;padding:4px 8px;border-radius:6px;text-decoration:none;color:var(--text);font-size:14px}
+nav.toc a:hover{background:var(--accent-soft)}
+nav.toc .grp{margin:14px 0 4px;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;padding-left:8px}
+main{padding:24px 32px 80px;min-width:0}
+header.hero{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin-bottom:18px}
+header.hero h1{margin:0 0 4px;font-size:26px;color:var(--accent)}
+header.hero p{margin:4px 0;color:var(--muted)}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.pill{font-size:13px;padding:3px 10px;border-radius:999px;background:var(--accent-soft);color:var(--accent);border:1px solid var(--line)}
+.toolbar{position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:8px;align-items:center;
+  background:var(--bg);padding:10px 0;margin-bottom:8px;border-bottom:1px solid var(--line)}
+.toolbar input{flex:1 1 220px;min-width:0;padding:9px 12px;border-radius:8px;border:1px solid var(--line);
+  background:var(--panel);color:var(--text);font-size:15px}
+.toolbar button{padding:8px 12px;border-radius:8px;border:1px solid var(--line);background:var(--panel);
+  color:var(--text);font-size:14px;cursor:pointer}
+.toolbar button:hover{background:var(--accent-soft)}
+#count{font-size:13px;color:var(--muted)}
+section{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin:18px 0}
+section>h2{margin:0 0 6px;font-size:22px;color:var(--accent)}
+section>p.lead{margin:0 0 12px;color:var(--muted)}
+h3{font-size:17px;margin:18px 0 6px}
+details.qa{border:1px solid var(--line);border-radius:10px;margin:10px 0;background:var(--panel)}
+details.qa>summary{cursor:pointer;padding:11px 14px;font-weight:600;list-style:none;position:relative;padding-left:34px}
+details.qa>summary::-webkit-details-marker{display:none}
+details.qa>summary::before{content:"+";position:absolute;left:12px;top:9px;width:16px;text-align:center;
+  font-weight:700;color:var(--accent)}
+details.qa[open]>summary::before{content:"\2212"}
+details.qa[open]>summary{border-bottom:1px solid var(--line)}
+details.qa .body{padding:10px 16px 14px}
+.tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+  padding:1px 7px;border-radius:5px;margin-right:6px;vertical-align:2px}
+.t-asked{background:var(--bad-soft);color:var(--bad)}
+.t-hr{background:var(--warn-soft);color:var(--warn)}
+.t-likely{background:var(--accent-soft);color:var(--accent)}
+.t-tech{background:var(--good-soft);color:var(--good)}
+.callout{border-left:4px solid var(--accent);background:var(--accent-soft);padding:10px 14px;border-radius:8px;margin:12px 0}
+.callout.warn{border-color:var(--warn);background:var(--warn-soft)}
+.callout.good{border-color:var(--good);background:var(--good-soft)}
+.callout.bad{border-color:var(--bad);background:var(--bad-soft)}
+.callout p{margin:4px 0}
+.say{border:1px dashed var(--good);border-radius:8px;padding:10px 14px;margin:10px 0;background:var(--good-soft)}
+.say::before{content:"Say it like this";display:block;font-size:11px;font-weight:700;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--good);margin-bottom:4px}
+.table-wrap{overflow-x:auto;margin:10px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:var(--accent-soft);color:var(--text)}
+code{font-family:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace;font-size:.88em;
+  background:var(--kbd);padding:1px 5px;border-radius:4px;overflow-wrap:anywhere}
+pre{background:var(--code-bg);color:var(--code-text);padding:12px 14px;border-radius:10px;overflow-x:auto;
+  font-size:13px;line-height:1.5;margin:10px 0}
+pre code{background:none;padding:0;color:inherit;font-size:inherit;overflow-wrap:normal}
+ol.steps>li{margin:5px 0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.card{border:1px solid var(--line);border-radius:10px;padding:10px 14px}
+.card h4{margin:2px 0 6px;font-size:15px;color:var(--accent)}
+.card ul{margin:4px 0;padding-left:18px}
+.hidden{display:none!important}
+footer{color:var(--muted);font-size:13px;text-align:center;margin-top:30px}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr}
+  nav.toc{position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);padding:12px 16px}
+  nav.toc .links{display:flex;flex-wrap:wrap;gap:4px}
+  nav.toc .grp{width:100%}
+  main{padding:16px}
+  section{padding:14px 16px}
+  .grid2{grid-template-columns:1fr}
+}
+@media print{
+  nav.toc,.toolbar{display:none}
+  .layout{display:block}
+  details.qa{break-inside:avoid}
+  section{break-inside:auto}
+}
+</style>
+</head>
+<body>
+<div class="layout">
+
+<nav class="toc" aria-label="Contents">
+  <h2>Contents</h2>
+  <div class="links">
+    <div class="grp">Start here</div>
+    <a href="#lasthour">Last-hour plan</a>
+    <a href="#cheat">Cheat sheet</a>
+    <a href="#role">The role, decoded</a>
+    <a href="#intro">Intro &amp; day-to-day</a>
+    <a href="#stories">Your story bank</a>
+    <div class="grp">Questions they asked</div>
+    <a href="#shawn">Shaun's call (4 Nov)</a>
+    <a href="#hr">HR's 10 questions</a>
+    <div class="grp">Technical deep dives</div>
+    <a href="#spapi">Amazon SP-API</a>
+    <a href="#ads">Amazon Ads API</a>
+    <a href="#compare">SP-API vs Ads API</a>
+    <a href="#shopify">Shopify</a>
+    <a href="#google">GA4 &amp; Google Ads</a>
+    <a href="#others">Flipkart, Meta, quick commerce</a>
+    <a href="#oauth">OAuth 2.0</a>
+    <a href="#rest">REST, JSON, webhooks, Postman</a>
+    <a href="#fastapi">FastAPI &amp; Python</a>
+    <a href="#sql">SQL &amp; databases</a>
+    <a href="#data">Data mapping, sync &amp; validation</a>
+    <a href="#trouble">Troubleshooting playbooks</a>
+    <div class="grp">People side</div>
+    <a href="#customer">Handling clients on calls</a>
+    <a href="#golive">Go-live &amp; stabilization</a>
+    <a href="#behaviour">Behavioural questions</a>
+    <a href="#rapid">Rapid-fire Q&amp;A</a>
+    <a href="#ask">Questions to ask them</a>
+  </div>
+</nav>
+
+<main>
+<header class="hero">
+  <h1>Amplicomm: Customer Onboarding Engineer (Channel Integrations)</h1>
+  <p>Interview prep for Vikas Prajapati. Interview: <strong>Thursday 5 Nov 2026, 6:30 PM</strong>. Role based in Bengaluru, reporting to the Head of Engineering.</p>
+  <p>What they want: someone who connects brands' <strong>Amazon (SP-API, Ads API)</strong>, <strong>Shopify</strong>, <strong>Flipkart</strong> and <strong>Google (GA4, Google Ads)</strong> accounts to their SaaS, runs the client calls, and proves the data is right.</p>
+  <div class="pills">
+    <span class="pill">Amazon SP-API</span><span class="pill">Amazon Ads API</span><span class="pill">Shopify OAuth</span>
+    <span class="pill">GA4 / Google Ads</span><span class="pill">OAuth 2.0 / LWA</span><span class="pill">REST · JSON · Webhooks</span>
+    <span class="pill">Postman</span><span class="pill">SQL</span><span class="pill">FastAPI</span><span class="pill">Data validation</span><span class="pill">Client handling</span>
+  </div>
+</header>
+
+<div class="toolbar">
+  <input id="q" type="search" placeholder="Search questions and notes (e.g. 403, refresh token, duplicates)" aria-label="Search">
+  <button id="expand" type="button">Expand all</button>
+  <button id="collapse" type="button">Collapse all</button>
+  <button id="theme" type="button" aria-label="Toggle dark mode">Theme</button>
+  <span id="count"></span>
+</div>
+
+<!-- ============================================================ -->
+<section id="lasthour">
+<h2>Last-hour plan</h2>
+<p class="lead">If you only have 60 minutes before the interview, do this in order.</p>
+<ol class="steps">
+  <li><strong>10 min:</strong> say your <a href="#intro">60-second intro</a> and <a href="#intro">day-to-day answer</a> out loud twice.</li>
+  <li><strong>15 min:</strong> read the <a href="#cheat">cheat sheet</a>, especially the Amazon table: LWA, regions, India in the EU region, the headers.</li>
+  <li><strong>15 min:</strong> practise Shaun's five scenario answers: <a href="#s-frustrated">frustrated client</a>, <a href="#s-validate">validation</a>, <a href="#s-nodata">no data after authorizing</a>, <a href="#s-spapi">SP-API from scratch</a>, <a href="#s-mapping">mapping &amp; sync</a>. They're likely to come up again, possibly in more depth.</li>
+  <li><strong>10 min:</strong> learn your three best stories: <a href="#st-reconcile">reconciling to the cent</a>, <a href="#st-onboard">onboarding 20+ stores across 7 sources</a>, <a href="#st-zob">Zob Connect go-live</a>.</li>
+  <li><strong>5 min:</strong> pick 3 <a href="#ask">questions to ask them</a>.</li>
+  <li><strong>5 min:</strong> set up: open Postman, have your resume and a pen and paper, test your audio, find a quiet room.</li>
+</ol>
+<div class="callout warn">
+  <p><strong>Rule for today:</strong> be specific and truthful. Your strongest hands-on proof is Shopify, Google Ads, GA4, Meta, Microsoft Ads, Clarity, Search Console (Commerce Optimizer) and marketplace APIs (AliExpress, eBay, Walmart, AbeBooks, Catch). For Amazon, say exactly what you did hands-on. Then show you know the SP-API and Ads API flow well enough to run an onboarding on day one, because it's the same LWA/OAuth pattern you already run on the other platforms.</p>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<section id="cheat">
+<h2>Cheat sheet</h2>
+<p class="lead">Facts to have ready. Every one of them has come up in this kind of interview.</p>
+
+<h3>Amazon at a glance</h3>
+<div class="table-wrap"><table>
+<tr><th></th><th>SP-API (Selling Partner API)</th><th>Amazon Ads API</th></tr>
+<tr><td>What it's for</td><td>Seller and vendor operations: orders, inventory, listings, catalogue, pricing, finances, returns, reports</td><td>Advertising: Sponsored Products, Sponsored Brands, Sponsored Display campaigns, bids, budgets, ad reports</td></tr>
+<tr><td>Who registers</td><td>A developer profile in Seller Central (<em>Apps and Services → Develop Apps</em>), or the Solution Provider Portal for public developers. Request <strong>roles</strong> (data access).</td><td>An LWA <strong>security profile</strong> (developer.amazon.com), then an <strong>Ads API access</strong> application; once approved, link the security profile</td></tr>
+<tr><td>Private vs public</td><td>Private: a brand's own app for its own account (self-authorized). Public: a SaaS app serving many sellers (OAuth consent).</td><td>Your app serves many advertisers. Each advertiser grants consent through LWA.</td></tr>
+<tr><td>Consent / authorization</td><td><code>sellercentral.amazon.in/apps/authorize/consent?application_id=…&amp;state=…</code> (add <code>&amp;version=beta</code> for a draft app). It returns <code>spapi_oauth_code</code>, <code>state</code> and <code>selling_partner_id</code>.</td><td>LWA authorize URL with scope <code>advertising::campaign_management</code>. It returns <code>code</code>.</td></tr>
+<tr><td>Token endpoint</td><td><code>POST https://api.amazon.com/auth/o2/token</code> (all regions)</td><td>NA <code>api.amazon.com</code> · EU/IN <code>api.amazon.co.uk</code> · FE <code>api.amazon.co.jp</code></td></tr>
+<tr><td>Tokens</td><td>The auth code (valid about 5 minutes) is exchanged for a <strong>refresh token</strong>, which is long-lived and stored encrypted. That gives an <strong>access token</strong> valid for 1 hour.</td><td>Same: code → refresh token → access token (1 hour)</td></tr>
+<tr><td>Request headers</td><td><code>x-amz-access-token: Atza|…</code> (no AWS SigV4 signing needed since 2023)</td><td><code>Authorization: Bearer …</code>, <code>Amazon-Advertising-API-ClientId</code>, <code>Amazon-Advertising-API-Scope: &lt;profileId&gt;</code></td></tr>
+<tr><td>India</td><td><strong>EU region</strong>: <code>sellingpartnerapi-eu.amazon.com</code>; marketplace ID <code>A21TJRUUN4KGV</code></td><td><strong>EU region</strong>: <code>advertising-api-eu.amazon.com</code>; a profile with <code>countryCode: IN</code></td></tr>
+<tr><td>Other regions</td><td>NA <code>-na</code> (US <code>ATVPDKIKX0DER</code>, CA, MX, BR) · FE <code>-fe</code> (JP, AU, SG)</td><td>NA <code>advertising-api.amazon.com</code> · FE <code>advertising-api-fe.amazon.com</code></td></tr>
+<tr><td>Bulk data</td><td><strong>Reports API</strong>: <code>createReport</code> → poll <code>getReport</code> until <code>DONE</code> → <code>getReportDocument</code> → download (often gzipped)</td><td><strong>Reporting v3</strong>: <code>POST /reporting/reports</code> → poll until <code>COMPLETED</code> → download the gzipped JSON</td></tr>
+<tr><td>Push / near real time</td><td><strong>Notifications API</strong> → Amazon SQS or EventBridge (not plain HTTP webhooks)</td><td><strong>Amazon Marketing Stream</strong> → SQS (hourly metrics)</td></tr>
+<tr><td>Throttling</td><td>Per-operation rate and burst (token bucket). <code>429 QuotaExceeded</code>; read <code>x-amzn-RateLimit-Limit</code></td><td><code>429</code> with <code>Retry-After</code>; back off</td></tr>
+<tr><td>Health check call</td><td><code>GET /sellers/v1/marketplaceParticipations</code></td><td><code>GET /v2/profiles</code></td></tr>
+</table></div>
+
+<h3>Shopify, Google and Meta in one line each</h3>
+<ul>
+  <li><strong>Shopify OAuth:</strong> send the merchant to <code>https://{shop}.myshopify.com/admin/oauth/authorize?client_id&amp;scope&amp;redirect_uri&amp;state</code>. On the callback, verify <code>hmac</code>, <code>state</code> and the <code>shop</code> domain, then <code>POST /admin/oauth/access_token</code> with <code>code</code> to get the token. Call the API with header <code>X-Shopify-Access-Token</code>. Verify webhooks with <code>X-Shopify-Hmac-Sha256</code>.</li>
+  <li><strong>GA4 Data API:</strong> use the <em>numeric property ID</em> (not the <code>G-XXXX</code> measurement ID). OAuth scope <code>analytics.readonly</code>, or add a service account as <strong>Viewer</strong> on the property. Call <code>runReport</code> with dimensions and metrics.</li>
+  <li><strong>Google Ads API:</strong> needs a <strong>developer token</strong> (from the manager account's API Center), OAuth scope <code>adwords</code>, and the <code>login-customer-id</code> header (MCC ID, no dashes). Query with GAQL. A consent screen left in <em>Testing</em> means refresh tokens expire after 7 days.</li>
+  <li><strong>Meta Marketing API:</strong> ad account <code>act_&lt;id&gt;</code>, a long-lived or system-user token, and the <code>/insights</code> endpoint. Check that the token can read the ad account before saving it (you built this).</li>
+</ul>
+
+<h3>Status codes you must explain instantly</h3>
+<div class="table-wrap"><table>
+<tr><th>Code</th><th>Meaning</th><th>In an integration, usually…</th></tr>
+<tr><td>200 / 201 / 204</td><td>OK / created / no content</td><td>Success. Still check the body: an empty list is a 200.</td></tr>
+<tr><td>400</td><td>Bad request</td><td>Wrong parameter: date format, missing <code>MarketplaceIds</code>, bad GAQL</td></tr>
+<tr><td>401</td><td>Not authenticated</td><td>Access token expired or invalid, or the wrong token type in the header</td></tr>
+<tr><td>403</td><td>Authenticated, not allowed</td><td>Missing role or scope, wrong region endpoint, the user lacks permission, wrong profile ID</td></tr>
+<tr><td>404</td><td>Not found</td><td>Wrong ID or path, or an order from another marketplace</td></tr>
+<tr><td>409 / 422</td><td>Conflict / validation failed</td><td>Duplicate or business-rule error (Shopify returns 422 on validation)</td></tr>
+<tr><td>429</td><td>Too many requests</td><td>Throttled: back off with jitter and respect <code>Retry-After</code></td></tr>
+<tr><td>500 / 502 / 503 / 504</td><td>Server-side problem</td><td>Retry with backoff. If it persists, check the provider's status page and escalate.</td></tr>
+</table></div>
+
+<h3>Your numbers (all on your resume, all true)</h3>
+<ul>
+  <li>4+ years at Ergode (since Jul 2022). Sole technical owner of the D2C vertical. 20+ Shopify stores launched. 200K–500K SKUs per store.</li>
+  <li>Commerce Optimizer: <strong>20+ stores</strong>, <strong>7 data sources per store</strong> (Shopify, Google Ads, Meta Ads, Microsoft Ads, GA4, Clarity, Search Console). Sales matched Shopify <strong>to the cent</strong> (Groceryeshop: <strong>$11,939.37 and 298 orders</strong>, 14 Sep–13 Oct). 141 unit tests.</li>
+  <li>Search Optimizer: 10 stores, 8 audit tools, 88 issues confirmed fixed in 30 days at $0.40 each.</li>
+  <li>Zob Connect: team of 4, web, Android and iOS apps, production in 2 months, 10 languages, KYC APIs, Google Drive OAuth.</li>
+  <li>Automation: cut manual effort by 60% and operational errors by 50%. FAQ generator: support tickets down 30–40%.</li>
+</ul>
+</section>
+
+<!-- ============================================================ -->
+<section id="role">
+<h2>The role, decoded</h2>
+<p class="lead">What the JD says, what they'll test, and your proof.</p>
+<div class="callout">
+  <p><strong>About Amplicomm (what's public):</strong> a Bengaluru e-commerce company. A job listing describes it as building complete e-commerce business strategies for brands: social media brand building, website development and optimization, <strong>marketplace management</strong>, <strong>performance marketing</strong> and business development. The JD adds a <strong>SaaS platform</strong> that brands connect their Amazon, Flipkart, Shopify, quick-commerce and Google accounts to.</p>
+  <p><strong>What that means for you:</strong> they probably manage brands' marketplaces and ads, and the platform gives those brands (and Amplicomm's own teams) one view of sales and ad performance. That's the same job your Commerce Optimizer does for Ergode's 20+ stores. Say so.</p>
+  <p><strong>Before the call:</strong> spend 5 minutes on their LinkedIn page and Shaun's profile (logged in). Note their tagline, the brands they mention, and Shaun's role, so you can refer to them naturally.</p>
+</div>
+<div class="table-wrap"><table>
+<tr><th>JD line</th><th>What they'll test</th><th>Your evidence</th></tr>
+<tr><td>"Brand's first technical point of contact… guide clients on live calls to create developer apps"</td><td>Can you walk a non-technical brand owner through Seller Central, Shopify admin and Google Cloud without dead air?</td><td>Business teams and the VP at Ergode, the SD Computronix client on Zob Connect, onboarding 20+ stores into Commerce Optimizer</td></tr>
+<tr><td>"SP-API and Ads API: developer profile, app creation and roles, LWA, seller vs vendor, marketplace/region"</td><td>Do you know the exact steps and the common blockers?</td><td>See <a href="#spapi">SP-API</a> and <a href="#ads">Ads API</a>. Bridge from your Google Ads MCC, Meta and Microsoft Ads token work.</td></tr>
+<tr><td>"OAuth 2.0: flows, access/refresh tokens, scopes, consent, re-authorization"</td><td>Explain the flow from start to finish, and what happens on expiry or revocation</td><td>Shopify OAuth, Google OAuth (Drive, Ads), Microsoft's rotating refresh token, Meta token checks</td></tr>
+<tr><td>"Quality checks… end-to-end data verification"</td><td>How do you prove the numbers match?</td><td>Reconciling to the cent with Shopify; re-sync windows for late ad conversions; idempotent upserts</td></tr>
+<tr><td>"Troubleshoot using logs, payloads, error responses… Postman… basic SQL"</td><td>A step-by-step method</td><td><a href="#trouble">Playbooks</a> and <a href="#sql">SQL queries</a></td></tr>
+<tr><td>"Go-live and post-go-live stabilization"</td><td>Have you owned a launch and the weeks after it?</td><td>Zob Connect (production plus OTA updates), Commerce Optimizer (task → UAT → main, post-launch fixes)</td></tr>
+<tr><td>"Capture friction and feed it to Product"</td><td>Do you improve the process, not just finish tickets?</td><td>You built a per-store <em>Setup guide</em> and connection tests that explain errors in plain words</td></tr>
+</table></div>
+</section>
+
+<!-- ============================================================ -->
+<section id="intro">
+<h2>Intro &amp; day-to-day</h2>
+
+<details class="qa" open><summary><span class="tag t-likely">Likely</span>Tell me about yourself (60 seconds)</summary><div class="body">
+<div class="say">I'm Vikas, a full stack developer with a little over four years at Ergode in Mumbai, where I'm the technical owner of the D2C e-commerce vertical. Most of my work is integrations: connecting Shopify stores to marketplaces like AliExpress, eBay and Walmart, to our ERP, and lately to ad and analytics platforms.<br><br>
+Most recently I built Commerce Optimizer, an internal analytics platform live on 20+ of our brand stores. Each store connects seven sources: Shopify, Google Ads, Meta Ads, Microsoft Ads, GA4, Clarity and Search Console. I set up every connection, gave each one a connection test and plain-language error messages, and reconciled the numbers until our sales matched Shopify's reports to the cent.<br><br>
+Alongside that, I led a freelance HRMS build for a client, from requirements to go-live in two months, including OAuth with Google Drive and KYC API integrations.<br><br>
+What I enjoy most is exactly what this role is: getting an account connected, getting the first data flowing, and proving it's correct. That's why this role appeals to me.</div>
+</div></details>
+
+<details class="qa" open><summary><span class="tag t-asked">Asked</span>What do you do day to day?</summary><div class="body">
+<div class="say">A typical day has three parts.<br>
+<strong>First, integrations and data.</strong> I check the sync health of our stores' connections: failed jobs, expired tokens, throttling. I add or fix connectors, for example a new Shopify scope, or a Google Ads account that needs linking under our manager account.<br>
+<strong>Second, stakeholders.</strong> I take requirements from business and marketing teams ("we need ROAS per store", "orders not syncing for this brand"), turn them into tasks, and give clear timelines.<br>
+<strong>Third, validation and release.</strong> I test API responses in Postman, check stored data with SQL (counts, totals, duplicates), push changes through task branches → UAT → production, and confirm the fix with fresh data.<br>
+I use AI tools such as Claude Code heavily to build faster, but I review and test everything myself before it ships.</div>
+</div></details>
+
+<details class="qa"><summary><span class="tag t-likely">Likely</span>Why this role? Why leave Ergode?</summary><div class="body">
+<div class="say">At Ergode I've been doing onboarding and integrations for our own 20+ brands. Our business teams are my "customers". I want to do the same work client-facing and at scale: many brands, many channels, on a product built for exactly this. Amplicomm's channel mix (Amazon, Flipkart, Shopify, quick commerce, Google) is where Indian D2C brands actually sell, and I want to get deeper into Amazon and quick commerce. And because you also run marketplace management and performance marketing for brands, the data I connect gets used straight away to make decisions. That's the part I enjoyed most when I built Commerce Optimizer: ad spend, sales and traffic in one place, so teams could act on them.</div>
+<p>Keep it positive. Never criticise your current employer.</p>
+</div></details>
+
+<details class="qa"><summary><span class="tag t-likely">Likely</span>You're a developer. Why a customer onboarding role?</summary><div class="body">
+<div class="say">Because the hard part of onboarding is technical: OAuth, scopes, wrong regions, missing permissions, data that doesn't match. A developer can find the root cause on the call instead of opening a ticket and waiting. I like the client side too: I've run requirement and status calls with our VP and business teams, and with an external client on Zob Connect. This role uses both skills every day.</div>
+</div></details>
+</section>
+
+<!-- ============================================================ -->
+<section id="stories">
+<h2>Your story bank</h2>
+<p class="lead">True stories from your own projects. Use the STAR format: Situation, Task, Action, Result. One story can answer several questions.</p>
+
+<details class="qa" id="st-onboard"><summary>Story 1: onboarding 20+ stores across 7 sources (Commerce Optimizer)</summary><div class="body">
+<p><strong>S:</strong> Management wanted one dashboard for sales, ad spend and traffic across our 20+ Shopify stores.</p>
+<p><strong>T:</strong> Connect every store to Shopify, Google Ads, Meta Ads, Microsoft Ads, GA4, Clarity and Search Console, and make the numbers trustworthy.</p>
+<p><strong>A:</strong></p>
+<ul>
+  <li><strong>Shopify:</strong> custom-app tokens with <code>read_orders</code> (and <code>read_all_orders</code> for history older than 60 days), stored encrypted with AES-256-GCM. History came in through one <em>bulk operation</em>, then incremental syncs of orders changed since the last run.</li>
+  <li><strong>Google Ads and Microsoft Ads:</strong> one manager account for all stores, each store's account linked under it. Microsoft's refresh token rotates, so the app saves the newest one, encrypted, after every refresh.</li>
+  <li><strong>GA4:</strong> a service account that needs <strong>Viewer</strong> on each property. If it's missing, the store shows "No access to GA4 property …" with the exact fix.</li>
+  <li><strong>Meta:</strong> a token per store, checked against the ad account <em>before</em> it's saved.</li>
+  <li><strong>Clarity:</strong> its API allows 10 requests a day per project, so the sync uses at most 8 and keeps the rest for Clarity's own tools.</li>
+  <li>Every connection has a <strong>Test</strong> button (account name, currency, last 7 days of sessions, timezone mismatch warning). Plus a per-store <strong>Setup guide</strong> showing what each store still needs configured, and how.</li>
+</ul>
+<p><strong>R:</strong> Live on 20+ stores. Connection problems are explained in plain words (what happened, where to fix it, the steps), so business users can fix most of them without me.</p>
+</div></details>
+
+<details class="qa" id="st-reconcile"><summary>Story 2: reconciling sales to the cent with Shopify</summary><div class="body">
+<p><strong>S:</strong> Our dashboard's sales didn't exactly match Shopify's own sales report for the same dates.</p>
+<p><strong>T:</strong> Find out why and make the numbers match, because a dashboard nobody trusts is useless.</p>
+<p><strong>A:</strong> I compared day by day in SQL against the Shopify report, then looked at the orders on the days that differed. The difference was <strong>refund timing</strong>: Shopify's report subtracts a refund on the day it's issued, while we subtracted it on the order's date. Cancelled orders were also handled differently. I synced every refund with its own date and line items, and added a setting: <em>refunds on the order's date</em> (best for judging ads) or <em>on the refund's date</em> (matches Shopify).</p>
+<p><strong>R:</strong> Matched Shopify to the cent: Groceryeshop, 14 Sep–13 Oct, <strong>$11,939.37 and 298 orders</strong>. The lesson I'd bring to Amplicomm: most "wrong data" is a <strong>definition mismatch</strong> (timezone, refunds, cancellations, attribution), not a broken API.</p>
+</div></details>
+
+<details class="qa" id="st-late"><summary>Story 3: late-arriving data (ads conversions, GA4 revisions)</summary><div class="body">
+<p><strong>S:</strong> Yesterday's ROAS looked low, then rose over the next few days.</p>
+<p><strong>A:</strong> Ad platforms keep attributing conversions for days after the click, and GA4 revises recent days. So every sync re-fetches a <strong>window</strong>: the last 14 days for ads, the last few days for GA4. The rows are then <strong>replaced in one transaction</strong>, so nothing is double-counted. Google reports impression share about a week late, so those checks use the latest reported week.</p>
+<p><strong>R:</strong> The numbers settle to the platforms' own values. On Amazon, the same idea applies to Ads API attribution (7 or 14 days) and to settlement and finance data that arrives later.</p>
+</div></details>
+
+<details class="qa" id="st-zob"><summary>Story 4: Zob Connect, a client project from kickoff to go-live in 2 months</summary><div class="body">
+<p><strong>S:</strong> A client, SD Computronix, needed a field-force HRMS: attendance, KYC and documents.</p>
+<p><strong>A:</strong> Gathered requirements with the client. Led a team of four. Integrated KYC verification APIs (PAN, Aadhaar, bank) with a gate that blocks app access until verified. Connected Google Drive with OAuth 2.0 for an audited document register. Set up role-based access for HR, zone, site and team managers. Deployed on Linux with PM2 and push-to-deploy, and published the Android and iOS apps with Expo EAS.</p>
+<p><strong>R:</strong> In production in 2 months (web.zobconnect.com). After launch, we fixed and improved things through <strong>over-the-air updates</strong>, without making users reinstall. That's your post-go-live stabilization example.</p>
+</div></details>
+
+<details class="qa" id="st-ali"><summary>Story 5: AliExpress ↔ Shopify and marketplace/ERP integrations</summary><div class="body">
+<p>End-to-end AliExpress ↔ Shopify: product import and sync, then order placement, fulfilment, and tracking updates back to the store. Marketplace APIs (eBay, Walmart, AbeBooks, Catch) loaded into central databases, plus middleware between Shopify and the internal ERP for real-time inventory and order sync across 200K–500K SKUs per store.</p>
+<p>Use it for: data mapping (SKU ↔ product ID, status mapping), pagination and rate limits, and sync at scale.</p>
+</div></details>
+
+<details class="qa" id="st-fix"><summary>Story 6: a post-go-live bug, found and fixed</summary><div class="body">
+<p>After Commerce Optimizer went live, some GA4 lists broke because GA4 returned the value <code>(not set)</code> more than once in a dimension, so the row keys weren't unique. I made the keys unique, verified on live data, and shipped through UAT to production the same week. The point: after go-live, you watch real data, because real data has edge cases test data doesn't.</p>
+</div></details>
+</section>
+
+<!-- ============================================================ -->
+<section id="shawn">
+<h2>Shaun's call (4 Nov): questions and model answers</h2>
+<p class="lead">He'll probably go deeper on these today, or the interviewer will have his notes. Have each answer ready in 60–90 seconds, and be ready to go deeper.</p>
+
+<details class="qa" id="s-frustrated"><summary><span class="tag t-asked">Asked</span>1. A customer is frustrated because an integration failed. How do you handle them while you investigate?</summary><div class="body">
+<ol class="steps">
+  <li><strong>Acknowledge and own it:</strong> "I understand. You've set time aside and it isn't working. I'm on it now and I'll stay on it until we know the cause."</li>
+  <li><strong>Get the facts quickly:</strong> which channel, which account or marketplace, what they clicked, the exact error message or a screenshot, and when it happened.</li>
+  <li><strong>Narrate, don't go silent:</strong> "I'm checking our logs for your account… the token was saved… now I'm testing the API call directly." No dead air.</li>
+  <li><strong>Try the quick fixes live:</strong> wrong account logged in, missing permission, a pop-up blocker, the wrong marketplace, a draft app missing <code>version=beta</code>. Many failures are fixed on the call.</li>
+  <li><strong>If it needs engineering, set expectations:</strong> "This needs our engineering team. I'll send them the request ID, timestamps and error now, and update you by 4 PM even if it isn't fixed yet." Give a time, not "soon".</li>
+  <li><strong>Offer a parallel path:</strong> connect the other channels now so the call still produces progress, or schedule a 15-minute follow-up.</li>
+  <li><strong>Close the loop:</strong> send a written summary (cause, fix, what they need to do, next step), then confirm with them once data appears.</li>
+  <li><strong>Prevent it next time:</strong> add it to the onboarding runbook, and tell Product if a pre-check would have caught it.</li>
+</ol>
+<div class="say">The customer mostly needs to feel someone competent owns the problem. So I acknowledge the impact, tell them exactly what I'm checking as I check it, give a concrete time for the next update, and follow through. Technically, I go from logs, to the stored connection, to a direct API call in Postman, so within minutes I know whether it's access, our sync, or the provider.</div>
+</div></details>
+
+<details class="qa" id="s-validate"><summary><span class="tag t-asked">Asked</span>2. Once the integration is done, how do you validate the data is synced and accurate?</summary><div class="body">
+<ol class="steps">
+  <li><strong>Agree the definitions first:</strong> which report the brand trusts (Seller Central Business Report, Shopify Analytics, the Ads console), their timezone, and whether sales include tax, shipping, cancellations and returns.</li>
+  <li><strong>Completeness, with counts:</strong> orders per day, source versus platform, for 3–7 sample days, including a busy day.</li>
+  <li><strong>Accuracy, with totals:</strong> sum of sales, units, ad spend, clicks per day. Then per marketplace and per SKU for the top items.</li>
+  <li><strong>Record-level spot checks:</strong> take 5–10 orders and compare them field by field (ID, date, status, items, amounts, currency).</li>
+  <li><strong>Duplicates and gaps:</strong> SQL with <code>GROUP BY … HAVING COUNT(*) &gt; 1</code> for duplicates, and <code>LEFT JOIN … IS NULL</code> for missing records. Also check for missing dates.</li>
+  <li><strong>Freshness:</strong> last successful sync time; is today's data arriving?</li>
+  <li><strong>Edge cases:</strong> refunds and returns, cancellations, Amazon <em>Pending</em> orders (no price yet), multi-currency, FBA vs merchant-fulfilled, the ad attribution window.</li>
+  <li><strong>Document known differences:</strong> e.g. "Ads sales use a 7-day attribution window, so recent days keep rising". Sign off with the client.</li>
+  <li><strong>Keep checking after go-live:</strong> automated reconciliation and alerts when a store's daily numbers deviate or a sync fails.</li>
+</ol>
+<div class="say">I validate in three layers: counts, totals, then individual records, always against the report the brand already trusts and in their timezone. Real example: our dashboard didn't match Shopify. Day-by-day SQL showed the difference was refund timing, not missing data. After we synced refunds by their own date, Groceryeshop matched to the cent: $11,939.37 and 298 orders for the month.</div>
+</div></details>
+
+<details class="qa" id="s-nodata"><summary><span class="tag t-asked">Asked</span>3. The customer authorized the integration but no data shows. Troubleshoot it step by step.</summary><div class="body">
+<ol class="steps">
+  <li><strong>Scope it:</strong> which channel and data type (orders, ads, inventory)? Which date range do they expect? When did they authorize? Some data takes time: Amazon reports can take minutes to hours, and a first backfill takes longer.</li>
+  <li><strong>Check the connection record:</strong> is a refresh token saved? Is the seller ID, marketplace, region or ad profile correct? Status active?</li>
+  <li><strong>Check the sync jobs:</strong> did the initial import run? Is it queued, running, or failed? When was the last successful run?</li>
+  <li><strong>Read the logs for that account:</strong> 401, 403, 429, 400, or successful calls returning <em>empty</em> results?</li>
+  <li><strong>Reproduce in Postman</strong> with the same credentials. Get an access token, then call a simple endpoint: SP-API <code>/sellers/v1/marketplaceParticipations</code>, Ads API <code>/v2/profiles</code>, Shopify <code>shop</code>, GA4 <code>runReport</code> for the last 7 days.</li>
+  <li><strong>If the API returns data but the platform doesn't show it:</strong> the problem is ours. Check raw or staging tables, the mapping and transform, filters (marketplace, status, timezone or date boundaries), the dedup keys, and UI filters or caching.</li>
+  <li><strong>If the API returns nothing:</strong> wrong marketplace or region (India uses the EU endpoint), wrong ad profile, a vendor account authorized on the seller flow, wrong GA4 property (they gave the <code>G-</code> measurement ID), or simply no activity in that range.</li>
+  <li><strong>If the API returns an error:</strong> 401 = token or secret problem; 403 = missing role or scope, the user lacks permission, or the wrong region; 429 = throttling, so back off.</li>
+  <li><strong>Fix, re-sync the affected window, and verify with fresh data</strong> (counts and totals against the source).</li>
+  <li><strong>Tell the customer, then write it up:</strong> root cause in the runbook, and suggest a check at connection time so it can't happen silently again.</li>
+</ol>
+<div class="say">I split the problem in two: is the data coming from the provider, or are we losing it after that? A direct API call in Postman with the customer's token answers that in minutes. If the API returns data, I trace it through our pipeline: raw tables, mapping, filters, timezone. If it doesn't, I check the account side: role or scope, marketplace and region, ad profile, the user's permissions. In my platform, every connection has a Test button that runs exactly this check and explains the result in plain words.</div>
+</div></details>
+
+<details class="qa" id="s-spapi"><summary><span class="tag t-asked">Asked</span>4. Explain your role in integrating Amazon SP-API from scratch.</summary><div class="body">
+<div class="callout warn"><p><strong>Honesty check:</strong> open with what you've actually done with Amazon. If you haven't run SP-API in production yourself, say it in one sentence, then show you know the full flow. Bridge with: "It's the same LWA/OAuth pattern I run for Google Ads, Microsoft Ads and Shopify."</p></div>
+<h3>Phase 1: discovery (kickoff call)</h3>
+<ul>
+  <li>Seller (Seller Central, 3P) or vendor (Vendor Central, 1P)? Which marketplaces (amazon.in, or also UAE/US)? Fulfilment by Amazon (FBA), merchant-fulfilled (MFN), or both?</li>
+  <li>What data the platform needs: orders, sales and traffic, inventory, finances and settlements, returns, ads. That decides the <strong>roles</strong>.</li>
+  <li>Who has access: the primary account holder or an admin user must be on the call. Also confirm whether they advertise (for the Ads API).</li>
+</ul>
+<h3>Phase 2: app and authorization</h3>
+<ul>
+  <li><strong>Public app (SaaS model):</strong> our app is already registered. I send the brand the consent link (<code>sellercentral.amazon.in/apps/authorize/consent?application_id=…&amp;state=…</code>), they log in with the right account and approve, and Amazon redirects back with <code>spapi_oauth_code</code>, <code>selling_partner_id</code> and <code>state</code>. The backend verifies <code>state</code> and exchanges the code within about 5 minutes at <code>api.amazon.com/auth/o2/token</code> for a <strong>refresh token</strong>, which is stored encrypted.</li>
+  <li><strong>Private app (the brand's own developer app, which the JD mentions):</strong> I walk them through Seller Central → <em>Apps and Services → Develop Apps</em> → create the developer profile (organisation details, contact, the <strong>roles</strong> needed, use case, security answers) → wait for approval → <em>Add new app client</em> (API type SP-API, select roles) → copy the LWA client ID and secret → <strong>Authorize</strong> (self-authorization) to generate the refresh token. They share these through our secure form, never by email or chat.</li>
+  <li>Pick the right <strong>region endpoint</strong> (India → EU: <code>sellingpartnerapi-eu.amazon.com</code>) and <strong>marketplace ID</strong> (<code>A21TJRUUN4KGV</code>).</li>
+</ul>
+<h3>Phase 3: configure and test</h3>
+<ul>
+  <li>Postman: get an access token (refresh token → LWA), then call <code>/sellers/v1/marketplaceParticipations</code> to confirm the account and marketplaces. Then <code>getOrders</code> for a few recent days.</li>
+  <li><strong>Backfill</strong> history with the Reports API (e.g. <code>GET_FLAT_FILE_ALL_ORDERS_DATA_BY_ORDER_DATE_GENERAL</code>), because the Orders API is heavily rate-limited. Then run incremental syncs with <code>LastUpdatedAfter</code> and <code>NextToken</code> pagination. Use Notifications (via SQS) where near-real-time matters.</li>
+  <li>Map the data: <code>AmazonOrderId</code>, <code>PurchaseDate</code> (UTC) → the brand's timezone, <code>OrderStatus</code> mapping, and <code>OrderTotal</code> missing for <em>Pending</em> orders. SKU and ASIN map to the brand's catalogue.</li>
+</ul>
+<h3>Phase 4: validate, go live, stabilize</h3>
+<ul>
+  <li>Reconcile against the Seller Central reports for sample days (counts, sales, units) in IST. Explain known differences (Pending orders, cancellations, refunds settle later).</li>
+  <li>Go live: sync schedule on, alerts on failure. Hypercare for 1–2 weeks: watch throttling, token errors and daily totals.</li>
+  <li>Maintenance: rotate the LWA client secret before it expires (Amazon makes you rotate it periodically), and remind sellers to renew the authorization when Amazon asks (sellers re-authorize periodically).</li>
+</ul>
+<div class="say">My role covers it end to end: discovery with the brand, the app and authorization on a live call, the configuration and API tests myself in Postman, mapping and backfill, reconciliation against Seller Central, and go-live with monitoring. Engineering owns the connector code; I own getting each brand from "signed" to "correct data on the dashboard".</div>
+</div></details>
+
+<details class="qa" id="s-mapping"><summary><span class="tag t-asked">Asked</span>5. How do you handle data mapping and data synchronization?</summary><div class="body">
+<h3>Mapping</h3>
+<ul>
+  <li>A <strong>mapping sheet</strong> per channel: source field → platform field, data type, transform, example value, required or optional.</li>
+  <li>Transforms: timezones (store UTC, report in the brand's timezone), currency, <strong>status mapping</strong> (Amazon <code>Shipped</code>/<code>Unshipped</code>/<code>Canceled</code>; Shopify <code>financial_status</code> + <code>fulfillment_status</code> → one platform status), and units versus amounts.</li>
+  <li><strong>Keys:</strong> a natural unique key per record (e.g. <code>store_id + order_id</code>), so re-syncing updates rows instead of duplicating them.</li>
+  <li><strong>Identity across channels:</strong> SKU ↔ ASIN ↔ Shopify variant ↔ Flipkart listing. This is often the hardest part, so get a master SKU sheet from the brand.</li>
+</ul>
+<h3>Synchronization</h3>
+<ul>
+  <li><strong>Initial backfill</strong> through bulk paths (Amazon Reports API, Shopify bulk operations), then <strong>incremental</strong> syncs by "updated since" (<code>LastUpdatedAfter</code>, <code>updated_at</code>), plus webhooks or notifications for speed.</li>
+  <li>A <strong>re-sync window</strong> for late changes (ad conversions about 14 days, GA4 a few days, refunds and returns).</li>
+  <li><strong>Idempotent upserts</strong>, checkpointing (cursor or <code>NextToken</code>), retries with backoff for 429/5xx, and a job log per run.</li>
+  <li><strong>Reconciliation job:</strong> polling as a safety net for missed webhooks, plus daily count and total checks.</li>
+</ul>
+<div class="say">In Commerce Optimizer, I backfill Shopify history with one bulk export, then fetch orders changed since the last sync on a schedule. Refunds and edits change an order's <code>updated_at</code>, so they're picked up too. Writes are batched upserts on a unique key, so syncs never duplicate. Ads data re-syncs the last 14 days because conversions arrive late.</div>
+</div></details>
+
+<details class="qa"><summary><span class="tag t-asked">Asked</span>Experience with REST APIs, JSON, webhooks and API testing?</summary><div class="body">
+<div class="say">Yes, daily. REST: Shopify Admin (REST and GraphQL), Google Ads, GA4, Meta Marketing, Microsoft Advertising, Clarity, Search Console, plus AliExpress, eBay, Walmart, AbeBooks and Catch, KYC APIs and Google Drive. Webhooks: Shopify webhooks with HMAC verification, replying fast and processing in a background job, with a polling safety net. Testing: Postman collections with environments and pre-request scripts for tokens, plus 141 automated unit tests on Commerce Optimizer, including stand-in services for the login flow.</div>
+</div></details>
+
+<details class="qa"><summary><span class="tag t-asked">Asked</span>How would you connect a Shopify merchant to a SaaS platform using OAuth?</summary><div class="body">
+<p>See the full answer, with code, under <a href="#shopify">Shopify</a> and <a href="#fastapi">FastAPI</a>. The short version:</p>
+<ol class="steps">
+  <li>The merchant clicks Install / Connect and enters their <code>shop.myshopify.com</code>.</li>
+  <li>Redirect to <code>/admin/oauth/authorize</code> with <code>client_id</code>, minimal <code>scope</code> (e.g. <code>read_orders,read_products,read_inventory</code>), <code>redirect_uri</code>, and a random <code>state</code>.</li>
+  <li>The merchant approves the scopes. Shopify redirects back with <code>code</code>, <code>shop</code>, <code>state</code> and <code>hmac</code>.</li>
+  <li>Verify the HMAC with the app secret, check that <code>state</code> matches and that <code>shop</code> is a valid <code>*.myshopify.com</code> domain.</li>
+  <li><code>POST https://{shop}/admin/oauth/access_token</code> with <code>client_id</code>, <code>client_secret</code> and <code>code</code> to get an <strong>offline access token</strong> plus the granted scopes. Store it encrypted.</li>
+  <li>Register webhooks (<code>orders/create</code>, <code>orders/updated</code>, <code>app/uninstalled</code>), start the backfill, and show "connected".</li>
+  <li><strong>Re-authorization:</strong> when scopes change, compare the granted scopes with the required ones and send the merchant through the authorize URL again. On <code>401</code> or <code>app/uninstalled</code>, mark the connection disconnected and ask the merchant to reconnect.</li>
+</ol>
+</div></details>
+
+<details class="qa"><summary><span class="tag t-asked">Asked</span>Have you worked on go-live and post-go-live stabilization?</summary><div class="body">
+<div class="say">Yes, on both projects. Zob Connect went from kickoff to production in two months. We launched web, Android and iOS, then stabilized with fixes shipped as over-the-air updates, so users didn't reinstall. Commerce Optimizer goes through task branches, then UAT with the business, then production. After go-live I watched the real data and fixed what only real data reveals: for example, GA4 returning <code>(not set)</code> more than once broke unique row keys, and I fixed it that week. I also added a Setup guide that shows, per store, what still needs to be configured. That's the post-go-live stage turned into a checklist.</div>
+<p>See also <a href="#golive">Go-live &amp; stabilization</a>.</p>
+</div></details>
+</section>
+
+<!-- ============================================================ -->
+<section id="hr">
+<h2>HR's 10 screening questions (3 Nov)</h2>
+<p class="lead">They come with a rubric for what a strong answer covers, so the interviewer may ask any of them again. These answers follow the rubric.</p>
+
+<details class="qa"><summary><span class="tag t-hr">HR</span>1. Walk me through one merchant integration you personally handled, from onboarding call to go-live.</summary><div class="body">
+<p><em>Rubric: the full lifecycle, and a clear line between your own work and the developers' work.</em></p>
+<div class="say">Take onboarding one of our brand stores, say Groceryeshop, into Commerce Optimizer.<br>
+<strong>Requirements:</strong> the business wanted daily sales, ad spend, ROAS and traffic per store, and a portfolio view.<br>
+<strong>Access:</strong> I collected a Shopify Admin API token with <code>read_orders</code> and <code>read_all_orders</code>, linked the store's Google Ads account under our manager account, added our service account as Viewer on its GA4 property, saved its Meta token (checked against the ad account first), and the Clarity project ID and token.<br>
+<strong>Configuration:</strong> entered them in the store's settings, ran each connection's Test (account name, currency, timezone check), and started the history import.<br>
+<strong>Validation:</strong> compared day by day against Shopify's reports in SQL. Found the refund-timing difference, fixed it, and it matched to the cent: $11,939.37 and 298 orders for the month.<br>
+<strong>Go-live:</strong> scheduled syncs on, alerts on failure, and the business team trained on the dashboard.<br>
+<strong>My part:</strong> all of it. I designed the connectors and wrote the code with Claude Code as my pair programmer, and I did the configuration, testing and validation myself.</div>
+</div></details>
+
+<details class="qa"><summary><span class="tag t-hr">HR</span>2. Which integrations do you configure or implement yourself? What are the technical steps?</summary><div class="body">
+<div class="say">Myself, end to end: Shopify (Admin API tokens, scopes, bulk operations, webhooks), Google Ads (manager account linking, developer token, GAQL queries), GA4 (service account access, <code>runReport</code>), Meta Marketing API, Microsoft Advertising (OAuth with a rotating refresh token), Clarity and Search Console. Earlier: AliExpress ↔ Shopify, eBay, Walmart, AbeBooks, Catch, and ERP middleware.<br>
+The steps are the same every time: create the app or credentials → set the scopes → authorize and store tokens encrypted → test the calls in Postman → map fields to our schema → backfill plus incremental sync → reconcile → monitor.</div>
+</div></details>
+
+<details class="qa"><summary><span class="tag t-hr">HR</span>3. Connect a Shopify merchant to our SaaS with OAuth: authorization, scopes, tokens, re-authorization.</summary><div class="body">
+<p>Same as Shaun's question. See <a href="#shopify">Shopify</a>. Mention: the <code>state</code> nonce, HMAC verification, minimal scopes, <code>read_all_orders</code> for history older than 60 days, the token stored encrypted and never sent to the browser, the <code>app/uninstalled</code> webhook, and re-authorizing when scopes change.</p>
+</div></details>
+
+<details class="qa"><summary><span class="tag t-hr">HR</span>4. Authorized but no data. Troubleshoot step by step.</summary><div class="body"><p>Same as Shaun's question 3. Use <a href="#s-nodata">that answer</a>. The rubric expects: account permissions, authentication, API responses, logs, sync status, <strong>date ranges, pagination, field mapping, background jobs</strong>, using Postman and logs, then verifying with fresh data. Mention <em>every</em> word on that list.</p></div></details>
+
+<details class="qa"><summary><span class="tag t-hr">HR</span>5. Have you worked with Amazon SP-API or Ads API? How did you connect a seller or advertiser?</summary><div class="body">
+<p><em>Rubric: developer app setup, authorization, credentials, roles, requests, response handling, troubleshooting, and the difference between SP-API (seller operations) and the Ads API (advertising).</em></p>
+<div class="callout warn"><p>Start with the truth about your hands-on Amazon work. Then show depth: the answer under <a href="#s-spapi">SP-API from scratch</a> plus the <a href="#compare">SP-API vs Ads API</a> table.</p></div>
+<div class="say">SP-API and the Ads API are separate. SP-API is for selling-partner operations: orders, inventory, listings, finances, reports. You register a developer profile, request roles, and the seller authorizes through Seller Central consent, which gives a refresh token. Calls use the <code>x-amz-access-token</code> header against the regional endpoint; for India that's the EU endpoint with marketplace <code>A21TJRUUN4KGV</code>.<br>
+The Ads API is for advertising. It needs a separate approval, an LWA security profile, and the <code>advertising::campaign_management</code> scope. You first list <em>profiles</em>, then every call sends the profile ID in the <code>Amazon-Advertising-API-Scope</code> header. Reports are asynchronous in Reporting v3.<br>
+Most analytics platforms need both, because a metric like TACoS needs ad spend from the Ads API and total sales from SP-API.</div>
+</div></details>
+
+<details class="qa"><summary><span class="tag t-hr">HR</span>6. Have you integrated GA4 or Google Ads? Authorization, permissions, data retrieval?</summary><div class="body">
+<div class="say">Yes, both, in production on 20+ stores.<br>
+<strong>GA4:</strong> enabled the Analytics Data API in a Google Cloud project, created a service account, and the service account's email is added as <strong>Viewer</strong> on each GA4 property. I call <code>runReport</code> for daily sessions, users, engaged sessions, add-to-carts, checkouts and purchases by default channel group. GA4 revises recent days, so we re-fetch the last few days. A property we can't read shows "No access to GA4 property …" with the fix steps. The Test button also warns when the property's timezone differs from the store's.<br>
+<strong>Google Ads:</strong> one manager account (MCC) for all stores. The developer token comes from the MCC's API Center, OAuth uses the <code>adwords</code> scope, and the <code>login-customer-id</code> header carries the MCC ID. Daily campaign results come through GAQL. We re-sync the last 14 days because conversions arrive late.<br>
+<strong>Common errors:</strong> <code>USER_PERMISSION_DENIED</code> (missing <code>login-customer-id</code>, or the account isn't linked), <code>DEVELOPER_TOKEN_NOT_APPROVED</code> (a test token used on a live account), and refresh tokens expiring after 7 days while the OAuth consent screen is still in Testing.</div>
+</div></details>
+
+<details class="qa"><summary><span class="tag t-hr">HR</span>7. How have you used Postman and SQL to debug an integration? A real issue, cause and fix.</summary><div class="body">
+<div class="say">Sales mismatch with Shopify (Story 2).<br>
+<strong>SQL:</strong> grouped our stored orders by day in the store's timezone, <code>COUNT(*)</code> and <code>SUM(total)</code>, side by side with Shopify's report. The counts matched but the totals didn't, which ruled out missing orders.<br>
+<strong>Postman:</strong> pulled the orders for the mismatched days through the Admin API with the store's token in <code>X-Shopify-Access-Token</code>, and inspected the refunds: each has its own <code>created_at</code>, which is often days after the order.<br>
+<strong>Root cause:</strong> Shopify's report subtracts refunds on the refund date; we subtracted them on the order date.<br>
+<strong>Fix:</strong> synced refunds with their own date and line items, and added a setting for which basis to use.<br>
+<strong>Confirmed</strong> with SQL: the month matched to the cent, $11,939.37 and 298 orders.</div>
+</div></details>
+
+<details class="qa"><summary><span class="tag t-hr">HR</span>8. Once live, how do you verify synced data is complete and accurate?</summary><div class="body"><p>Use <a href="#s-validate">Shaun's question 2</a>. The rubric expects these words: <strong>source vs destination, record counts, timestamps, pagination, missing or duplicate records, field mapping, totals, reconciliation, error monitoring, resolving discrepancies</strong>.</p></div></details>
+
+<details class="qa"><summary><span class="tag t-hr">HR</span>9. A customer is frustrated because an integration failed during a live onboarding call.</summary><div class="body"><p>Use <a href="#s-frustrated">Shaun's question 1</a>, plus <a href="#customer">phrases for live calls</a>.</p></div></details>
+
+<details class="qa"><summary><span class="tag t-hr">HR</span>10. How many implementations have you managed at once? How do you track blockers and go-live readiness?</summary><div class="body">
+<div class="say">Right now, 20+ store onboardings in Commerce Optimizer, each with up to 7 connections, plus Zob Connect for an external client, alongside my regular Ergode work.<br>
+I track each store with a <strong>checklist per connection</strong>. I built it into the app as a Setup guide: what's connected, what's missing, who has to act. Each blocker has an owner and a date, e.g. "GA4 Viewer access for two stores: waiting on the account owner". Work goes through task branches → UAT → production, and I send stakeholders regular updates.<br>
+<strong>Go-live readiness</strong> means: all required connections tested, backfill complete, sample days reconciled, alerts on, client trained, sign-off.<br>
+I escalate early: if a blocker sits with the client for 48 hours, I follow up on a call rather than another email. I'm comfortable working in Jira or a CRM if that's what the team uses.</div>
+</div></details>
+</section>
+
+<!-- ============================================================ -->
+<section id="spapi">
+<h2>Amazon SP-API deep dive</h2>
+<p class="lead">The focus of Shaun's questions. Know the vocabulary and the order of steps.</p>
+
+<h3>Key concepts</h3>
+<div class="grid2">
+<div class="card"><h4>Seller vs vendor</h4><ul>
+<li><strong>Seller (3P):</strong> sells directly to customers through <em>Seller Central</em>; owns price and stock; FBA or merchant-fulfilled. Data: Orders, FBA Inventory, Listings, Catalog, Finances, Reports, Notifications.</li>
+<li><strong>Vendor (1P):</strong> sells wholesale to Amazon through <em>Vendor Central</em>; Amazon is the retailer. Data: purchase orders, shipments, invoices, direct fulfilment, and vendor retail analytics reports (sales, traffic, inventory).</li>
+<li>Separate consent URLs (<code>vendorcentral.amazon.in/apps/authorize/consent</code>), different APIs, different reports. Always ask which one on the kickoff call.</li>
+</ul></div>
+<div class="card"><h4>Developer profile and roles</h4><ul>
+<li><strong>Private developer:</strong> builds for their own business. <strong>Public developer:</strong> builds for other sellers (a SaaS like Amplicomm).</li>
+<li><strong>Roles</strong> = data access you request, e.g. Product Listing, Pricing, Inventory and Order Tracking, Amazon Fulfillment, Finance and Accounting, Brand Analytics, Selling Partner Insights.</li>
+<li><strong>Restricted roles</strong> (buyer PII: addresses, tax) need extra review and a <strong>Restricted Data Token</strong> (RDT) per call.</li>
+<li>Approval can take days, and Amazon may come back with questions. Start it early, and set the client's expectations.</li>
+</ul></div>
+<div class="card"><h4>LWA (Login with Amazon)</h4><ul>
+<li>The app has an <strong>LWA client ID</strong> and <strong>client secret</strong>. The secret must be <strong>rotated periodically</strong>; an expired secret causes <code>invalid_client</code>.</li>
+<li>Seller consent gives an <code>spapi_oauth_code</code> (valid about 5 minutes), which is exchanged for a <strong>refresh token</strong> (long-lived) and an <strong>access token</strong> (1 hour).</li>
+<li>Refresh: <code>grant_type=refresh_token</code> at <code>https://api.amazon.com/auth/o2/token</code>.</li>
+<li><strong>Grantless</strong> operations (e.g. creating Notifications destinations) use <code>grant_type=client_credentials</code> with a scope like <code>sellingpartnerapi::notifications</code>.</li>
+</ul></div>
+<div class="card"><h4>Regions and marketplaces</h4><ul>
+<li>NA: <code>sellingpartnerapi-na.amazon.com</code>: US <code>ATVPDKIKX0DER</code>, CA <code>A2EUQ1WTGCTBG2</code>, MX, BR</li>
+<li>EU: <code>sellingpartnerapi-eu.amazon.com</code>: <strong>IN <code>A21TJRUUN4KGV</code></strong>, UK <code>A1F83G8C2ARO7P</code>, DE <code>A1PA6795UKMFR9</code>, AE <code>A2VIGQ35RCS4UG</code>, and others</li>
+<li>FE: <code>sellingpartnerapi-fe.amazon.com</code>: JP <code>A1VC38T7YXB528</code>, AU, SG</li>
+<li>Sandbox: <code>sandbox.sellingpartnerapi-…</code> (static mock responses)</li>
+</ul></div>
+</div>
+
+<h3>Authorization flows</h3>
+<div class="table-wrap"><table>
+<tr><th>Flow</th><th>When</th><th>Steps</th></tr>
+<tr><td>Website authorization (OAuth)</td><td>A public SaaS app, seller starts on our site</td><td>Our "Connect Amazon" button → Seller Central consent URL with <code>application_id</code> and <code>state</code> → seller approves → redirect to our URI with <code>spapi_oauth_code</code>, <code>selling_partner_id</code> and <code>state</code> → verify <code>state</code> → exchange the code → store the refresh token</td></tr>
+<tr><td>Appstore authorization</td><td>Seller starts from the Selling Partner Appstore listing</td><td>Same exchange, but it starts from Amazon's side</td></tr>
+<tr><td>Self-authorization</td><td>A private app for the brand's own account</td><td>Developer Console → app → <em>Authorize</em> → the refresh token is shown directly</td></tr>
+<tr><td>Draft app testing</td><td>Before the app is published</td><td>Add <code>&amp;version=beta</code> to the consent URL</td></tr>
+</table></div>
+
+<h3>Calls you should know</h3>
+<pre><code># 1) Access token from the refresh token
+POST https://api.amazon.com/auth/o2/token
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=refresh_token&amp;refresh_token=Atzr|...&amp;client_id=amzn1.application-oa2-client...&amp;client_secret=...
+
+# Response: { "access_token": "Atza|...", "token_type": "bearer", "expires_in": 3600, "refresh_token": "Atzr|..." }
+
+# 2) Health check: which marketplaces does this seller participate in?
+GET https://sellingpartnerapi-eu.amazon.com/sellers/v1/marketplaceParticipations
+x-amz-access-token: Atza|...
+
+# 3) Orders created since a date (India)
+GET https://sellingpartnerapi-eu.amazon.com/orders/v0/orders?MarketplaceIds=A21TJRUUN4KGV&amp;CreatedAfter=2026-10-01T00:00:00Z
+x-amz-access-token: Atza|...
+
+# Response: payload.Orders[] and payload.NextToken. Next page: same call with NextToken=... (keep MarketplaceIds)
+
+# 4) Bulk: Reports API
+POST /reports/2021-06-30/reports
+{ "reportType": "GET_FLAT_FILE_ALL_ORDERS_DATA_BY_ORDER_DATE_GENERAL",
+  "marketplaceIds": ["A21TJRUUN4KGV"],
+  "dataStartTime": "2026-10-01T00:00:00Z", "dataEndTime": "2026-10-31T23:59:59Z" }
+GET  /reports/2021-06-30/reports/{reportId}              # poll: IN_QUEUE, IN_PROGRESS, DONE, CANCELLED or FATAL
+GET  /reports/2021-06-30/documents/{reportDocumentId}    # returns url (+ compressionAlgorithm: GZIP)</code></pre>
+
+<h3>Useful report types</h3>
+<ul>
+  <li><code>GET_FLAT_FILE_ALL_ORDERS_DATA_BY_ORDER_DATE_GENERAL</code> / <code>…_BY_LAST_UPDATE_GENERAL</code>: orders</li>
+  <li><code>GET_MERCHANT_LISTINGS_ALL_DATA</code>: listings · <code>GET_FBA_MYI_UNSUPPRESSED_INVENTORY_DATA</code>: FBA inventory · <code>GET_LEDGER_DETAIL_VIEW_DATA</code>: inventory ledger</li>
+  <li><code>GET_SALES_AND_TRAFFIC_REPORT</code>: business report data (sessions, page views, units, ordered product sales)</li>
+  <li><code>GET_V2_SETTLEMENT_REPORT_DATA_FLAT_FILE</code>: settlements (generated by Amazon on a schedule, not requested)</li>
+  <li><code>GET_FBA_FULFILLMENT_CUSTOMER_RETURNS_DATA</code>: FBA returns</li>
+</ul>
+
+<h3>Throttling and pagination</h3>
+<ul>
+  <li><strong>Token bucket:</strong> each operation has a <em>rate</em> (requests per second) and a <em>burst</em>. <code>getOrders</code> is low (roughly one request per minute sustained after a small burst), so <strong>use reports for backfills</strong>.</li>
+  <li>On <code>429</code>: exponential backoff with jitter. Read <code>x-amzn-RateLimit-Limit</code>. Queue requests per seller.</li>
+  <li>Pagination: <code>NextToken</code> in the payload. Keep requesting until it's empty, and store a checkpoint so a crash can resume.</li>
+</ul>
+
+<h3>Common errors and their causes</h3>
+<div class="table-wrap"><table>
+<tr><th>Error</th><th>Likely cause</th><th>Fix</th></tr>
+<tr><td><code>invalid_grant</code> (from LWA)</td><td>Refresh token revoked or expired, or it belongs to a different app's client ID</td><td>Seller re-authorizes; check you're using the right app's credentials</td></tr>
+<tr><td><code>invalid_client</code></td><td>Wrong client ID or secret, or the secret expired or was rotated</td><td>Rotate or update the secret everywhere</td></tr>
+<tr><td><code>403 Unauthorized</code>: "Access to requested resource is denied"</td><td>Missing role; wrong region endpoint (e.g. NA for an India seller); app not authorized by this seller; draft app without <code>version=beta</code></td><td>Check the roles on the app, the endpoint and the marketplace; re-authorize after adding roles</td></tr>
+<tr><td><code>400 InvalidInput</code></td><td>Bad date format (needs ISO 8601), missing <code>MarketplaceIds</code>, <code>CreatedAfter</code> in the future</td><td>Fix the request; reproduce in Postman</td></tr>
+<tr><td><code>429 QuotaExceeded</code></td><td>Throttled</td><td>Backoff; switch to the Reports API for volume</td></tr>
+<tr><td>200 but empty</td><td>Wrong marketplace, no orders in the range, vendor account on seller APIs, timezone boundary</td><td>Check <code>marketplaceParticipations</code> and the date range in UTC</td></tr>
+</table></div>
+
+<h3>Data gotchas (where numbers differ from Seller Central)</h3>
+<ul>
+  <li><strong>Pending</strong> orders have no <code>OrderTotal</code> or final items yet.</li>
+  <li>API times are UTC; Seller Central shows local time (IST for India), so days don't line up unless you convert.</li>
+  <li>The Business Report's "ordered product sales" (at order time) is not the same as settlement or finance figures (paid out later, after fees and refunds).</li>
+  <li>Cancellations and returns arrive later; FBA and merchant-fulfilled orders behave differently; B2B orders; multiple marketplaces under one account.</li>
+  <li>Buyer PII needs restricted roles and an RDT, and is often not needed for analytics at all, so don't request it.</li>
+</ul>
+
+<details class="qa"><summary><span class="tag t-likely">Likely</span>A seller says "I authorized, but you can't see my UAE store".</summary><div class="body"><p>Check <code>marketplaceParticipations</code>. UAE (<code>A2VIGQ35RCS4UG</code>) is in the EU region like India, so the same endpoint works. Check that the sync includes that marketplace ID, that the seller is actually active there, and whether it's a separate account rather than a unified one. If it's a different account, it needs its own authorization.</p></div></details>
+<details class="qa"><summary><span class="tag t-likely">Likely</span>The client can't find "Develop Apps" in Seller Central.</summary><div class="body"><p>Only the primary account holder or an admin can register a developer profile and manage apps. Get the right person on the call, or have the primary user grant the permission. Some account types or regions route developer registration through the Solution Provider Portal. Have screenshots of each step ready to share on screen.</p></div></details>
+<details class="qa"><summary><span class="tag t-likely">Likely</span>What happens when we add a new role to our app?</summary><div class="body"><p>Existing authorizations don't automatically get the new access. Sellers must <strong>re-authorize</strong>, which gives a new refresh token. Plan a re-consent campaign: email plus an in-app banner, with a deadline and a tracker of who's done.</p></div></details>
+<details class="qa"><summary><span class="tag t-likely">Likely</span>How do you get near-real-time order updates from Amazon?</summary><div class="body"><p>Notifications API: create a <em>destination</em> (an SQS queue ARN, through a grantless call), then subscribe to <code>ORDER_CHANGE</code> (and <code>REPORT_PROCESSING_FINISHED</code>, <code>FBA_INVENTORY_AVAILABILITY_CHANGES</code>, etc.). Consume from SQS and fetch details with the Orders API. Keep a periodic <code>LastUpdatedAfter</code> poll as a safety net.</p></div></details>
+</section>
+
+<!-- ============================================================ -->
+<section id="ads">
+<h2>Amazon Ads API deep dive</h2>
+
+<h3>Onboarding a developer (one-time, done by the SaaS)</h3>
+<ol class="steps">
+  <li>Create an <strong>LWA security profile</strong> (developer.amazon.com → Login with Amazon), which gives a client ID and secret. Add the allowed return URLs.</li>
+  <li>Apply for <strong>Amazon Ads API access</strong> (onboarding form). Approval is needed.</li>
+  <li>After approval, link the security profile to API access.</li>
+</ol>
+
+<h3>Connecting an advertiser (each brand)</h3>
+<ol class="steps">
+  <li>Send the brand to the LWA authorize URL: <code>https://www.amazon.com/ap/oa?client_id=…&amp;scope=advertising::campaign_management&amp;response_type=code&amp;redirect_uri=…&amp;state=…</code> (EU and India use <code>eu.account.amazon.com/ap/oa</code>; FE uses <code>apac.account.amazon.com/ap/oa</code>).</li>
+  <li>They log in with an Amazon login that <strong>has access to the advertising account</strong>. This is a frequent blocker: the person on the call isn't a user in the Ads console.</li>
+  <li>Exchange the <code>code</code> at the region's token endpoint (EU: <code>api.amazon.co.uk/auth/o2/token</code>) for a refresh token, stored encrypted.</li>
+  <li><code>GET /v2/profiles</code> on <code>advertising-api-eu.amazon.com</code> lists one profile per marketplace and account. <code>accountInfo.type</code> is <code>seller</code>, <code>vendor</code> or <code>agency</code>. Pick the India profile (<code>countryCode: IN</code>).</li>
+  <li>Every request sends three headers: <code>Authorization: Bearer …</code>, <code>Amazon-Advertising-API-ClientId</code> and <code>Amazon-Advertising-API-Scope: &lt;profileId&gt;</code>.</li>
+</ol>
+
+<h3>Reporting v3 (where analytics data comes from)</h3>
+<pre><code>POST https://advertising-api-eu.amazon.com/reporting/reports
+Content-Type: application/vnd.createasyncreportrequest.v3+json
+Amazon-Advertising-API-Scope: 1234567890
+
+{
+  "name": "SP campaigns daily",
+  "startDate": "2026-10-01",
+  "endDate": "2026-10-31",
+  "configuration": {
+    "adProduct": "SPONSORED_PRODUCTS",
+    "reportTypeId": "spCampaigns",
+    "groupBy": ["campaign"],
+    "columns": ["date","campaignId","campaignName","impressions","clicks","cost","purchases7d","sales7d"],
+    "timeUnit": "DAILY",
+    "format": "GZIP_JSON"
+  }
+}
+# Response: reportId. Poll GET /reporting/reports/{reportId} until "COMPLETED", then download "url" (gzip JSON)</code></pre>
+<ul>
+  <li>Report types: <code>spCampaigns</code>, <code>spTargeting</code>, <code>spSearchTerm</code>, <code>spAdvertisedProduct</code>, <code>spPurchasedProduct</code>, plus Sponsored Brands and Sponsored Display equivalents.</li>
+  <li>Limits to remember: one request covers a limited date range (about a month), and data goes back only about 95 days for many reports. Backfill early and keep your own history.</li>
+  <li><strong>Attribution windows:</strong> Sponsored Products for sellers uses 7 days (<code>sales7d</code>); vendors and Sponsored Brands/Display commonly use 14 days. <strong>Re-pull recent days</strong>, because conversions keep arriving.</li>
+  <li>Metrics: <strong>ACoS</strong> = spend ÷ ad sales · <strong>ROAS</strong> = ad sales ÷ spend · <strong>TACoS</strong> = ad spend ÷ <em>total</em> sales (needs SP-API sales too) · CTR, CPC, CVR.</li>
+  <li><strong>Amazon Marketing Stream:</strong> hourly push of traffic and conversion data to SQS, for near-real-time dashboards.</li>
+  <li>Amazon DSP is a separate product with separate access.</li>
+</ul>
+
+<h3>Ads API errors</h3>
+<div class="table-wrap"><table>
+<tr><th>Symptom</th><th>Cause</th></tr>
+<tr><td>401 Unauthorized</td><td>Access token expired, or the wrong client ID header</td></tr>
+<tr><td>403 / "not authorized to access scope"</td><td>Wrong or missing <code>Amazon-Advertising-API-Scope</code> profile ID; profile from another region's endpoint; the user lost access</td></tr>
+<tr><td><code>/v2/profiles</code> returns empty</td><td>The Amazon login used has no advertising account access; wrong region endpoint</td></tr>
+<tr><td>429</td><td>Throttled: respect <code>Retry-After</code></td></tr>
+<tr><td>Report stuck or failed</td><td>Retry; split the date range; check the columns are valid for that report type</td></tr>
+</table></div>
+</section>
+
+<!-- ============================================================ -->
+<section id="compare">
+<h2>SP-API vs Ads API</h2>
+<p class="lead">The HR rubric literally says "a strong candidate distinguishes" them. Know this table.</p>
+<div class="table-wrap"><table>
+<tr><th></th><th>SP-API</th><th>Ads API</th></tr>
+<tr><td>Data</td><td>Orders, inventory, listings, catalogue, pricing, finances, returns, business reports</td><td>Campaigns, ad groups, keywords, targets, bids, budgets, ad performance</td></tr>
+<tr><td>Account</td><td>Seller Central or Vendor Central</td><td>The Advertising console (seller, vendor or agency profiles)</td></tr>
+<tr><td>Access approval</td><td>Developer profile plus roles</td><td>Separate Ads API application</td></tr>
+<tr><td>Consent</td><td>Seller Central consent → <code>spapi_oauth_code</code></td><td>LWA <code>/ap/oa</code> with <code>advertising::campaign_management</code> → <code>code</code></td></tr>
+<tr><td>Account selection</td><td>Marketplace IDs in the request</td><td>Profile ID in the <code>Amazon-Advertising-API-Scope</code> header</td></tr>
+<tr><td>Auth header</td><td><code>x-amz-access-token</code></td><td><code>Authorization: Bearer</code> + <code>ClientId</code> + <code>Scope</code></td></tr>
+<tr><td>Bulk data</td><td>Reports API</td><td>Reporting v3 (async)</td></tr>
+<tr><td>Push</td><td>Notifications → SQS / EventBridge</td><td>Marketing Stream → SQS</td></tr>
+<tr><td>Typical blocker</td><td>Missing role, wrong region, developer profile pending</td><td>The login used has no ads access, wrong profile, region mismatch</td></tr>
+</table></div>
+</section>
+
+<!-- ============================================================ -->
+<section id="shopify">
+<h2>Shopify</h2>
+<div class="grid2">
+<div class="card"><h4>App types</h4><ul>
+<li><strong>Custom app created in the store admin:</strong> Settings → Apps and sales channels → Develop apps → create → set Admin API scopes → install → reveal the Admin API token once (<code>shpat_…</code>). Quick for one store; the token is shown only once.</li>
+<li><strong>Public app (Partner Dashboard):</strong> many merchants install through OAuth. Can be listed on the App Store. Must handle the mandatory privacy webhooks.</li>
+<li><strong>Custom distribution app:</strong> built in the Partner/Dev Dashboard for one merchant or organisation, installed through an install link and OAuth.</li>
+</ul></div>
+<div class="card"><h4>Access requests</h4><ul>
+<li><strong>Collaborator account:</strong> a partner requests access to the store from the Partner Dashboard (the store may require a <em>collaborator request code</em> from Settings → Users). The owner approves and picks the permissions.</li>
+<li><strong>Staff account:</strong> the owner invites a user with specific permissions.</li>
+<li>For onboarding calls: you'll often need the owner, or a staff member with "Develop apps" and "Manage apps" permissions.</li>
+</ul></div>
+</div>
+
+<h3>OAuth flow (public or custom-distribution app)</h3>
+<ol class="steps">
+  <li>Install request → validate the <code>shop</code> parameter (<code>^[a-zA-Z0-9][a-zA-Z0-9\-]*\.myshopify\.com$</code>).</li>
+  <li>Redirect: <code>https://{shop}/admin/oauth/authorize?client_id=…&amp;scope=read_orders,read_products&amp;redirect_uri=…&amp;state=&lt;nonce&gt;</code>. Add <code>&amp;grant_options[]=per-user</code> for an <em>online</em> (per-user, expiring) token. The default is an <em>offline</em> token for background syncs.</li>
+  <li>Callback: verify <code>hmac</code> (HMAC-SHA256 of the sorted query string without <code>hmac</code>, using the app secret), check <code>state</code> and <code>shop</code>.</li>
+  <li><code>POST https://{shop}/admin/oauth/access_token</code> with <code>{client_id, client_secret, code}</code> → <code>{access_token, scope}</code>. Check that the granted scopes cover what you need.</li>
+  <li>Store the token encrypted. Use the header <code>X-Shopify-Access-Token</code>. Register webhooks and start the backfill.</li>
+  <li>Embedded apps can use Shopify-managed installation and <strong>token exchange</strong> (session token → access token) instead of the redirect dance. Same idea.</li>
+</ol>
+
+<h3>Scopes worth knowing</h3>
+<p><code>read_orders</code> (last 60 days only), <code>read_all_orders</code> (older history, needs approval for public apps), <code>read_products</code>, <code>read_inventory</code>, <code>read_customers</code> (protected customer data rules apply), <code>read_fulfillments</code>, <code>read_returns</code>, <code>read_analytics</code>, <code>read_reports</code>, <code>read_discounts</code>. Principle: request the <strong>minimum</strong> you need.</p>
+
+<h3>Webhooks</h3>
+<ul>
+  <li>Topics: <code>orders/create</code>, <code>orders/updated</code>, <code>orders/cancelled</code>, <code>refunds/create</code>, <code>products/update</code>, <code>inventory_levels/update</code>, <code>app/uninstalled</code>.</li>
+  <li>Verify <code>X-Shopify-Hmac-Sha256</code>: base64 HMAC-SHA256 of the <strong>raw</strong> body with the app secret. Compare in constant time.</li>
+  <li>Reply 200 quickly (within about 5 seconds), then process in the background. Shopify retries failed deliveries a limited number of times, and repeated failures can remove the subscription. Webhooks can arrive <strong>twice or out of order</strong>: dedupe with <code>X-Shopify-Webhook-Id</code> and use <code>updated_at</code> to decide which version is latest.</li>
+  <li>Never rely on webhooks alone: run a reconciliation poll (<code>updated_at_min</code>) for missed events.</li>
+  <li>Public apps must handle the privacy webhooks: <code>customers/data_request</code>, <code>customers/redact</code>, <code>shop/redact</code>.</li>
+</ul>
+
+<h3>Limits, versions and bulk</h3>
+<ul>
+  <li><strong>REST:</strong> leaky bucket per app per store (e.g. 40 requests, refilling at 2 per second on standard plans); <code>429</code> with <code>Retry-After</code>. REST is now legacy, and new public apps are expected to use GraphQL.</li>
+  <li><strong>GraphQL:</strong> cost-based limits; read <code>extensions.cost.throttleStatus</code>. Cursor pagination with <code>pageInfo { hasNextPage endCursor }</code>.</li>
+  <li><strong>Bulk operations</strong> (<code>bulkOperationRunQuery</code>) export large datasets as JSONL. You used this for history imports.</li>
+  <li><strong>API versions</strong> are quarterly (<code>2026-07</code> etc.), each supported for about a year. Pin a version and upgrade on schedule.</li>
+</ul>
+
+<details class="qa"><summary><span class="tag t-likely">Likely</span>A merchant's orders older than 60 days aren't coming through.</summary><div class="body"><p><code>read_orders</code> only gives the last 60 days. You need <code>read_all_orders</code> (approved for public apps). Request the scope, have the merchant re-authorize, then re-run the backfill.</p></div></details>
+<details class="qa"><summary><span class="tag t-likely">Likely</span>Webhooks stopped arriving for one store.</summary><div class="body"><p>Check: is the app still installed (did <code>app/uninstalled</code> fire)? Was the subscription removed after repeated failures? Is our endpoint failing HMAC because the secret was rotated? Did a deploy change the URL? Re-register the subscriptions, then backfill the gap by polling <code>updated_at_min</code> from the last event received.</p></div></details>
+</section>
+
+<!-- ============================================================ -->
+<section id="google">
+<h2>GA4 &amp; Google Ads</h2>
+<div class="grid2">
+<div class="card"><h4>GA4 Data API</h4><ul>
+<li>Set up a Google Cloud project, enable the <em>Google Analytics Data API</em>, and configure the OAuth consent screen (scope <code>https://www.googleapis.com/auth/analytics.readonly</code>). Or use a service account with <strong>Viewer</strong> on the property (what you did).</li>
+<li>Use the <strong>numeric property ID</strong>, not the <code>G-XXXX</code> measurement ID. That's a classic client mix-up.</li>
+<li><code>POST https://analyticsdata.googleapis.com/v1beta/properties/{id}:runReport</code> with <code>dateRanges</code>, <code>dimensions</code> (<code>date</code>, <code>sessionDefaultChannelGroup</code>) and <code>metrics</code> (<code>sessions</code>, <code>totalUsers</code>, <code>ecommercePurchases</code>, <code>purchaseRevenue</code>).</li>
+<li>Gotchas: 24–48 hour processing delay (re-fetch recent days), data thresholding, <code>(not set)</code> values, the property's timezone, and token-based quotas per property.</li>
+<li>Errors: 403 "User does not have sufficient permissions for this property", or the API not enabled in the project.</li>
+</ul></div>
+<div class="card"><h4>Google Ads API</h4><ul>
+<li><strong>Developer token</strong> from the manager account's <em>API Center</em>. Access levels: test (test accounts only) → basic → standard.</li>
+<li>OAuth scope <code>https://www.googleapis.com/auth/adwords</code>. Headers: <code>developer-token</code>, <code>login-customer-id</code> (the MCC ID, no dashes) and <code>Authorization</code>.</li>
+<li><strong>MCC linking:</strong> the manager sends a link request; the client accepts it under Admin → Access and security → Managers.</li>
+<li>Query with GAQL through <code>GoogleAdsService.SearchStream</code>: <code>SELECT campaign.name, metrics.cost_micros, metrics.conversions FROM campaign WHERE segments.date DURING LAST_7_DAYS</code>. Cost is in <strong>micros</strong> (÷ 1,000,000).</li>
+<li>Errors: <code>USER_PERMISSION_DENIED</code>, <code>DEVELOPER_TOKEN_NOT_APPROVED</code>, <code>CUSTOMER_NOT_ENABLED</code>, <code>AUTHENTICATION_ERROR</code>.</li>
+<li>A consent screen in "Testing" means refresh tokens expire after 7 days. Publish the app.</li>
+</ul></div>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<section id="others">
+<h2>Flipkart, Meta and quick commerce</h2>
+<ul>
+  <li><strong>Flipkart Seller API:</strong> sellers create an application in the Seller API portal (self-access, or authorize a third-party app). Tokens come from Flipkart's OAuth endpoint; there are APIs for listings, inventory, orders and shipments. Same pattern: app → credentials → token → test → map → sync.</li>
+  <li><strong>Meta Marketing API:</strong> a Business Manager system user (or long-lived user token) with the <code>ads_read</code> permission and access to the ad account <code>act_&lt;id&gt;</code>. Pull from <code>/act_&lt;id&gt;/insights</code> with fields, breakdowns and time ranges. Attribution settings differ from Shopify. You validated each store's token against its ad account before saving.</li>
+  <li><strong>Quick commerce (Blinkit, Zepto, Instamart) and Myntra, Nykaa:</strong> mostly seller or brand portals with limited public APIs. Data usually comes from portal report downloads, scheduled email reports, SFTP, or partner APIs under agreement. Onboarding means getting portal access (a user added for the platform), agreeing report formats, and mapping their SKU codes to the brand's master SKU.</li>
+</ul>
+<div class="callout"><p>If asked about a channel you haven't used: "I haven't integrated Flipkart directly yet, but the steps are the same ones I run for Shopify and Google: create the app, get credentials, authorize, test in Postman, map, sync, reconcile. I'd have it running in a day with the docs."</p></div>
+</section>
+
+<!-- ============================================================ -->
+<section id="oauth">
+<h2>OAuth 2.0 fundamentals</h2>
+<div class="table-wrap"><table>
+<tr><th>Term</th><th>Meaning</th></tr>
+<tr><td>Resource owner</td><td>The brand or merchant who owns the account</td></tr>
+<tr><td>Client</td><td>Our SaaS app (client ID and secret)</td></tr>
+<tr><td>Authorization server</td><td>Amazon LWA, Shopify, Google, which issue the tokens</td></tr>
+<tr><td>Scope</td><td>What the app may access (<code>read_orders</code>, <code>advertising::campaign_management</code>, <code>analytics.readonly</code>)</td></tr>
+<tr><td>Consent</td><td>The screen where the owner approves those scopes</td></tr>
+<tr><td>Authorization code</td><td>A short-lived, one-time code returned to the redirect URI</td></tr>
+<tr><td>Access token</td><td>Short-lived (often 1 hour), sent on each API call</td></tr>
+<tr><td>Refresh token</td><td>Long-lived; used to get new access tokens without the user. Store it encrypted.</td></tr>
+<tr><td><code>state</code></td><td>A random value we send and check on return, to prevent CSRF and to tie the callback to our session</td></tr>
+<tr><td>Redirect URI</td><td>Must exactly match the one registered. A mismatch is a top-3 onboarding error.</td></tr>
+<tr><td>PKCE</td><td>Code verifier and challenge, for public clients (mobile, SPA) without a secret</td></tr>
+</table></div>
+<h3>Grant types</h3>
+<ul>
+  <li><strong>Authorization code:</strong> user consent (Shopify, LWA, Google). The main one for onboarding.</li>
+  <li><strong>Refresh token:</strong> renew access silently.</li>
+  <li><strong>Client credentials:</strong> app-to-app with no user (SP-API grantless operations, many B2B APIs).</li>
+  <li>The password and implicit grants are legacy; avoid them.</li>
+</ul>
+<h3>Re-authorization: when and how</h3>
+<ul>
+  <li><strong>When:</strong> the refresh token is revoked (user removed the app, changed password, or their account access was removed); the authorization expired (Amazon asks sellers to renew periodically); new scopes or roles are needed; <code>invalid_grant</code>; Shopify <code>app/uninstalled</code>; Google tokens dying after 7 days in Testing mode.</li>
+  <li><strong>How:</strong> detect it (401 or <code>invalid_grant</code> on refresh) → mark the connection "needs reconnect" → <strong>notify the brand proactively</strong> (email, banner, CSM call) with a one-click reconnect link → after reconnecting, backfill the gap from the last successful sync.</li>
+</ul>
+<div class="say">OAuth lets the brand give us limited access without sharing their password. They approve specific scopes on a consent screen, we get a one-time code and exchange it server-side for a short-lived access token and a long-lived refresh token, and we store the refresh token encrypted. When a refresh fails with invalid_grant, or we need new scopes, the brand has to re-authorize. So we detect that early, tell them before their dashboard goes stale, and backfill the gap once they reconnect.</div>
+</section>
+
+<!-- ============================================================ -->
+<section id="rest">
+<h2>REST, JSON, webhooks, Postman</h2>
+
+<details class="qa"><summary><span class="tag t-tech">Tech</span>HTTP methods and idempotency</summary><div class="body">
+<p><code>GET</code> reads (safe, idempotent) · <code>POST</code> creates or triggers (not idempotent) · <code>PUT</code> replaces (idempotent) · <code>PATCH</code> partial update · <code>DELETE</code> removes (idempotent). <strong>Idempotent</strong> means repeating the same call has the same effect. That matters for retries, so use <em>idempotency keys</em> on POSTs that create things.</p></div></details>
+
+<details class="qa"><summary><span class="tag t-tech">Tech</span>What's in an HTTP request and response?</summary><div class="body">
+<p>Request: method, URL (path and query parameters), headers (<code>Authorization</code>, <code>Content-Type: application/json</code>, <code>Accept</code>) and body. Response: status code, headers (<code>Content-Type</code>, rate-limit headers, <code>Retry-After</code>, <code>Link</code> for pagination) and body (JSON). When debugging, always capture the <strong>request ID</strong> header to give the provider.</p></div></details>
+
+<details class="qa"><summary><span class="tag t-tech">Tech</span>Pagination types</summary><div class="body">
+<ul><li><strong>Offset/limit</strong> (<code>page=3&amp;limit=50</code>): simple, but records shift if the data changes during the read.</li>
+<li><strong>Cursor</strong> (Shopify <code>endCursor</code>, Amazon <code>NextToken</code>, REST <code>Link</code> header): stable. Loop until there's no next cursor.</li>
+<li><strong>Time-window</strong> (<code>updated_since</code>): for incremental syncs; overlap windows slightly.</li></ul>
+<p>A classic "missing data" bug is reading only the first page.</p></div></details>
+
+<details class="qa"><summary><span class="tag t-tech">Tech</span>Rate limits: how do you handle them?</summary><div class="body"><p>Read the provider's model (token bucket, leaky bucket, cost points). Throttle per account. On 429: exponential backoff with jitter (1s, 2s, 4s… capped) and respect <code>Retry-After</code>. Use bulk or report APIs for large pulls, cache what doesn't change, and spread scheduled syncs out so they don't all fire at once.</p></div></details>
+
+<details class="qa"><summary><span class="tag t-tech">Tech</span>Webhooks vs polling</summary><div class="body"><p>Webhooks push changes the moment they happen, so they're efficient, but they can be missed, duplicated or arrive out of order. Polling is reliable but slower and uses quota. Best practice is <strong>both</strong>: webhooks for speed, a periodic reconciliation poll for correctness, and idempotent processing (dedupe by event ID, last-write-wins by <code>updated_at</code>). Secure webhooks with HMAC signatures over the raw body, HTTPS only, and a fast 200 reply.</p></div></details>
+
+<details class="qa"><summary><span class="tag t-tech">Tech</span>JSON basics they may probe</summary><div class="body"><p>Objects <code>{}</code>, arrays <code>[]</code>, strings, numbers, booleans, <code>null</code>. Watch out for: money as strings in some APIs (<code>"Amount": "499.00"</code>), nested objects (<code>OrderTotal.Amount</code>, <code>OrderTotal.CurrencyCode</code>), a missing key vs <code>null</code>, ISO 8601 dates (<code>2026-11-05T13:00:00Z</code>), and large IDs that lose precision as JavaScript numbers (keep them as strings).</p></div></details>
+
+<details class="qa"><summary><span class="tag t-tech">Tech</span>How do you use Postman for integrations?</summary><div class="body">
+<ul>
+<li><strong>Environments</strong> per client or region holding variables: <code>{{base_url}}</code>, <code>{{client_id}}</code>, <code>{{refresh_token}}</code>, <code>{{access_token}}</code>, <code>{{marketplace_id}}</code>. Secrets go in the current value only, never committed or shared.</li>
+<li>A <strong>pre-request script</strong> fetches a fresh token automatically (below).</li>
+<li><strong>Tests</strong> tab: <code>pm.test("200", () =&gt; pm.response.to.have.status(200));</code> and checks on the fields.</li>
+<li>Collections per channel (Amazon, Ads, Shopify, Google), shared with the team as the onboarding toolkit. Use the <strong>Console</strong> to see the exact raw request and response.</li>
+<li>The collection runner or Postman CLI can run a checklist of calls for a new client in one go.</li>
+</ul>
+<pre><code>// Pre-request script: get an SP-API access token from the LWA refresh token
+pm.sendRequest({
+  url: "https://api.amazon.com/auth/o2/token",
+  method: "POST",
+  header: { "Content-Type": "application/x-www-form-urlencoded" },
+  body: { mode: "urlencoded", urlencoded: [
+    { key: "grant_type", value: "refresh_token" },
+    { key: "refresh_token", value: pm.environment.get("refresh_token") },
+    { key: "client_id", value: pm.environment.get("client_id") },
+    { key: "client_secret", value: pm.environment.get("client_secret") }
+  ]}
+}, (err, res) =&gt; {
+  if (err) { console.log(err); return; }
+  pm.environment.set("access_token", res.json().access_token);
+});
+// Then in the request headers:  x-amz-access-token: {{access_token}}</code></pre>
+</div></details>
+
+<details class="qa"><summary><span class="tag t-tech">Tech</span>API versioning, and why it matters to onboarding</summary><div class="body"><p>Providers version their APIs (Shopify <code>2026-07</code>, Amazon <code>/orders/v0</code>, <code>/reports/2021-06-30</code>, Google Ads <code>v2x</code>, Meta <code>v2x.0</code>). Pin a version, watch deprecation notices, and test upgrades in UAT. An old version that gets sunset turns into "the integration suddenly broke for everyone".</p></div></details>
+</section>
+
+<!-- ============================================================ -->
+<section id="fastapi">
+<h2>FastAPI &amp; Python</h2>
+<p class="lead">Your production work is Node.js and TypeScript, and Python is on your resume. Say: "My production services are Node and Express, but the concepts map one to one, and I'm comfortable in Python. Here's how I'd write it in FastAPI." Then show you know it.</p>
+
+<h3>Concepts to explain</h3>
+<div class="table-wrap"><table>
+<tr><th>FastAPI</th><th>What it is</th><th>Express equivalent you know</th></tr>
+<tr><td>ASGI + Starlette + Pydantic</td><td>An async web framework with validation from type hints; run it with <code>uvicorn main:app</code></td><td>Express on Node</td></tr>
+<tr><td>Path and query parameters</td><td><code>def get_order(order_id: str, limit: int = 50)</code>, typed and validated</td><td><code>req.params</code> / <code>req.query</code></td></tr>
+<tr><td>Pydantic models</td><td>Request and response schemas; invalid input automatically returns <strong>422</strong></td><td>Zod schemas (you used Zod)</td></tr>
+<tr><td><code>response_model</code></td><td>Filters and validates the output shape</td><td>Serializers / DTOs</td></tr>
+<tr><td><code>Depends()</code></td><td>Dependency injection: DB session, current user, settings</td><td>Middleware / <code>req.user</code></td></tr>
+<tr><td><code>async def</code> vs <code>def</code></td><td><code>async</code> for awaiting I/O (httpx, async DB). Plain <code>def</code> runs in a threadpool. Never block inside <code>async def</code>.</td><td>async/await</td></tr>
+<tr><td><code>BackgroundTasks</code></td><td>Work after the response (fine for small jobs). Use Celery, RQ or a queue for heavy syncs.</td><td>Worker queue</td></tr>
+<tr><td><code>APIRouter</code>, middleware, exception handlers, CORS</td><td>Structure, cross-cutting logic, error responses</td><td>Routers / middleware</td></tr>
+<tr><td>Auto docs</td><td><code>/docs</code> (Swagger UI) and <code>/redoc</code> from the OpenAPI schema</td><td>swagger-jsdoc</td></tr>
+<tr><td><code>TestClient</code></td><td>Tests with pytest</td><td>supertest</td></tr>
+</table></div>
+
+<h3>1. Shopify OAuth: install and callback</h3>
+<pre><code>import hashlib, hmac, os, re, secrets
+import httpx
+from fastapi import FastAPI, HTTPException, Request
+from fastapi.responses import RedirectResponse
+
+app = FastAPI()
+CLIENT_ID = os.environ["SHOPIFY_CLIENT_ID"]
+CLIENT_SECRET = os.environ["SHOPIFY_CLIENT_SECRET"]
+REDIRECT_URI = "https://app.example.com/shopify/callback"
+SCOPES = "read_orders,read_products,read_inventory"
+SHOP_RE = re.compile(r"^[a-zA-Z0-9][a-zA-Z0-9\-]*\.myshopify\.com$")
+pending_states: dict[str, str] = {}          # use the DB or Redis in real life
+
+@app.get("/shopify/install")
+def install(shop: str):
+    if not SHOP_RE.match(shop):
+        raise HTTPException(400, "Invalid shop domain")
+    state = secrets.token_urlsafe(16)
+    pending_states[state] = shop
+    url = (f"https://{shop}/admin/oauth/authorize?client_id={CLIENT_ID}"
+           f"&amp;scope={SCOPES}&amp;redirect_uri={REDIRECT_URI}&amp;state={state}")
+    return RedirectResponse(url)
+
+@app.get("/shopify/callback")
+async def callback(request: Request):
+    params = dict(request.query_params)
+    received_hmac = params.pop("hmac", "")
+    message = "&amp;".join(f"{k}={v}" for k, v in sorted(params.items()))
+    expected = hmac.new(CLIENT_SECRET.encode(), message.encode(), hashlib.sha256).hexdigest()
+    shop = params.get("shop", "")
+    if (not hmac.compare_digest(expected, received_hmac)
+            or pending_states.pop(params.get("state", ""), None) != shop
+            or not SHOP_RE.match(shop)):
+        raise HTTPException(401, "Verification failed")
+
+    async with httpx.AsyncClient(timeout=20) as client:
+        r = await client.post(f"https://{shop}/admin/oauth/access_token",
+                              json={"client_id": CLIENT_ID, "client_secret": CLIENT_SECRET,
+                                    "code": params["code"]})
+    r.raise_for_status()
+    data = r.json()                                  # {"access_token": "...", "scope": "read_orders,..."}
+    missing = set(SCOPES.split(",")) - set(data["scope"].split(","))
+    if missing:
+        raise HTTPException(400, f"Missing scopes: {missing}")
+    save_encrypted_token(shop, data["access_token"])  # never send it to the browser
+    start_backfill(shop)
+    return RedirectResponse("/onboarding/shopify/connected")</code></pre>
+
+<h3>2. Webhook receiver: verify HMAC, reply fast, process later</h3>
+<pre><code>import base64
+from fastapi import BackgroundTasks
+
+@app.post("/webhooks/shopify")
+async def shopify_webhook(request: Request, tasks: BackgroundTasks):
+    raw = await request.body()                      # the RAW body, before any JSON parsing
+    sent = request.headers.get("X-Shopify-Hmac-Sha256", "")
+    digest = base64.b64encode(
+        hmac.new(CLIENT_SECRET.encode(), raw, hashlib.sha256).digest()).decode()
+    if not hmac.compare_digest(digest, sent):
+        raise HTTPException(401, "Bad signature")
+
+    event_id = request.headers.get("X-Shopify-Webhook-Id")
+    topic = request.headers.get("X-Shopify-Topic")
+    shop = request.headers.get("X-Shopify-Shop-Domain")
+    if already_processed(event_id):                 # webhooks can be delivered twice
+        return {"ok": True}
+    tasks.add_task(process_event, shop, topic, raw) # heavy work after replying
+    return {"ok": True}                             # 200 within a few seconds</code></pre>
+
+<h3>3. SP-API: token refresh, pagination, 429 backoff</h3>
+<pre><code>import asyncio, random
+import httpx
+
+LWA_URL = "https://api.amazon.com/auth/o2/token"
+SPAPI_EU = "https://sellingpartnerapi-eu.amazon.com"   # India is in the EU region
+INDIA = "A21TJRUUN4KGV"
+
+async def get_access_token(client: httpx.AsyncClient, refresh_token: str) -&gt; str:
+    r = await client.post(LWA_URL, data={
+        "grant_type": "refresh_token", "refresh_token": refresh_token,
+        "client_id": LWA_CLIENT_ID, "client_secret": LWA_CLIENT_SECRET})
+    if r.status_code == 400 and r.json().get("error") == "invalid_grant":
+        raise NeedsReauthorization()                  # tell the brand to reconnect
+    r.raise_for_status()
+    return r.json()["access_token"]                   # valid for 3600 seconds
+
+async def fetch_orders(refresh_token: str, last_updated_after: str) -&gt; list[dict]:
+    orders: list[dict] = []
+    async with httpx.AsyncClient(timeout=30) as client:
+        token = await get_access_token(client, refresh_token)
+        params = {"MarketplaceIds": INDIA, "LastUpdatedAfter": last_updated_after}
+        attempt = 0
+        while True:
+            r = await client.get(f"{SPAPI_EU}/orders/v0/orders", params=params,
+                                 headers={"x-amz-access-token": token})
+            if r.status_code == 429:                  # throttled
+                attempt += 1
+                await asyncio.sleep(min(60, 2 ** attempt) + random.random())
+                continue
+            if r.status_code == 401:                  # token expired mid-run
+                token = await get_access_token(client, refresh_token)
+                continue
+            r.raise_for_status()
+            attempt = 0
+            payload = r.json()["payload"]
+            orders.extend(payload.get("Orders", []))
+            next_token = payload.get("NextToken")
+            if not next_token:
+                return orders
+            params = {"MarketplaceIds": INDIA, "NextToken": next_token}</code></pre>
+
+<h3>4. Mapping with Pydantic (the source shape becomes the platform shape)</h3>
+<pre><code>from datetime import datetime
+from decimal import Decimal
+from pydantic import BaseModel
+
+STATUS_MAP = {"Pending": "pending", "Unshipped": "open", "PartiallyShipped": "open",
+              "Shipped": "fulfilled", "Canceled": "cancelled", "Unfulfillable": "cancelled"}
+
+class PlatformOrder(BaseModel):
+    channel: str
+    order_id: str
+    ordered_at: datetime            # stored in UTC
+    status: str
+    total: Decimal | None           # Amazon Pending orders have no total yet
+    currency: str | None
+
+def map_amazon(o: dict) -&gt; PlatformOrder:
+    total = o.get("OrderTotal") or {}
+    return PlatformOrder(
+        channel="amazon",
+        order_id=o["AmazonOrderId"],
+        ordered_at=o["PurchaseDate"],
+        status=STATUS_MAP.get(o["OrderStatus"], "unknown"),
+        total=Decimal(total["Amount"]) if "Amount" in total else None,
+        currency=total.get("CurrencyCode"),
+    )</code></pre>
+
+<h3>FastAPI questions</h3>
+<details class="qa"><summary><span class="tag t-tech">Tech</span>Why FastAPI over Flask or Django?</summary><div class="body"><p>It's async-first (good for I/O-heavy integration calls), validates requests and responses from type hints with Pydantic, generates OpenAPI docs automatically, and performs well. Flask is simpler and synchronous by default. Django is a full framework with an ORM and admin, which is heavier for a pure API.</p></div></details>
+<details class="qa"><summary><span class="tag t-tech">Tech</span>What happens when a request body fails validation?</summary><div class="body"><p>FastAPI returns <strong>422 Unprocessable Entity</strong> with a JSON list of which field failed and why. You can customise it with an exception handler for <code>RequestValidationError</code>.</p></div></details>
+<details class="qa"><summary><span class="tag t-tech">Tech</span>How do you protect an endpoint?</summary><div class="body"><p>A dependency, e.g. <code>OAuth2PasswordBearer</code> or a custom header check, that verifies the token or API key and returns the current user; add <code>Depends(get_current_user)</code> to the route or router. For webhooks: HMAC verification on the raw body. Plus HTTPS, CORS rules and rate limiting.</p></div></details>
+<details class="qa"><summary><span class="tag t-tech">Tech</span>How would you run long syncs?</summary><div class="body"><p>Not in the request. The endpoint enqueues a job (Celery, RQ or Arq with Redis, or a DB jobs table claimed with <code>SELECT … FOR UPDATE SKIP LOCKED</code>, which is what you built) and returns 202 with a job ID. Workers run the job with retries and checkpoints, and the UI polls the status.</p></div></details>
+<details class="qa"><summary><span class="tag t-tech">Tech</span>Python basics they may slip in</summary><div class="body"><ul>
+<li>List vs tuple vs dict vs set; list and dict comprehensions.</li>
+<li><code>requests</code> (sync) vs <code>httpx</code> (sync and async); <code>json.loads</code> / <code>json.dumps</code>.</li>
+<li><code>try / except / finally</code>; raising custom exceptions.</li>
+<li>Virtual environments (<code>python -m venv</code>), <code>pip install -r requirements.txt</code>.</li>
+<li><code>datetime</code> with timezones (<code>zoneinfo.ZoneInfo("Asia/Kolkata")</code>); <code>Decimal</code> for money, never float.</li>
+</ul></div></details>
+</section>
+
+<!-- ============================================================ -->
+<section id="sql">
+<h2>SQL &amp; databases</h2>
+<p class="lead">"Basic SQL" in the JD means validation queries. Know these by heart. They work in MySQL and PostgreSQL unless noted.</p>
+
+<h3>Validation queries</h3>
+<pre><code>-- 1) Daily counts and totals, to compare with Seller Central / Shopify (in IST)
+SELECT DATE(CONVERT_TZ(ordered_at, '+00:00', '+05:30')) AS day_ist,   -- MySQL; Postgres: (ordered_at AT TIME ZONE 'Asia/Kolkata')::date
+       COUNT(*)            AS orders,
+       SUM(total_amount)   AS sales
+FROM orders
+WHERE store_id = 42 AND channel = 'amazon'
+  AND ordered_at &gt;= '2026-09-30 18:30:00' AND ordered_at &lt; '2026-10-31 18:30:00'
+GROUP BY day_ist
+ORDER BY day_ist;
+
+-- 2) Duplicates
+SELECT order_id, COUNT(*) AS copies
+FROM orders
+WHERE store_id = 42
+GROUP BY order_id
+HAVING COUNT(*) &gt; 1;
+
+-- 3) Missing records: in the source extract (staging) but not in the platform
+SELECT s.order_id
+FROM staging_source_orders s
+LEFT JOIN orders o ON o.store_id = s.store_id AND o.order_id = s.order_id
+WHERE o.order_id IS NULL;
+
+-- 4) Field-level mismatch between source and platform
+SELECT s.order_id, s.total AS source_total, o.total_amount AS platform_total
+FROM staging_source_orders s
+JOIN orders o ON o.store_id = s.store_id AND o.order_id = s.order_id
+WHERE s.total &lt;&gt; o.total_amount OR s.status &lt;&gt; o.status;
+
+-- 5) Connected stores that have no data yet
+SELECT c.store_id, c.channel, c.connected_at
+FROM connections c
+LEFT JOIN orders o ON o.store_id = c.store_id AND o.channel = c.channel
+WHERE c.status = 'active'
+GROUP BY c.store_id, c.channel, c.connected_at
+HAVING COUNT(o.order_id) = 0;
+
+-- 6) Last successful sync per connection (freshness)
+SELECT store_id, channel, MAX(finished_at) AS last_success
+FROM sync_runs
+WHERE status = 'success'
+GROUP BY store_id, channel
+ORDER BY last_success;
+
+-- 7) Keep one row per order (dedupe with a window function)
+WITH ranked AS (
+  SELECT id, ROW_NUMBER() OVER (PARTITION BY store_id, order_id ORDER BY updated_at DESC) AS rn
+  FROM orders
+)
+DELETE FROM orders WHERE id IN (SELECT id FROM ranked WHERE rn &gt; 1);   -- MySQL may need a derived table
+
+-- 8) Idempotent upsert, so re-syncs update instead of duplicating
+-- MySQL
+INSERT INTO orders (store_id, order_id, status, total_amount, updated_at)
+VALUES (42, '403-1234567-1234567', 'shipped', 499.00, NOW())
+ON DUPLICATE KEY UPDATE status = VALUES(status), total_amount = VALUES(total_amount), updated_at = VALUES(updated_at);
+-- PostgreSQL
+-- ... ON CONFLICT (store_id, order_id) DO UPDATE SET status = EXCLUDED.status, total_amount = EXCLUDED.total_amount;
+
+-- 9) Days with no data at all (gaps), Postgres
+SELECT d::date AS day
+FROM generate_series('2026-10-01'::date, '2026-10-31'::date, interval '1 day') d
+LEFT JOIN daily_sales s ON s.day = d::date AND s.store_id = 42
+WHERE s.day IS NULL;
+
+-- 10) Top SKUs by revenue, to compare with the channel's report
+SELECT sku, SUM(quantity) AS units, SUM(line_total) AS revenue
+FROM order_items
+WHERE store_id = 42 AND ordered_at &gt;= '2026-10-01'
+GROUP BY sku
+ORDER BY revenue DESC
+LIMIT 10;</code></pre>
+
+<h3>Database questions</h3>
+<details class="qa"><summary><span class="tag t-tech">DB</span>INNER vs LEFT JOIN?</summary><div class="body"><p>INNER returns only matching rows on both sides. LEFT returns every row from the left table, with NULLs where the right side has no match. That's why <code>LEFT JOIN … WHERE right.id IS NULL</code> finds missing records.</p></div></details>
+<details class="qa"><summary><span class="tag t-tech">DB</span>WHERE vs HAVING?</summary><div class="body"><p>WHERE filters rows <em>before</em> grouping; HAVING filters groups <em>after</em> aggregation (<code>HAVING COUNT(*) &gt; 1</code>).</p></div></details>
+<details class="qa"><summary><span class="tag t-tech">DB</span>Primary key vs unique key vs foreign key?</summary><div class="body"><p>Primary key: unique, not null, one per table, identifies the row. Unique key: no duplicates (one NULL may be allowed, depending on the DB), and several are allowed. Foreign key: references another table's key to keep the data consistent (e.g. orders.store_id → stores.id, cascading deletes). For integrations, a <strong>unique key on (store_id, source_order_id)</strong> is what makes upserts idempotent.</p></div></details>
+<details class="qa"><summary><span class="tag t-tech">DB</span>What is an index? When does it hurt?</summary><div class="body"><p>A sorted structure (B-tree) that makes lookups, joins and range scans fast. Composite indexes follow the <strong>leftmost-prefix</strong> rule: (store_id, date) helps <code>WHERE store_id = ? AND date BETWEEN …</code> but not <code>WHERE date = ?</code> alone. Costs: slower writes and extra storage. Check queries with <code>EXPLAIN</code>.</p></div></details>
+<details class="qa"><summary><span class="tag t-tech">DB</span>What are transactions and ACID?</summary><div class="body"><p>Atomicity (all or nothing), Consistency (constraints hold), Isolation (concurrent transactions don't interfere), Durability (committed means saved). Example: replace a day's ad rows in one transaction, deleting the old rows and inserting the new ones, so dashboards never see half the data.</p></div></details>
+<details class="qa"><summary><span class="tag t-tech">DB</span>Why DECIMAL for money and UTC for time?</summary><div class="body"><p>FLOAT has rounding errors (0.1 + 0.2 ≠ 0.3), so money uses DECIMAL(14,2). Store times in UTC, convert to the brand's timezone for reporting, and keep each store's timezone. Day boundaries are the number-one cause of "your numbers don't match".</p></div></details>
+<details class="qa"><summary><span class="tag t-tech">DB</span>DELETE vs TRUNCATE vs DROP; UNION vs UNION ALL?</summary><div class="body"><p>DELETE removes rows (can have a WHERE; logged; can be rolled back). TRUNCATE empties the whole table quickly and resets auto-increment. DROP removes the table itself. UNION removes duplicates; UNION ALL keeps them and is faster.</p></div></details>
+<details class="qa"><summary><span class="tag t-tech">DB</span>Normalization vs denormalization for analytics?</summary><div class="body"><p>Normalize transactional data (orders, items, refunds) to avoid duplication and anomalies. For dashboards, build <strong>daily aggregate tables</strong> (store × date × channel) so queries are fast. That's what you did: daily totals rebuilt from the stored orders.</p></div></details>
+<details class="qa"><summary><span class="tag t-tech">DB</span>OLTP vs OLAP; SQL vs NoSQL?</summary><div class="body"><p>OLTP: many small reads and writes (the app's database). OLAP: big aggregations (warehouses like BigQuery, Redshift, ClickHouse). SQL: structured, relational, joins and constraints. NoSQL: flexible documents or key-value, good for raw API payloads and logs. Many integration platforms keep the raw JSON alongside the mapped tables so they can reprocess it.</p></div></details>
+<details class="qa"><summary><span class="tag t-tech">DB</span>A query on orders became slow. What do you do?</summary><div class="body"><p><code>EXPLAIN</code> it: look for a full table scan, a missing index, functions applied to indexed columns (<code>DATE(col)</code> blocks index use, so use a range instead), <code>SELECT *</code>, or N+1 queries from the app. Add or adjust a composite index, paginate, or pre-aggregate.</p></div></details>
+</section>
+
+<!-- ============================================================ -->
+<section id="data">
+<h2>Data mapping, sync &amp; validation</h2>
+<h3>Mapping sheet template (one per channel)</h3>
+<div class="table-wrap"><table>
+<tr><th>Source field</th><th>Platform field</th><th>Type</th><th>Transform</th><th>Notes</th></tr>
+<tr><td><code>AmazonOrderId</code></td><td>order_id</td><td>string</td><td>none</td><td>Part of the unique key with store_id</td></tr>
+<tr><td><code>PurchaseDate</code></td><td>ordered_at</td><td>datetime (UTC)</td><td>ISO 8601 → UTC; report in IST</td><td>Day boundaries</td></tr>
+<tr><td><code>OrderStatus</code></td><td>status</td><td>enum</td><td>Status map</td><td>Pending has no total</td></tr>
+<tr><td><code>OrderTotal.Amount</code></td><td>total_amount</td><td>decimal</td><td>string → Decimal</td><td>Nullable</td></tr>
+<tr><td><code>OrderTotal.CurrencyCode</code></td><td>currency</td><td>char(3)</td><td>none</td><td>Multi-marketplace</td></tr>
+<tr><td><code>FulfillmentChannel</code></td><td>fulfilment</td><td>enum</td><td>AFN → FBA, MFN → merchant</td><td></td></tr>
+<tr><td><code>SellerSKU</code> / <code>ASIN</code></td><td>sku / product_id</td><td>string</td><td>Look up the master SKU</td><td>Cross-channel identity</td></tr>
+</table></div>
+
+<h3>Sync design checklist</h3>
+<ul>
+  <li>Backfill window agreed (e.g. 180 days) through bulk or report APIs.</li>
+  <li>Incremental by "updated since", with an overlap. Webhooks or notifications where available.</li>
+  <li>Re-sync window for late data (ads conversions, returns, GA4).</li>
+  <li>Idempotent upserts on a natural unique key; batched writes; transactions for replace-by-window.</li>
+  <li>Checkpoint the cursor or <code>NextToken</code>; retries with backoff; a dead-letter list for records that fail.</li>
+  <li>A job log per run (records read, written, failed; duration; error); alerts on failure or staleness.</li>
+  <li>Raw payloads kept for a while, so the data can be rebuilt after a mapping fix without calling the API again (you did this for Clarity).</li>
+</ul>
+
+<h3>Data quality checks (the JD's words)</h3>
+<div class="table-wrap"><table>
+<tr><th>Check</th><th>How</th></tr>
+<tr><td>Accuracy</td><td>Totals and spot-checked records match the source</td></tr>
+<tr><td>Completeness</td><td>Counts per day match; no missing days; every page fetched</td></tr>
+<tr><td>Consistency</td><td>The same order has the same values across tables and channels; currencies and timezones are consistent</td></tr>
+<tr><td>Correctness</td><td>Business rules hold (no negative quantities, statuses valid, dates not in the future)</td></tr>
+<tr><td>Duplication</td><td>GROUP BY on the key, HAVING COUNT &gt; 1</td></tr>
+<tr><td>Timeliness</td><td>Last sync within the SLA; today's data present</td></tr>
+</table></div>
+</section>
+
+<!-- ============================================================ -->
+<section id="trouble">
+<h2>Troubleshooting playbooks</h2>
+<p class="lead">The universal method: <strong>scope → connection → jobs → logs → reproduce in Postman → split "provider vs us" → fix → re-sync → verify → close the loop.</strong></p>
+
+<details class="qa"><summary><span class="tag t-likely">Playbook</span>401 Unauthorized</summary><div class="body"><ol><li>Is the access token expired? Refresh it and retry.</li><li>If the refresh fails with <code>invalid_grant</code>: the token was revoked or the authorization expired, so the brand must reconnect.</li><li>Is the header right? (<code>x-amz-access-token</code> vs <code>Authorization: Bearer</code> vs <code>X-Shopify-Access-Token</code>.)</li><li><code>invalid_client</code>: the client secret was rotated or expired. Update it in the vault.</li></ol></div></details>
+<details class="qa"><summary><span class="tag t-likely">Playbook</span>403 Forbidden</summary><div class="body"><ol><li>Does the token's scope or role cover this endpoint? (Missing SP-API role, missing Shopify scope.)</li><li>Region and endpoint: an India seller on the NA endpoint gives a 403.</li><li>Ads: is the profile ID header correct and from the same region?</li><li>Google Ads: <code>login-customer-id</code> missing, or the account isn't linked to the MCC.</li><li>GA4: the service account or user isn't on the property.</li><li>The user who authorized lost their permission in the account.</li></ol></div></details>
+<details class="qa"><summary><span class="tag t-likely">Playbook</span>429 / slow sync</summary><div class="body"><ol><li>Check the rate-limit headers; identify the operation.</li><li>Backoff with jitter; reduce concurrency per account.</li><li>Move bulk pulls to the Reports API or bulk operations.</li><li>Stagger scheduled syncs across accounts.</li></ol></div></details>
+<details class="qa"><summary><span class="tag t-likely">Playbook</span>Partial data (some days or orders missing)</summary><div class="body"><ol><li>Pagination: did we follow every <code>NextToken</code> or cursor?</li><li>Date boundaries: UTC vs local; inclusive or exclusive end dates.</li><li>Status filters: Pending or Cancelled excluded on purpose?</li><li>Scope limits: Shopify's 60 days without <code>read_all_orders</code>; Ads report retention.</li><li>Failed job runs in that window: re-run the window.</li></ol></div></details>
+<details class="qa"><summary><span class="tag t-likely">Playbook</span>Duplicates</summary><div class="body"><ol><li>Find them with GROUP BY / HAVING.</li><li>Cause: no unique key, a webhook plus a poll both inserting, a retry after a timeout that actually succeeded.</li><li>Fix: a unique key plus upsert; dedupe events by ID; clean up with ROW_NUMBER.</li></ol></div></details>
+<details class="qa"><summary><span class="tag t-likely">Playbook</span>Totals don't match the channel's report</summary><div class="body"><ol><li>Same date range and timezone?</li><li>Same definition: tax and shipping included? Refunds by order date or refund date? Cancellations?</li><li>Attribution windows (ads: 7 or 14 days) and late data (re-sync recent days).</li><li>Currency (multi-marketplace).</li><li>Narrow it to the day, then to the order, and compare field by field.</li></ol></div></details>
+<details class="qa"><summary><span class="tag t-likely">Playbook</span>OAuth consent fails during the call</summary><div class="body"><ol><li><code>redirect_uri</code> mismatch: it must match exactly (https, trailing slash).</li><li>Wrong account logged in: ask them to log out of other Amazon or Google accounts, or use an incognito window.</li><li>The user lacks admin or app-management rights.</li><li>Draft SP-API app without <code>version=beta</code>.</li><li>Pop-up or cookie blockers; an expired state or code (they took longer than the code's lifetime, about 5 minutes for Amazon), so restart the flow.</li></ol></div></details>
+</section>
+
+<!-- ============================================================ -->
+<section id="customer">
+<h2>Handling clients on calls</h2>
+<p class="lead">The JD says: "owns a client call… avoids dead air while troubleshooting… clear next steps… follows up until closure… calm when the client is blocked or frustrated."</p>
+<div class="grid2">
+<div class="card"><h4>Before the call</h4><ul>
+<li>Send an agenda and a prerequisites checklist: who must join (the Seller Central primary user, a Shopify owner or staff member with app permissions, a Google admin), and which logins to have ready.</li>
+<li>Pre-check what you can: the app is approved, the redirect URIs are right, a test account works.</li>
+<li>Have screenshots or a short guide for every step.</li>
+</ul></div>
+<div class="card"><h4>During the call</h4><ul>
+<li>Narrate: "You'll see a consent screen next. Choose amazon.in and click Confirm."</li>
+<li>Confirm each step's success before moving on.</li>
+<li>If something breaks: acknowledge it, say what you're checking, and keep them involved: "While I check the logs, could you open Settings → User permissions?"</li>
+<li>End with: what's done, what's pending, who owns it, and when.</li>
+</ul></div>
+<div class="card"><h4>Phrases that avoid dead air</h4><ul>
+<li>"Give me 30 seconds, I'm checking whether the token reached us."</li>
+<li>"Good news: the connection worked. Now I'm checking the first data pull."</li>
+<li>"This one needs our engineering team. I'll update you by 5 PM today, whatever the status."</li>
+<li>"Let's use the remaining time to connect Shopify and Google, so we keep moving."</li>
+</ul></div>
+<div class="card"><h4>After the call</h4><ul>
+<li>Same-day written summary: done, pending, owners, dates.</li>
+<li>Follow up until first data appears and has been validated with the brand.</li>
+<li>Log friction points (a confusing step, a missing permission) and send them to Product.</li>
+</ul></div>
+</div>
+<details class="qa"><summary><span class="tag t-likely">Likely</span>Explain a technical concept to a non-technical brand owner.</summary><div class="body"><div class="say">"Authorizing is like giving us a read-only key to your Amazon reports. We never see your password, you choose what we can see, and you can take the key back any time from Seller Central. Every year or so Amazon asks you to renew it, and we'll remind you before that."</div></div></details>
+<details class="qa"><summary><span class="tag t-likely">Likely</span>The client is unresponsive for days and onboarding is stuck.</summary><div class="body"><p>Follow up on a different channel (call instead of email), make the ask tiny ("we only need the GA4 Viewer access, it takes 2 minutes, here's the exact step"), loop in their account owner or our CSM, and give a clear date: "to go live on the 15th, we need this by the 10th". Record it in the tracker as a client-side blocker.</p></div></details>
+<details class="qa"><summary><span class="tag t-likely">Likely</span>The client asks for something our platform doesn't support.</summary><div class="body"><p>Understand the underlying need and offer what's possible now (a workaround or an export). Don't promise; log it for Product with the business context, then tell the client what happened to the request.</p></div></details>
+</section>
+
+<!-- ============================================================ -->
+<section id="golive">
+<h2>Go-live &amp; post-go-live stabilization</h2>
+<div class="grid2">
+<div class="card"><h4>Go-live checklist</h4><ul>
+<li>All required channels connected; connection tests pass</li>
+<li>Backfill complete for the agreed window</li>
+<li>3–7 sample days reconciled (counts, totals, records) and signed off</li>
+<li>Known differences documented (attribution, timezone, Pending orders)</li>
+<li>Sync schedule on; alerts for failures, stale data and token errors</li>
+<li>Client trained; support contact and SLA shared</li>
+<li>Integration documentation updated (accounts, IDs, scopes, owner contacts)</li>
+</ul></div>
+<div class="card"><h4>Stabilization (hypercare, first 1–2 weeks)</h4><ul>
+<li>Check sync health and daily totals every day</li>
+<li>Watch throttling, token refresh failures, schema surprises (new statuses, <code>(not set)</code>)</li>
+<li>Quick fixes for edge cases; re-sync affected windows</li>
+<li>Weekly check-in with the client; confirm the dashboard matches their view</li>
+<li>Hand over to steady-state support with a runbook of known issues</li>
+<li>Retrospective: what slowed onboarding, then tell Product</li>
+</ul></div>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<section id="behaviour">
+<h2>Behavioural questions</h2>
+<details class="qa"><summary><span class="tag t-likely">Likely</span>Tell me about a time you made a mistake.</summary><div class="body"><p>Choose a real, technical one with a lesson. For example: an early sync version compared numbers on a different basis (refunds by order date) than the business's reference report. The lesson: <strong>agree definitions with the stakeholder before validating</strong>. You now put that step first.</p></div></details>
+<details class="qa"><summary><span class="tag t-likely">Likely</span>How do you prioritise between several clients?</summary><div class="body"><p>Impact and urgency: anything blocking a go-live date or causing wrong data on a live account comes first, then onboarding steps that unblock first data, then improvements. Be transparent with clients about timelines. Batch similar tasks (all GA4 access requests together). Escalate early when two commitments clash.</p></div></details>
+<details class="qa"><summary><span class="tag t-likely">Likely</span>How do you learn a new platform quickly?</summary><div class="body"><div class="say">Official docs first: auth, rate limits, the main endpoints. Then a Postman collection against a sandbox or test account, then a one-page cheat sheet of setup steps and common errors for the team. I use AI tools to speed up reading docs and writing test scripts, but I verify against the real API. That's how I added seven different data sources in a few weeks.</div></div></details>
+<details class="qa"><summary><span class="tag t-likely">Likely</span>How do you use AI in your work?</summary><div class="body"><div class="say">Every day. I built my last three platforms with Claude Code as a pair programmer: I set the architecture, write precise instructions, and review and test every change. For onboarding, AI helps me draft client guides, read unfamiliar API docs quickly, and analyse error logs. I never ship anything I haven't verified myself.</div></div></details>
+<details class="qa"><summary><span class="tag t-likely">Likely</span>Are you OK relocating to Bengaluru / with the notice period?</summary><div class="body"><p>Decide your answers before the call: relocation, notice period, and when you could join. Keep the salary discussion for HR and give a researched range. (Your numbers aren't written on this page because it's public.)</p></div></details>
+</section>
+
+<!-- ============================================================ -->
+<section id="rapid">
+<h2>Rapid-fire Q&amp;A</h2>
+<p class="lead">One-line answers. Click to reveal.</p>
+<details class="qa"><summary>What is LWA?</summary><div class="body">Login with Amazon: Amazon's OAuth 2.0 service, which issues the tokens for both SP-API and the Ads API.</div></details>
+<details class="qa"><summary>How long does an SP-API access token last?</summary><div class="body">1 hour (3600 seconds). Refresh it with the refresh token.</div></details>
+<details class="qa"><summary>Which SP-API endpoint is used for India?</summary><div class="body">EU: <code>sellingpartnerapi-eu.amazon.com</code>, marketplace <code>A21TJRUUN4KGV</code>.</div></details>
+<details class="qa"><summary>Do SP-API calls still need AWS SigV4 signing?</summary><div class="body">No. Since late 2023 the LWA access token in <code>x-amz-access-token</code> is enough.</div></details>
+<details class="qa"><summary>What's an RDT?</summary><div class="body">A Restricted Data Token, from the Tokens API, needed to read PII such as buyer names and addresses. It requires restricted roles.</div></details>
+<details class="qa"><summary>How do you get bulk order history from Amazon?</summary><div class="body">The Reports API (create report → poll → get document → download), not paging through getOrders.</div></details>
+<details class="qa"><summary>How does Amazon push events?</summary><div class="body">The Notifications API, delivering to SQS or EventBridge. Not plain HTTP webhooks.</div></details>
+<details class="qa"><summary>What does the <code>Amazon-Advertising-API-Scope</code> header hold?</summary><div class="body">The advertising profile ID (one per marketplace and account).</div></details>
+<details class="qa"><summary>What's the first Ads API call after authorization?</summary><div class="body"><code>GET /v2/profiles</code>, to find the profile IDs.</div></details>
+<details class="qa"><summary>What is ACoS vs TACoS?</summary><div class="body">ACoS = ad spend ÷ ad-attributed sales. TACoS = ad spend ÷ total sales (needs SP-API sales too).</div></details>
+<details class="qa"><summary>Seller vs vendor in one line?</summary><div class="body">A seller (3P) sells to customers on Seller Central; a vendor (1P) sells wholesale to Amazon on Vendor Central.</div></details>
+<details class="qa"><summary>Shopify offline vs online token?</summary><div class="body">Offline: for the app's background work, long-lived. Online: tied to one user's session, expires.</div></details>
+<details class="qa"><summary>How do you verify a Shopify webhook?</summary><div class="body">Base64 HMAC-SHA256 of the raw body with the app secret, compared in constant time with <code>X-Shopify-Hmac-Sha256</code>.</div></details>
+<details class="qa"><summary>Which scope gives Shopify orders older than 60 days?</summary><div class="body"><code>read_all_orders</code>.</div></details>
+<details class="qa"><summary>What is the <code>state</code> parameter for?</summary><div class="body">CSRF protection: a random value sent in the authorize URL and checked on the callback.</div></details>
+<details class="qa"><summary>What does GA4 need: the measurement ID or the property ID?</summary><div class="body">The numeric property ID for the Data API. <code>G-XXXX</code> is the measurement ID used for tagging.</div></details>
+<details class="qa"><summary>Google Ads <code>login-customer-id</code>?</summary><div class="body">The manager (MCC) account ID, without dashes, when you access a client account through the manager.</div></details>
+<details class="qa"><summary>Google refresh tokens expire after 7 days. Why?</summary><div class="body">The OAuth consent screen is in "Testing". Publish the app (move it to production).</div></details>
+<details class="qa"><summary>401 vs 403?</summary><div class="body">401: who are you? (bad or expired credentials). 403: I know who you are, and you're not allowed (scope, role, permission).</div></details>
+<details class="qa"><summary>What's idempotency?</summary><div class="body">Doing the same operation twice gives the same result. You get it with unique keys and upserts, or idempotency keys.</div></details>
+<details class="qa"><summary>Exponential backoff?</summary><div class="body">Retry after 1s, 2s, 4s, 8s… plus random jitter, up to a cap. Respect <code>Retry-After</code>.</div></details>
+<details class="qa"><summary>PUT vs PATCH?</summary><div class="body">PUT replaces the whole resource; PATCH updates part of it.</div></details>
+<details class="qa"><summary>What does a 422 mean in FastAPI?</summary><div class="body">The request failed Pydantic validation.</div></details>
+<details class="qa"><summary>Where are FastAPI's docs?</summary><div class="body"><code>/docs</code> (Swagger UI) and <code>/redoc</code>.</div></details>
+<details class="qa"><summary>Why store a refresh token encrypted?</summary><div class="body">It grants long-term access to the brand's data. Treat it like a password: encrypted at rest (e.g. AES-256-GCM), never sent to the browser, access logged.</div></details>
+<details class="qa"><summary>What's UAT?</summary><div class="body">User Acceptance Testing: the client or business confirms the integration and data meet their needs before go-live.</div></details>
+<details class="qa"><summary>What's a sandbox?</summary><div class="body">A test environment with mock or test data (the SP-API sandbox, Shopify development stores, Google Ads test accounts).</div></details>
+<details class="qa"><summary>What's the difference between OMS, WMS and ERP?</summary><div class="body">OMS manages orders across channels; WMS manages warehouse stock and picking; ERP runs finance, procurement and inventory across the business. You built middleware between Shopify and the ERP.</div></details>
+</section>
+
+<!-- ============================================================ -->
+<section id="ask">
+<h2>Questions to ask them</h2>
+<p class="lead">Pick 3. They show you already think like the person in the role.</p>
+<ol class="steps">
+  <li>Do most brands authorize your public apps, or do they create their own developer apps on the onboarding call? The JD mentions creating developer apps.</li>
+  <li>Which channel causes the most onboarding friction today: Amazon, quick commerce, or Google?</li>
+  <li>What's the current average time from kickoff to first data, and what's the target?</li>
+  <li>How do you get quick-commerce data (Blinkit, Zepto, Instamart): APIs, report downloads, or partner feeds?</li>
+  <li>When an integration breaks after go-live, how is it detected, and who owns it: onboarding, support, or engineering?</li>
+  <li>How many onboardings would I run in parallel, and how would you measure success in my first 90 days?</li>
+  <li>Is there an internal runbook or Postman toolkit for onboarding, or would building one be part of the role?</li>
+  <li>Are the brands on the platform mostly ones Amplicomm also manages (marketplace or performance marketing), or do brands sign up for the platform on its own?</li>
+</ol>
+</section>
+
+<footer>Prepared 5 Nov 2026 for the Amplicomm interview. Everything about Vikas's work here is backed by his projects; check the Amazon facts against Amazon's current developer docs before relying on them in production.</footer>
+</main>
+</div>
+
+<script>
+(function(){
+  var q = document.getElementById('q');
+  var count = document.getElementById('count');
+  var items = Array.prototype.slice.call(document.querySelectorAll('details.qa'));
+  var sections = Array.prototype.slice.call(document.querySelectorAll('main section'));
+  function filter(){
+    var term = q.value.trim().toLowerCase();
+    var shown = 0;
+    items.forEach(function(d){
+      var hit = !term || d.textContent.toLowerCase().indexOf(term) !== -1;
+      d.classList.toggle('hidden', !hit);
+      if (term && hit) d.open = true;
+      if (hit) shown++;
+    });
+    sections.forEach(function(s){
+      if (!term){ s.classList.remove('hidden'); return; }
+      var visibleQa = s.querySelectorAll('details.qa:not(.hidden)').length;
+      var textHit = s.textContent.toLowerCase().indexOf(term) !== -1;
+      s.classList.toggle('hidden', !(visibleQa || textHit));
+    });
+    count.textContent = term ? shown + ' matching questions' : items.length + ' questions';
+  }
+  q.addEventListener('input', filter);
+  document.getElementById('expand').addEventListener('click', function(){ items.forEach(function(d){ d.open = true; }); });
+  document.getElementById('collapse').addEventListener('click', function(){ items.forEach(function(d){ d.open = false; }); });
+  var root = document.documentElement;
+  try { var saved = localStorage.getItem('prep-theme'); if (saved) root.setAttribute('data-theme', saved); } catch(e){}
+  document.getElementById('theme').addEventListener('click', function(){
+    var dark = root.getAttribute('data-theme') === 'dark' ||
+      (!root.getAttribute('data-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    var next = dark ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('prep-theme', next); } catch(e){}
+  });
+  filter();
+})();
+</script>
+</body>
+</html>
