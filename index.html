@@ -1,622 +1,1175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Vikas Prajapati — Technical Lead, Full Stack &amp; Shopify</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vikas Prajapati · Full Stack &amp; Integration Engineer</title>
+<meta name="description" content="Vikas Prajapati: full stack engineer in Mumbai who builds e-commerce integrations, data platforms and AI products. Shopify, Google and Meta Ads, GA4, marketplace APIs, Node.js, PHP, React.">
+<meta name="author" content="Vikas Prajapati">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Vikas Prajapati · Full Stack &amp; Integration Engineer">
+<meta property="og:description" content="I build the integrations, data platforms and AI tools behind e-commerce brands.">
+<!-- Social preview. These URLs assume the repo is named VikasSprajapati.github.io; change them if the site lives elsewhere. -->
+<link rel="canonical" href="https://vikassprajapati.github.io/">
+<meta property="og:url" content="https://vikassprajapati.github.io/">
+<meta property="og:site_name" content="Vikas Prajapati">
+<meta property="og:image" content="https://vikassprajapati.github.io/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Vikas Prajapati, Full Stack and Integration Engineer, with screenshots of Shopify stores he built">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Vikas Prajapati · Full Stack &amp; Integration Engineer">
+<meta name="twitter:description" content="I build the integrations, data platforms and AI tools behind e-commerce brands.">
+<meta name="twitter:image" content="https://vikassprajapati.github.io/assets/og-image.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Vikas Prajapati","jobTitle":"Full Stack & Integration Engineer",
+ "url":"https://vikassprajapati.github.io/","image":"https://vikassprajapati.github.io/assets/og-image.png",
+ "email":"mailto:vikasprajapati.dev@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Navi Mumbai","addressCountry":"IN"},
+ "worksFor":{"@type":"Organization","name":"Ergode IT Services"},"alumniOf":{"@type":"CollegeOrUniversity","name":"A.P. Shah Institute of Technology"},
+ "sameAs":["https://www.linkedin.com/in/vkasprajapati/","https://github.com/VikasSprajapati"]}
+</script>
+<meta name="theme-color" content="#0A0E1A" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F7F8FC" media="(prefers-color-scheme: light)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%236366F1'/%3E%3Cstop offset='1' stop-color='%2306B6D4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ctext x='32' y='42' font-family='Arial' font-weight='700' font-size='26' text-anchor='middle' fill='white'%3EVP%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('vp-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
 <style>
+/* ---------- Tokens ---------- */
 :root{
-  --bg:#15140F; --surface:#1D1B15; --surface2:#242119; --border:#332F24;
-  --accent:#C98A3B; --accent-soft:#E8B978; --text:#F2EFE7; --muted:#A6A093; --muted2:#726C5C;
+  --bg:#F7F8FC; --bg-2:#EEF1F8; --surface:#FFFFFF; --surface-2:#F3F5FB; --border:#E1E5F0; --border-2:#CDD3E3;
+  --text:#0E1424; --muted:#4B5672; --muted-2:#6B7590;
+  --accent:#4F46E5; --accent-2:#0891B2; --accent-soft:rgba(79,70,229,.09); --on-accent:#FFFFFF;
+  --good:#059669; --shadow:0 1px 2px rgba(16,24,40,.05),0 8px 24px rgba(16,24,40,.06);
+  --shadow-lg:0 20px 50px rgba(30,41,90,.14);
+  --grid-line:rgba(14,20,36,.05);
 }
-@media (prefers-color-scheme: light){
-  :root:not([data-theme="dark"]){
-    --bg:#FAF8F3; --surface:#F2EEE3; --surface2:#EBE5D6; --border:#DBD3BE;
-    --accent:#A5661C; --accent-soft:#8A5216; --text:#1E1B12; --muted:#5F5A4A; --muted2:#8A8571;
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0A0E1A; --bg-2:#0D1222; --surface:#111729; --surface-2:#161E35; --border:#222B45; --border-2:#2E3958;
+    --text:#E8ECF5; --muted:#A3AEC7; --muted-2:#76819C;
+    --accent:#818CF8; --accent-2:#22D3EE; --accent-soft:rgba(129,140,248,.12); --on-accent:#0A0E1A;
+    --good:#34D399; --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+    --shadow-lg:0 24px 60px rgba(0,0,0,.45);
+    --grid-line:rgba(232,236,245,.045);
   }
 }
-:root[data-theme="light"]{
-  --bg:#FAF8F3; --surface:#F2EEE3; --surface2:#EBE5D6; --border:#DBD3BE;
-  --accent:#A5661C; --accent-soft:#8A5216; --text:#1E1B12; --muted:#5F5A4A; --muted2:#8A8571;
-}
 :root[data-theme="dark"]{
-  --bg:#15140F; --surface:#1D1B15; --surface2:#242119; --border:#332F24;
-  --accent:#C98A3B; --accent-soft:#E8B978; --text:#F2EFE7; --muted:#A6A093; --muted2:#726C5C;
+  --bg:#0A0E1A; --bg-2:#0D1222; --surface:#111729; --surface-2:#161E35; --border:#222B45; --border-2:#2E3958;
+  --text:#E8ECF5; --muted:#A3AEC7; --muted-2:#76819C;
+  --accent:#818CF8; --accent-2:#22D3EE; --accent-soft:rgba(129,140,248,.12); --on-accent:#0A0E1A;
+  --good:#34D399; --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  --shadow-lg:0 24px 60px rgba(0,0,0,.45);
+  --grid-line:rgba(232,236,245,.045);
 }
+:root{--grad:linear-gradient(120deg,var(--accent),var(--accent-2));--radius:16px;--radius-sm:10px;
+  --font:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Consolas,monospace}
+
+/* ---------- Base ---------- */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
-body{background:var(--bg);color:var(--text);font-family:'Manrope',sans-serif;line-height:1.6;
-  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-0.01em}
-a{color:inherit}
-.wrap{max-width:1080px;margin:0 auto;padding:0 28px}
-section{padding:96px 0}
-@media(max-width:640px){section{padding:64px 0}}
+html{scroll-behavior:smooth;scroll-padding-top:80px;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:16px;line-height:1.65;
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;transition:background .3s,color .3s}
+img,svg{display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer;background:none;border:0}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+::selection{background:var(--accent);color:var(--on-accent)}
+.wrap{width:100%;max-width:1160px;margin:0 auto;padding:0 24px}
+@media(max-width:640px){.wrap{padding:0 16px}}
+section{padding:104px 0;position:relative}
+@media(max-width:720px){section{padding:72px 0}}
+.skip{position:absolute;left:-999px;top:12px;background:var(--surface);padding:10px 16px;border-radius:8px;z-index:100;box-shadow:var(--shadow)}
+.skip:focus{left:12px}
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.mono{font-family:var(--mono)}
 
-nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb, var(--bg) 88%, transparent);
-  backdrop-filter:blur(10px);border-bottom:1px solid var(--border);
-  padding-top:env(safe-area-inset-top,0px)}
-.nav-inner{max-width:1080px;margin:0 auto;padding:18px 28px;display:flex;justify-content:space-between;align-items:center}
-.brand{font-family:'Fraunces',serif;font-weight:600;font-size:18px;text-decoration:none}
-.brand em{color:var(--accent);font-style:normal}
-.nav-links{display:flex;gap:28px;list-style:none}
-.nav-links a{font-size:14px;text-decoration:none;color:var(--muted)}
-.nav-links a:hover{color:var(--text)}
-.nav-cta{border:1px solid var(--border);padding:8px 18px;border-radius:6px;font-size:14px;text-decoration:none}
-.nav-cta:hover{border-color:var(--accent);color:var(--accent)}
-@media(max-width:720px){.nav-links{display:none}}
-
-/* hero */
-#hero{padding-top:88px}
-.eyebrow{font-size:14px;color:var(--accent);margin-bottom:18px}
-h1{font-size:clamp(38px,6vw,66px);line-height:1.05;max-width:16ch;margin-bottom:22px}
-.lead{font-size:clamp(16px,2vw,19px);color:var(--muted);max-width:56ch;margin-bottom:36px}
-.cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:64px}
-.btn{padding:13px 26px;border-radius:6px;font-size:14.5px;font-weight:600;text-decoration:none;display:inline-block}
-.btn-fill{background:var(--accent);color:#161310}
-.btn-fill:hover{background:var(--accent-soft)}
-.btn-line{border:1px solid var(--border)}
-.btn-line:hover{border-color:var(--accent);color:var(--accent)}
-
-.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--border)}
-.stat{padding:28px 24px 0;border-left:1px solid var(--border)}
-.stat:first-child{border-left:none;padding-left:0}
-.stat b{display:block;font-family:'Fraunces',serif;font-size:clamp(26px,3vw,34px);font-weight:600}
-.stat span{font-size:13.5px;color:var(--muted)}
-@media(max-width:720px){.stats{grid-template-columns:1fr 1fr;row-gap:24px}
-  .stat{border-left:none;padding-left:0}
-  .stat:nth-child(2n){padding-left:24px;border-left:1px solid var(--border)}}
-
-/* section headers */
-.s-head{margin-bottom:44px;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
-.s-head h2{font-size:clamp(26px,3.2vw,36px)}
-.s-head p{color:var(--muted);max-width:44ch;font-size:15px}
-
-/* experience */
-.timeline{display:flex;flex-direction:column}
-.tl-item{display:grid;grid-template-columns:140px 1fr;gap:28px;padding:28px 0;border-top:1px solid var(--border)}
-.tl-item:last-child{border-bottom:1px solid var(--border)}
-.tl-date{color:var(--muted);font-size:14px;padding-top:4px}
-.tl-role{font-family:'Fraunces',serif;font-size:20px;font-weight:600;margin-bottom:6px}
-.tl-org{color:var(--accent);font-size:14px;margin-bottom:12px}
-.tl-desc{color:var(--muted);font-size:15px;max-width:64ch}
-.tl-desc li{margin-left:18px;margin-top:6px}
-@media(max-width:640px){.tl-item{grid-template-columns:1fr}}
-
-/* work */
-.work-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border)}
-.work-card{background:var(--bg);padding:32px}
-.work-tag{font-size:13px;color:var(--accent);margin-bottom:14px}
-.work-title{font-family:'Fraunces',serif;font-size:21px;font-weight:600;margin-bottom:12px}
-.work-desc{color:var(--muted);font-size:14.5px;margin-bottom:20px}
-.work-metrics{display:flex;gap:28px}
-.work-metrics b{display:block;font-family:'Fraunces',serif;font-size:20px}
-.work-metrics span{font-size:12.5px;color:var(--muted2)}
-@media(max-width:720px){.work-grid{grid-template-columns:1fr}}
-
-/* case study */
-#case,#case2{border-top:1px solid var(--border)}
-.case-kicker{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:13.5px;color:var(--accent);margin-bottom:16px}
-.case-kicker .pill{border:1px solid var(--border);padding:3px 12px;border-radius:100px;color:var(--muted);font-size:12.5px}
-.case-title{font-size:clamp(30px,4.6vw,50px);line-height:1.08;max-width:22ch;margin-bottom:20px}
-.case-lead{color:var(--muted);font-size:clamp(16px,1.9vw,18px);max-width:64ch;margin-bottom:36px}
-.case-meta{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:72px}
-.case-meta > div{padding:18px 24px;border-left:1px solid var(--border);min-width:0}
-.case-meta > div:first-child{border-left:none;padding-left:0}
-.case-meta span{display:block;font-size:12.5px;color:var(--muted);margin-bottom:4px}
-.case-meta b{display:block;font-weight:600;font-size:14.5px;line-height:1.5}
-.case-block{margin-bottom:72px}
-.case-block:last-child{margin-bottom:0}
-.case-block h3{font-size:clamp(22px,2.6vw,28px);margin-bottom:10px}
-.case-block > p{color:var(--muted);max-width:66ch;font-size:15.5px;margin-bottom:26px}
-.case-grid{display:grid;gap:1px;background:var(--border);border:1px solid var(--border)}
-.case-grid.c3{grid-template-columns:repeat(3,1fr)}
-.case-cell{background:var(--surface);padding:24px 26px;min-width:0}
-.case-cell .label{display:block;font-size:12.5px;color:var(--accent);margin-bottom:8px;font-weight:600}
-.case-cell b{display:block;font-family:'Fraunces',serif;font-size:18px;font-weight:600;line-height:1.3;margin-bottom:8px}
-.case-cell p{color:var(--muted);font-size:14.5px}
-.case-cell.big b{font-size:clamp(28px,3.4vw,38px);margin-bottom:6px}
-.case-cell code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.86em;background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:1px 6px;color:var(--text)}
-.loop{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;counter-reset:step}
-.loop-step{border:1px solid var(--border);border-radius:8px;padding:22px 24px;background:var(--surface);min-width:0}
-.loop-step::before{counter-increment:step;content:counter(step);display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--accent);color:var(--bg);font-weight:700;font-size:13px;margin-bottom:14px}
-.loop-step b{display:block;font-family:'Fraunces',serif;font-size:17px;font-weight:600;margin-bottom:6px}
-.loop-step p{color:var(--muted);font-size:14.5px}
-.callout{margin-top:20px;border-left:3px solid var(--accent);padding:14px 22px;background:var(--surface);font-size:15.5px}
-.case-sub{font-size:14px;font-weight:600;color:var(--muted);margin:36px 0 14px}
-.case-list{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.case-list li{border:1px solid var(--border);border-radius:8px;padding:14px 18px;font-size:14.5px;color:var(--muted);min-width:0}
-.case-list li b{color:var(--text);font-weight:600}
-.stack-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px 32px}
-.stack-grid h4{font-size:13.5px;font-weight:600;color:var(--muted);margin-bottom:12px}
-@media(max-width:900px){
-  .case-grid.c3{grid-template-columns:1fr 1fr}
-}
-@media(max-width:720px){
-  .case-meta{grid-template-columns:1fr}
-  .case-meta > div{border-left:none;padding:14px 0;border-top:1px solid var(--border)}
-  .case-meta > div:first-child{border-top:none}
-  .case-grid.c3{grid-template-columns:1fr}
-  .loop{grid-template-columns:1fr}
-  .case-list{grid-template-columns:1fr}
-  .stack-grid{grid-template-columns:1fr}
-  .case-block{margin-bottom:56px}
-  .case-meta{margin-bottom:56px}
+/* ---------- Progress + nav ---------- */
+#progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--grad);z-index:60;transition:width .1s linear}
+header.nav{position:sticky;top:0;z-index:50;transition:background .3s,border-color .3s,box-shadow .3s;border-bottom:1px solid transparent}
+header.nav.scrolled{background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:saturate(1.4) blur(14px);
+  -webkit-backdrop-filter:saturate(1.4) blur(14px);border-bottom-color:var(--border)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.02em;font-size:17px}
+.logo-mark{width:34px;height:34px;border-radius:10px;background:var(--grad);display:grid;place-items:center;color:#fff;font-size:13px;font-weight:800;
+  box-shadow:0 6px 18px rgba(99,102,241,.35)}
+.nav-links{display:flex;gap:4px;list-style:none}
+.nav-links a{display:block;padding:8px 12px;border-radius:8px;font-size:14px;font-weight:500;color:var(--muted);transition:color .2s,background .2s}
+.nav-links a:hover{color:var(--text);background:var(--accent-soft)}
+.nav-links a.active{color:var(--text);background:var(--accent-soft)}
+.nav-actions{display:flex;align-items:center;gap:8px}
+.icon-btn{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;border:1px solid var(--border);background:var(--surface);
+  transition:border-color .2s,transform .2s}
+.icon-btn:hover{border-color:var(--accent)}
+.icon-btn svg{width:18px;height:18px}
+.theme-sun{display:none}
+:root[data-theme="dark"] .theme-sun{display:block}
+:root[data-theme="dark"] .theme-moon{display:none}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .theme-sun{display:block}:root:not([data-theme="light"]) .theme-moon{display:none}}
+.menu-btn{display:none}
+@media(max-width:960px){
+  .nav-links{position:fixed;inset:68px 0 auto 0;flex-direction:column;gap:2px;padding:12px 16px 20px;background:var(--bg);
+    border-bottom:1px solid var(--border);box-shadow:var(--shadow-lg);transform:translateY(-8px);opacity:0;visibility:hidden;transition:.25s}
+  .nav-links.open{transform:none;opacity:1;visibility:visible}
+  .nav-links a{padding:12px 14px;font-size:16px}
+  .menu-btn{display:grid}
+  .nav-actions .nav-cta{display:none}
 }
 
-/* d2c / shopify */
-#d2c{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.d2c-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:48px}
-.d2c-stat{background:var(--surface);padding:24px}
-.d2c-stat b{display:block;font-family:'Fraunces',serif;font-size:clamp(24px,3vw,32px)}
-.d2c-stat span{font-size:13px;color:var(--muted)}
-.d2c-list{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border)}
-.d2c-row{background:var(--surface);padding:22px 26px;display:grid;grid-template-columns:1fr 2fr auto;gap:20px;align-items:center}
-.d2c-row .name{font-family:'Fraunces',serif;font-weight:600;font-size:17px}
-.d2c-row .desc{color:var(--muted);font-size:14px}
-.d2c-row .tag{border:1px solid var(--border);padding:5px 12px;border-radius:100px;font-size:12.5px;white-space:nowrap}
-@media(max-width:720px){.d2c-stats{grid-template-columns:1fr}
-  .d2c-row{grid-template-columns:1fr;gap:8px}}
+/* ---------- Buttons, chips ---------- */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:12px;font-weight:600;font-size:15px;
+  transition:transform .2s,box-shadow .2s,border-color .2s,background .2s;white-space:nowrap}
+.btn svg{width:18px;height:18px}
+.btn-primary{background:var(--grad);color:#fff;box-shadow:0 10px 24px rgba(79,70,229,.28)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(79,70,229,.36)}
+.btn-ghost{border:1px solid var(--border-2);background:var(--surface)}
+.btn-ghost:hover{border-color:var(--accent);transform:translateY(-2px)}
+.btn-sm{padding:9px 16px;font-size:14px;border-radius:10px}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;font-size:13px;font-weight:500;
+  border:1px solid var(--border);background:var(--surface);color:var(--text);white-space:nowrap}
+.chip.soft{background:var(--accent-soft);border-color:transparent;color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--good);box-shadow:0 0 0 0 rgba(52,211,153,.6);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(52,211,153,.55)}70%{box-shadow:0 0 0 9px rgba(52,211,153,0)}100%{box-shadow:0 0 0 0 rgba(52,211,153,0)}}
 
-/* skills */
-.skill-groups{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
-.skill-group h3{font-size:14px;color:var(--muted);font-weight:600;margin-bottom:16px}
-.tags{display:flex;flex-wrap:wrap;gap:8px}
-.tag{border:1px solid var(--border);padding:6px 14px;border-radius:100px;font-size:13.5px}
-@media(max-width:720px){.skill-groups{grid-template-columns:1fr;gap:28px}}
+/* ---------- Section heads ---------- */
+.eyebrow{font-family:var(--mono);font-size:13px;color:var(--accent);letter-spacing:.04em;margin-bottom:14px;display:inline-flex;align-items:center;gap:8px}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--grad);border-radius:2px}
+.s-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:48px}
+.s-head h2{font-size:clamp(28px,4vw,44px);line-height:1.12;letter-spacing:-.025em;font-weight:800;max-width:20ch}
+.s-head p{color:var(--muted);max-width:46ch;font-size:16px}
 
-/* about + contact */
-.about-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:56px;align-items:start}
-.about-grid p{color:var(--muted);margin-bottom:16px;font-size:15.5px}
-.about-facts{list-style:none;border-top:1px solid var(--border)}
-.about-facts li{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--border);font-size:14.5px}
-.about-facts span:first-child{color:var(--muted);flex-shrink:0}
-.about-facts span:last-child{text-align:right}
-@media(max-width:720px){.about-grid{grid-template-columns:1fr}
-  .about-facts li{flex-direction:column;gap:4px}
-  .about-facts span:last-child{text-align:left}}
+/* ---------- Hero ---------- */
+#hero{padding:72px 0 64px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background-image:linear-gradient(var(--grid-line) 1px,transparent 1px),linear-gradient(90deg,var(--grid-line) 1px,transparent 1px);
+  background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse 80% 70% at 50% 30%,#000 30%,transparent 75%);
+  mask-image:radial-gradient(ellipse 80% 70% at 50% 30%,#000 30%,transparent 75%)}
+.blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.45;z-index:-1;pointer-events:none}
+.blob.b1{width:420px;height:420px;background:#6366F1;top:-120px;left:-80px;animation:float 14s ease-in-out infinite}
+.blob.b2{width:380px;height:380px;background:#06B6D4;top:60px;right:-120px;animation:float 16s ease-in-out infinite reverse}
+:root[data-theme="light"] .blob{opacity:.22}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]) .blob{opacity:.22}}
+@keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(30px,40px)}}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+.status{display:inline-flex;align-items:center;gap:10px;padding:7px 14px 7px 12px;border-radius:999px;border:1px solid var(--border);
+  background:var(--surface);font-size:13.5px;font-weight:500;margin-bottom:24px;box-shadow:var(--shadow)}
+#hero h1{font-size:clamp(36px,5.6vw,64px);line-height:1.05;letter-spacing:-.035em;font-weight:800;margin-bottom:18px}
+.role-line{font-size:clamp(18px,2.4vw,24px);font-weight:600;color:var(--muted);margin-bottom:22px;min-height:1.6em}
+.role-line .rotator{color:var(--text)}
+.role-line .caret{display:inline-block;width:2px;height:1.05em;background:var(--accent);vertical-align:-3px;margin-left:2px;animation:blink 1s step-end infinite}
+@keyframes blink{50%{opacity:0}}
+.hero-lead{font-size:clamp(16px,1.8vw,18px);color:var(--muted);max-width:58ch;margin-bottom:32px}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:28px}
+.socials{display:flex;gap:10px;align-items:center;color:var(--muted);font-size:14px}
+.socials a{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:8px;transition:color .2s,background .2s}
+.socials a:hover{color:var(--text);background:var(--accent-soft)}
+.socials svg{width:18px;height:18px}
 
-#contact{background:var(--surface);border-top:1px solid var(--border)}
-.contact-inner{text-align:left}
-#contact h2{font-size:clamp(30px,4vw,46px);max-width:14ch;margin-bottom:18px}
-.contact-links{display:flex;gap:16px;flex-wrap:wrap;margin-top:32px}
-.clink{border:1px solid var(--border);padding:12px 22px;border-radius:6px;text-decoration:none;font-size:14.5px}
-.clink:hover{border-color:var(--accent);color:var(--accent)}
+/* terminal card */
+.term{background:#0B1020;color:#D7DEEE;border-radius:var(--radius);border:1px solid #232C45;box-shadow:var(--shadow-lg);overflow:hidden;
+  transform:perspective(1200px) rotateY(-6deg) rotateX(3deg);transition:transform .5s}
+.term:hover{transform:none}
+.term-bar{display:flex;align-items:center;gap:8px;padding:12px 16px;background:#0F1528;border-bottom:1px solid #1E2640}
+.term-bar i{width:11px;height:11px;border-radius:50%;display:block}
+.term-bar i:nth-child(1){background:#FF5F57}.term-bar i:nth-child(2){background:#FEBC2E}.term-bar i:nth-child(3){background:#28C840}
+.term-bar span{margin-left:8px;font-family:var(--mono);font-size:12px;color:#7D88A6}
+.term-body{padding:18px 18px 22px;font-family:var(--mono);font-size:13px;line-height:1.85;min-height:286px}
+.term-line{opacity:0;transform:translateY(4px);transition:.35s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.term-line.on{opacity:1;transform:none}
+.t-prompt{color:#818CF8}.t-ok{color:#34D399}.t-dim{color:#7D88A6}.t-cy{color:#22D3EE}.t-warn{color:#FBBF24}
+html:not(.js) .term-line{opacity:1;transform:none}
+@media(max-width:960px){.hero-grid{grid-template-columns:1fr;gap:40px}.term{transform:none}}
+@media(max-width:420px){.term-body{font-size:11.5px}}
 
-footer{padding:32px 0;display:flex;justify-content:space-between;color:var(--muted2);font-size:13px;flex-wrap:wrap;gap:8px}
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:64px}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 20px 18px;box-shadow:var(--shadow);min-width:0}
+.stat b{display:block;font-size:clamp(26px,3vw,34px);font-weight:800;letter-spacing:-.03em;line-height:1.1}
+.stat span{display:block;font-size:13.5px;color:var(--muted);margin-top:6px}
+@media(max-width:960px){.stats{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:600px){.stats{grid-template-columns:1fr 1fr}.stat:last-child{grid-column:1/-1}}
+
+/* ---------- Integrations marquee ---------- */
+#integrations{padding:56px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg-2)}
+.int-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:24px}
+.int-head h2{font-size:18px;font-weight:700;letter-spacing:-.01em}
+.int-head p{color:var(--muted);font-size:14px}
+.marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.marquee + .marquee{margin-top:12px}
+.track{display:flex;width:max-content;animation:scroll 48s linear infinite}
+.track .int{margin-right:12px}
+.marquee.rev .track{animation-direction:reverse;animation-duration:56s}
+.marquee:hover .track{animation-play-state:paused}
+@keyframes scroll{to{transform:translateX(-50%)}}
+.int{display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border-radius:12px;border:1px solid var(--border);background:var(--surface);
+  font-size:14px;font-weight:600;white-space:nowrap}
+.int small{font-weight:500;color:var(--muted-2);font-size:12px}
+.int-ic{width:26px;height:26px;border-radius:7px;display:grid;place-items:center;font-size:11px;font-weight:800;color:#fff}
+
+/* ---------- Case studies ---------- */
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:36px}
+.tab{text-align:left;padding:16px 18px;border-radius:var(--radius);border:2px solid var(--border);background:var(--surface);
+  display:flex;flex-direction:column;gap:3px;min-width:0;transition:transform .2s,border-color .2s,box-shadow .2s}
+.tab .tab-k{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-2)}
+.tab .tab-n{font-weight:700;font-size:17px;color:var(--text);letter-spacing:-.01em}
+.tab .tab-s{font-size:13.5px;color:var(--muted)}
+.tab:hover{border-color:var(--border-2);transform:translateY(-2px)}
+.tab[aria-selected="true"]{border-color:transparent;background:linear-gradient(var(--surface),var(--surface)) padding-box,var(--grad) border-box;
+  box-shadow:0 10px 26px rgba(79,70,229,.18)}
+.tab[aria-selected="true"] .tab-k{color:var(--accent)}
+@media(max-width:720px){.tabs{grid-template-columns:1fr}}
+html.js .panel[hidden]{display:none}
+.panel{animation:fadeUp .45s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.case-top{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;margin-bottom:28px}
+.case-top h3{font-size:clamp(26px,3.4vw,38px);line-height:1.12;letter-spacing:-.025em;font-weight:800;margin:10px 0 14px}
+.case-top .lead{color:var(--muted);font-size:16.5px;margin-bottom:22px}
+.meta{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.meta div{border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px 14px;background:var(--surface)}
+.meta span{display:block;font-size:12px;color:var(--muted-2);text-transform:uppercase;letter-spacing:.06em;font-weight:600;margin-bottom:3px}
+.meta b{font-size:14.5px;font-weight:600;line-height:1.45;display:block}
+.metrics{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-content:start}
+.metric{border-radius:var(--radius);padding:18px;background:var(--surface);border:1px solid var(--border);position:relative;overflow:hidden;min-width:0}
+.metric::after{content:"";position:absolute;inset:auto -30% -60% auto;width:140px;height:140px;border-radius:50%;background:var(--grad);opacity:.08}
+.metric b{display:block;font-size:clamp(24px,2.8vw,32px);font-weight:800;letter-spacing:-.03em;line-height:1.1}
+.metric span{display:block;color:var(--muted);font-size:13.5px;margin-top:6px}
+.block{margin-top:44px}
+.block h4{font-size:20px;font-weight:700;letter-spacing:-.015em;margin-bottom:6px}
+.block > p{color:var(--muted);max-width:70ch;margin-bottom:18px}
+.feat{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px;transition:transform .25s,border-color .25s,box-shadow .25s;min-width:0}
+.card:hover{transform:translateY(-3px);border-color:var(--border-2);box-shadow:var(--shadow)}
+.card .lbl{font-family:var(--mono);font-size:11.5px;color:var(--accent);letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px;display:block}
+.card h5{font-size:16.5px;font-weight:700;margin-bottom:6px;letter-spacing:-.01em}
+.card p{color:var(--muted);font-size:14.5px}
+.card code,.list code{font-family:var(--mono);font-size:.85em;background:var(--surface-2);border:1px solid var(--border);border-radius:5px;padding:1px 6px}
+.loop{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;counter-reset:s;position:relative}
+.step{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.step::before{counter-increment:s;content:counter(s,decimal-leading-zero);font-family:var(--mono);font-weight:500;font-size:13px;color:var(--on-accent);
+  background:var(--grad);border-radius:8px;padding:4px 9px;display:inline-block;margin-bottom:12px}
+.step h5{font-size:16px;font-weight:700;margin-bottom:6px}
+.step p{color:var(--muted);font-size:14.5px}
+.callout{margin-top:16px;padding:16px 20px;border-radius:var(--radius-sm);background:var(--accent-soft);border:1px solid var(--border);font-weight:600;display:flex;gap:12px;align-items:center}
+.callout svg{width:20px;height:20px;flex-shrink:0;color:var(--accent)}
+.list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.list li{position:relative;padding:12px 14px 12px 40px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--surface);color:var(--muted);font-size:14.5px}
+.list li::before{content:"";position:absolute;left:14px;top:17px;width:14px;height:14px;border-radius:50%;background:var(--grad);
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/%3E%3C/svg%3E") center/contain no-repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/%3E%3C/svg%3E") center/contain no-repeat}
+.list li b{color:var(--text);font-weight:600}
+.stack{display:grid;grid-template-columns:repeat(3,1fr);gap:18px 24px}
+.stack h6{font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted-2);font-weight:700;margin-bottom:10px}
+@media(max-width:960px){.case-top{grid-template-columns:1fr}.feat{grid-template-columns:1fr 1fr}.stack{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.feat,.loop,.list,.stack,.meta{grid-template-columns:1fr}.metrics{grid-template-columns:1fr 1fr}}
+
+/* ---------- Experience ---------- */
+#experience{background:var(--bg-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.timeline{position:relative;padding-left:32px}
+.timeline::before{content:"";position:absolute;left:9px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--accent),var(--accent-2),transparent);border-radius:2px}
+.job{position:relative;margin-bottom:28px}
+.job:last-child{margin-bottom:0}
+.job::before{content:"";position:absolute;left:-30px;top:26px;width:16px;height:16px;border-radius:50%;background:var(--bg-2);border:3px solid var(--accent)}
+.job-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)}
+.job-head{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:6px}
+.job-head h3{font-size:19px;font-weight:700;letter-spacing:-.01em}
+.job-org{color:var(--accent);font-weight:600;font-size:15px;margin-bottom:14px}
+.job-when{font-family:var(--mono);font-size:13px;color:var(--muted);white-space:nowrap}
+.job-sum{color:var(--muted);margin-bottom:16px;max-width:76ch}
+.job-groups{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.job-groups h4{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted-2);font-weight:700;margin-bottom:8px}
+.job-groups ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.job-groups li{font-size:14.5px;color:var(--muted);padding-left:16px;position:relative}
+.job-groups li::before{content:"";position:absolute;left:0;top:10px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.job-groups li b{color:var(--text);font-weight:600}
+.stores{margin-top:18px;padding-top:16px;border-top:1px dashed var(--border);display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.stores span{font-size:13px;color:var(--muted-2);margin-right:4px}
+.stores a.chip:hover{border-color:var(--accent);color:var(--accent)}
+@media(max-width:960px){.job-groups{grid-template-columns:1fr}}
+@media(max-width:600px){.timeline{padding-left:22px}.timeline::before{left:4px}.job::before{left:-24px;width:14px;height:14px}.job-card{padding:20px}}
+
+/* ---------- Work grid ---------- */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.filter{padding:8px 16px;border-radius:999px;border:1px solid var(--border);background:var(--surface);font-size:14px;font-weight:600;color:var(--muted);transition:.2s}
+.filter:hover{color:var(--text);border-color:var(--border-2)}
+.filter[aria-pressed="true"]{background:var(--text);color:var(--bg);border-color:var(--text)}
+.work{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.work .card{display:flex;flex-direction:column}
+.work .card .chips{margin-top:auto;padding-top:16px}
+.work .card .chip{font-size:12px;padding:4px 10px}
+.wm{display:flex;gap:18px;margin:14px 0 2px}
+.wm b{display:block;font-size:20px;font-weight:800;letter-spacing:-.02em}
+.wm span{font-size:12.5px;color:var(--muted-2)}
+.work .card.hide{display:none}
+@media(max-width:960px){.work{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.work{grid-template-columns:1fr}}
+
+/* ---------- Storefront gallery ---------- */
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.shop{display:flex;flex-direction:column;border:1px solid var(--border);border-radius:20px;background:var(--surface);padding:18px;min-width:0;
+  transition:transform .25s,box-shadow .25s,border-color .25s}
+.shop:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--border-2)}
+.shot{position:relative;padding:0 40px 30px 0}
+.browser{border-radius:12px;overflow:hidden;border:1px solid var(--border);background:var(--surface-2);box-shadow:var(--shadow)}
+.browser .bar{display:flex;align-items:center;gap:6px;padding:8px 10px;background:var(--surface-2);border-bottom:1px solid var(--border)}
+.browser .bar i{width:9px;height:9px;border-radius:50%;background:var(--border-2);flex-shrink:0}
+.browser .url{margin-left:8px;flex:1;min-width:0;font-family:var(--mono);font-size:11.5px;color:var(--muted);background:var(--surface);
+  border:1px solid var(--border);border-radius:6px;padding:2px 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.browser img{width:100%;height:auto;aspect-ratio:1440/900;object-fit:cover;object-position:top;background:var(--surface-2)}
+.ph{position:absolute;right:0;bottom:0;width:23%;aspect-ratio:390/780;border-radius:16px;border:5px solid #11172A;overflow:hidden;
+  box-shadow:var(--shadow-lg);background:#000;transition:transform .35s}
+.shop:hover .ph{transform:translateY(-6px) rotate(2deg)}
+.ph img{width:100%;height:100%;object-fit:cover;object-position:top}
+.shop-info{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-top:6px}
+.shop-info h5{font-size:17.5px;font-weight:700;letter-spacing:-.01em}
+.shop-info p{color:var(--muted);font-size:14.5px;margin-top:2px}
+.go{flex-shrink:0;width:38px;height:38px;border-radius:10px;border:1px solid var(--border);display:grid;place-items:center;transition:.25s}
+.go svg{width:16px;height:16px}
+.shop:hover .go{background:var(--grad);color:#fff;border-color:transparent}
+.shop .chips{margin-top:12px}
+.shop .chip{font-size:12px;padding:4px 10px}
+.shop.featured{grid-column:1/-1;display:grid;grid-template-columns:1.45fr 1fr;gap:28px;align-items:center;padding:22px}
+.shop.featured .shop-info{flex-direction:column;gap:6px;margin-top:0}
+.shop.featured .shop-info h5{font-size:24px}
+.shop.featured .shop-info p{font-size:15.5px}
+@media(max-width:900px){.gallery{grid-template-columns:1fr}.shop.featured{grid-template-columns:1fr;gap:10px;padding:18px}}
+@media(max-width:480px){.shot{padding:0 26px 22px 0}.ph{border-width:3px;border-radius:12px}}
+.nav-links .mobile-only{display:none}
+@media(max-width:960px){.nav-links .mobile-only{display:block}}
+
+/* ---------- Process ---------- */
+.process{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.pstep{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px;position:relative}
+.pstep .n{font-family:var(--mono);font-size:12.5px;color:var(--accent);margin-bottom:10px;display:block}
+.pstep h5{font-size:16px;font-weight:700;margin-bottom:6px}
+.pstep p{color:var(--muted);font-size:14px}
+@media(max-width:1060px){.process{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:640px){.process{grid-template-columns:1fr}}
+
+/* ---------- Skills ---------- */
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.skills .card h5{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.skills .card h5 i{width:30px;height:30px;border-radius:9px;background:var(--accent-soft);display:grid;place-items:center;color:var(--accent);font-style:normal}
+.skills .card h5 i svg{width:16px;height:16px}
+@media(max-width:960px){.skills{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.skills{grid-template-columns:1fr}}
+
+/* ---------- About ---------- */
+.about{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start}
+.about p{color:var(--muted);margin-bottom:16px;font-size:16.5px}
+.about p b{color:var(--text)}
+.facts{list-style:none;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface);overflow:hidden}
+.facts li{display:flex;justify-content:space-between;gap:18px;padding:15px 20px;border-bottom:1px solid var(--border);font-size:14.5px}
+.facts li:last-child{border-bottom:0}
+.facts span:first-child{color:var(--muted-2);flex-shrink:0;font-weight:500}
+.facts span:last-child{text-align:right;font-weight:500}
+.facts a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+@media(max-width:860px){.about{grid-template-columns:1fr}}
+@media(max-width:520px){.facts li{flex-direction:column;gap:2px}.facts span:last-child{text-align:left}}
+
+/* ---------- Contact ---------- */
+.contact{position:relative;border-radius:28px;padding:clamp(32px,6vw,64px);overflow:hidden;background:var(--surface);border:1px solid var(--border);box-shadow:var(--shadow-lg)}
+.contact::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 300px at 0% 0%,rgba(99,102,241,.18),transparent 60%),radial-gradient(500px 300px at 100% 100%,rgba(6,182,212,.16),transparent 60%);pointer-events:none}
+.contact > *{position:relative}
+.contact h2{font-size:clamp(30px,4.6vw,52px);line-height:1.08;letter-spacing:-.03em;font-weight:800;max-width:18ch;margin-bottom:16px}
+.contact p{color:var(--muted);max-width:60ch;font-size:17px;margin-bottom:28px}
+.contact-row{display:flex;flex-wrap:wrap;gap:12px}
+
+footer{padding:36px 0 48px;color:var(--muted-2);font-size:14px}
+.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+/* ---------- Toast, top button ---------- */
+.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,20px);background:var(--text);color:var(--bg);padding:12px 18px;border-radius:12px;font-size:14px;font-weight:600;
+  opacity:0;pointer-events:none;transition:.3s;z-index:70;box-shadow:var(--shadow-lg)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+#toTop{position:fixed;right:20px;bottom:20px;z-index:40;opacity:0;visibility:hidden;transform:translateY(10px);transition:.3s;box-shadow:var(--shadow)}
+#toTop.show{opacity:1;visibility:visible;transform:none}
+
+/* ---------- Reveal ---------- */
+html.js .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+html.js .reveal.in{opacity:1;transform:none}
+html.js .card.reveal.in:hover{transform:translateY(-3px)}
+html.js .shop.reveal.in:hover{transform:translateY(-4px)}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  html.js .reveal{opacity:1;transform:none}
+  .term{transform:none}
+}
+@media print{
+  header.nav,#progress,#toTop,.blob,.hero-bg,.filters,.tabs{display:none!important}
+  html.js .panel[hidden]{display:block!important}
+  section{padding:32px 0}
+  .card,.metric,.step{break-inside:avoid}
+}
 </style>
 </head>
 <body>
+<a href="#main" class="skip">Skip to content</a>
+<div id="progress" aria-hidden="true"></div>
 
-<nav>
-  <div class="nav-inner">
-    <a href="#hero" class="brand">Vikas<em>.</em></a>
-    <ul class="nav-links">
-      <li><a href="#case">Case studies</a></li>
-      <li><a href="#work">Work</a></li>
-      <li><a href="#d2c">D2C &amp; Shopify</a></li>
+<!-- ====================== NAV ====================== -->
+<header class="nav" id="top">
+  <div class="wrap nav-inner">
+    <a href="#hero" class="logo" aria-label="Vikas Prajapati, home"><span class="logo-mark">VP</span><span>Vikas Prajapati</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#work-case">Case studies</a></li>
       <li><a href="#experience">Experience</a></li>
+      <li><a href="#storefronts">Storefronts</a></li>
+      <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#about">About</a></li>
+      <li class="mobile-only"><a href="Vikas_Prajapati_Resume.pdf" download>Download resume ↓</a></li>
     </ul>
-    <div style="display:flex;align-items:center;gap:14px">
-      <button id="theme-toggle" aria-label="Toggle dark and light view" style="background:transparent;border:1px solid var(--border);color:var(--text);width:36px;height:36px;border-radius:6px;cursor:pointer;font-size:15px;line-height:1">◐</button>
-      <a href="#contact" class="nav-cta">Get in touch</a>
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeBtn" aria-label="Switch between light and dark theme">
+        <svg class="theme-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="theme-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <a href="Vikas_Prajapati_Resume.pdf" download class="btn btn-ghost btn-sm nav-cta">Resume
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg></a>
+      <a href="#contact" class="btn btn-primary btn-sm nav-cta">Let's talk</a>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
     </div>
   </div>
-</nav>
+</header>
 
+<main id="main">
+<!-- ====================== HERO ====================== -->
 <section id="hero">
+  <div class="hero-bg"></div><div class="blob b1"></div><div class="blob b2"></div>
   <div class="wrap">
-    <div class="eyebrow">Technical Lead · Mumbai, India</div>
-    <h1>Full-stack engineering for applications and platforms that scale.</h1>
-    <p class="lead">I'm Vikas — a Technical Lead who builds full-stack applications end to end, from PHP/Laravel and CodeIgniter systems to modern React and Node.js products. I've spent 4+ years owning technical delivery across web apps, internal tools, and e-commerce platforms, and I currently lead a small team building a field-force HRMS from the ground up. I also build AI products: an SEO agent that proves its own fixes, and a multi-store analytics platform where people approve every AI action.</p>
-    <div class="cta-row">
-      <a href="#work" class="btn btn-fill">See my work</a>
-      <a href="mailto:vikasprajapati.dev@gmail.com" class="btn btn-line">Email me</a>
+    <div class="hero-grid">
+      <div class="reveal">
+        <div class="status"><span class="dot"></span>Open to new roles · Mumbai, India · Remote-friendly</div>
+        <h1>I build the <span class="grad-text">integrations, data platforms and AI tools</span> behind e-commerce brands.</h1>
+        <div class="role-line">Full Stack · <span class="rotator" id="rotator">Integration Engineer</span><span class="caret" aria-hidden="true"></span></div>
+        <p class="hero-lead">I'm Vikas, a full stack developer with 4+ years at Ergode, where I own the technical side of a D2C e-commerce vertical with 20+ Shopify stores. I connect stores to marketplaces, ERPs, ad platforms and analytics, make sure the numbers are right, and lately build AI products that people actually trust.</p>
+        <div class="hero-ctas">
+          <a href="#work-case" class="btn btn-primary">See case studies
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="Vikas_Prajapati_Resume.pdf" download class="btn btn-ghost">Download resume
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg></a>
+        </div>
+        <div class="socials">
+          <a href="https://www.linkedin.com/in/vkasprajapati/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn</a>
+          <a href="https://github.com/VikasSprajapati" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.6.2 2.9.1 3.2.8.8 1.3 1.9 1.3 3.1 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1.1.9 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>GitHub</a>
+          <a href="mailto:vikasprajapati.dev@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Email</a>
+        </div>
+      </div>
+
+      <div class="term reveal" aria-label="Example sync log">
+        <div class="term-bar"><i></i><i></i><i></i><span>store-sync.log</span></div>
+        <div class="term-body" id="term">
+          <div class="term-line"><span class="t-prompt">$</span> sync --stores all --sources 7</div>
+          <div class="term-line"><span class="t-ok">✓</span> Shopify <span class="t-dim">· bulk import, 180 days</span></div>
+          <div class="term-line"><span class="t-ok">✓</span> Google Ads <span class="t-dim">· re-sync last 14 days</span></div>
+          <div class="term-line"><span class="t-ok">✓</span> Meta Ads <span class="t-dim">· token verified</span></div>
+          <div class="term-line"><span class="t-ok">✓</span> Microsoft Ads <span class="t-dim">· refresh token rotated</span></div>
+          <div class="term-line"><span class="t-ok">✓</span> GA4 + Clarity + Search Console</div>
+          <div class="term-line"><span class="t-cy">→</span> reconcile sales vs Shopify reports</div>
+          <div class="term-line"><span class="t-ok">✓</span> matched <span class="t-cy">to the cent</span></div>
+          <div class="term-line"><span class="t-warn">!</span> AI proposes: budget +20% <span class="t-dim">· awaiting approval</span></div>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="wrap">
+
     <div class="stats">
-      <div class="stat"><b>4+ yrs</b><span>Full-stack experience</span></div>
-      <div class="stat"><b>10+</b><span>Third-party APIs integrated</span></div>
-      <div class="stat"><b>PHP → React</b><span>Laravel, CodeIgniter to modern stacks</span></div>
-      <div class="stat"><b>$15–20M</b><span>Revenue owned, e-commerce vertical</span></div>
+      <div class="stat reveal"><b><span data-count="4">4</span>+ yrs</b><span>Building full stack and integrations</span></div>
+      <div class="stat reveal"><b><span data-count="20">20</span>+</b><span>Shopify stores built and launched</span></div>
+      <div class="stat reveal"><b><span data-count="20">20</span>+</b><span>Third-party APIs integrated</span></div>
+      <div class="stat reveal"><b>10–20x</b><span>Growth in daily sales I helped drive</span></div>
+      <div class="stat reveal"><b><span data-count="3">3</span></b><span>Production platforms shipped in 2026</span></div>
     </div>
   </div>
 </section>
 
-<section id="case">
+<!-- ====================== INTEGRATIONS ====================== -->
+<section id="integrations" aria-label="APIs and platforms I have integrated">
   <div class="wrap">
-    <div class="case-kicker">
-      <span>Case study 01</span>
-      <span class="pill">Live in production</span>
-      <span class="pill">Internal tool</span>
-    </div>
-    <h2 class="case-title">Search Optimizer: an AI agent that fixes Shopify SEO, AEO and GEO issues and proves it worked.</h2>
-    <p class="case-lead">An internal platform I designed, built and shipped end to end. It audits every store with eight tools, scores them on one comparable scale, then uses an autonomous AI agent to fix the issues. A fix only counts when the audit tool confirms it.</p>
-
-    <div class="case-meta">
-      <div><span>My role</span><b>Product decisions, full-stack build and deployment, working with an AI coding assistant</b></div>
-      <div><span>Used by</span><b>The SEO team and management</b></div>
-      <div><span>Scale</span><b>A portfolio of 20–25 Shopify stores</b></div>
-    </div>
-
-    <div class="case-block">
-      <h3>The problem</h3>
-      <p>Store performance depends on classic search (SEO), answer engines (AEO) and AI search engines like ChatGPT and Perplexity (GEO). The team's workflow couldn't keep up with all three.</p>
-      <div class="case-grid c3">
-        <div class="case-cell"><b>Fragmented audits</b><p>Results came from many separate tools, and the scores weren't comparable.</p></div>
-        <div class="case-cell"><b>Manual fixing</b><p>Fixing meant uploading audit files to a chat AI and copying the edits into Shopify by hand.</p></div>
-        <div class="case-cell"><b>No proof</b><p>Nobody could tell which fixes had actually worked.</p></div>
-      </div>
-    </div>
-
-    <div class="case-block">
-      <h3>What the app does</h3>
-      <p>One workspace per store, and one portfolio view across all of them.</p>
-      <div class="case-grid c3">
-        <div class="case-cell"><span class="label">Audit</span><b>Unified audits</b><p>Eight tools run per store: SEOmator (365 rules), Google PageSpeed (median of 3 runs), a GEO optimizer, AI citability, brand presence, rich results, a deep site crawl and Search Console. They combine into Overall, SEO, AEO and GEO scores with configurable weights.</p></div>
-        <div class="case-cell"><span class="label">Understand</span><b>Portfolio dashboards</b><p>A store switcher, prioritised opportunities, trends and store comparison. Each store has Overview, Issues, Pages, Tool reports and History tabs, with period comparison, interactive charts and CSV/Excel export.</p></div>
-        <div class="case-cell"><span class="label">Fix</span><b>AI fixes, the core feature</b><p>An autonomous agent (Claude or Gemini, using tool calls) fixes issues in a copy of the store's theme and, through the Shopify Admin API, in products, pages, blog posts, SEO titles and alt text.</p></div>
-        <div class="case-cell"><span class="label">Trust</span><b>Safe by design</b><p>Every change goes through preview, review, publish and one-click roll back, with an automatic theme backup. Careful mode makes no design changes; Fix it mode does.</p></div>
-        <div class="case-cell"><span class="label">Control</span><b>Cost and control</b><p>Spend limits per fix, batch planning with estimates, and skip or stop for batches or single issues mid-run, with a live per-issue status list.</p></div>
-        <div class="case-cell"><span class="label">Show</span><b>Visible progress</b><p>"Why did the score change?" explanations, before/after for every fix, a celebration screen for each confirmed gain, a Fixed issues view with export, an activity log, and "Learn more" guidance on every issue.</p></div>
-      </div>
-    </div>
-
-    <div class="case-block">
-      <h3>An agent that checks its own work</h3>
-      <p>The agent doesn't get to declare victory. Every fix goes through a verification loop before it is counted.</p>
-      <div class="loop">
-        <div class="loop-step"><b>It sees the real page</b><p>It views the actual rendered pages on a live preview served by Shopify CLI.</p></div>
-        <div class="loop-step"><b>It runs the audit's own rule</b><p>It executes the audit tool's exact rule against its changes.</p></div>
-        <div class="loop-step"><b>It retries with evidence</b><p>Issues that still fail go back to it automatically, along with the evidence.</p></div>
-      </div>
-      <div class="callout">"Fixed" only counts when the audit tool agrees.</div>
-
-      <div class="case-sub">Measurement built to be honest</div>
-      <ul class="case-list">
-        <li><b>Like-for-like comparisons</b> that cancel out scoring-settings changes</li>
-        <li><b>Per-page progress</b> and a confirmation audit that waits for Shopify to update the store</li>
-        <li><b>"Can't be fixed by an app" detection</b> based on evidence</li>
-        <li><b>A highest-reachable-score estimate</b> for each store</li>
-        <li><b>An AI track record</b> per issue type and per AI model</li>
-      </ul>
-    </div>
-
-    <div class="case-block">
-      <h3>Results</h3>
-      <p>First measured run of the rebuilt agent, on one store: SEO score +1, with every confirmed fix verified by the audit tool itself.</p>
-      <div class="case-grid c3">
-        <div class="case-cell big"><span class="label">Measured run</span><b>40% fewer</b><p>Page-level problems on that store, down from 35 to 21</p></div>
-        <div class="case-cell big"><span class="label">Measured run</span><b>2 of 7</b><p>Issues fixed and confirmed by the audit. The preview check had predicted exactly those 2.</p></div>
-        <div class="case-cell big"><span class="label">Measured run</span><b>$3.09</b><p>Total AI cost of the whole run</p></div>
-        <div class="case-cell big"><span class="label">Scale</span><b>8 tools, 1 score</b><p>Audit tools unified into comparable Overall, SEO, AEO and GEO scores per store</p></div>
-        <div class="case-cell big"><span class="label">Scale</span><b>365 rules</b><p>Checked per store by SEOmator alone, alongside PageSpeed, crawl and Search Console data</p></div>
-        <div class="case-cell big"><span class="label">Scale</span><b>20–25 stores</b><p>Managed from one app by the SEO team and management</p></div>
-      </div>
-      <div class="case-sub">The bigger win: finding out why earlier fixes looked ineffective</div>
-      <p style="margin-bottom:16px">Only about 10% of issues were being confirmed. Root-cause analysis found four causes, and the redesign fixed all of them.</p>
-      <ul class="case-list">
-        <li>Scoring settings were changing mid-test</li>
-        <li>The AI was working without seeing the pages</li>
-        <li>Issues were being routed to the wrong place</li>
-        <li>The confirmation audit ran before the store had updated</li>
-      </ul>
-    </div>
-
-    <div class="case-block">
-      <h3>Tech stack</h3>
-      <div class="stack-grid" style="margin-top:22px">
-        <div><h4>Backend</h4><div class="tags"><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">TypeScript</span><span class="tag">Drizzle ORM</span><span class="tag">MySQL on AWS RDS</span><span class="tag">Background workers</span></div></div>
-        <div><h4>Frontend</h4><div class="tags"><span class="tag">React 19</span><span class="tag">Vite</span><span class="tag">Tailwind CSS v4</span><span class="tag">Accessible (axe-tested)</span><span class="tag">Light and dark themes</span></div></div>
-        <div><h4>AI</h4><div class="tags"><span class="tag">Claude API (Opus, Sonnet)</span><span class="tag">Gemini API</span><span class="tag">Shared tool-use agent framework</span></div></div>
-        <div><h4>Shopify</h4><div class="tags"><span class="tag">Shopify CLI</span><span class="tag">Admin GraphQL API</span><span class="tag">Theme pull, push, dev preview</span></div></div>
-        <div><h4>Quality &amp; delivery</h4><div class="tags"><span class="tag">Playwright</span><span class="tag">zod</span><span class="tag">cheerio</span><span class="tag">ExcelJS</span><span class="tag">SSO sign-in</span><span class="tag">GitLab CI</span></div></div>
-        <div><h4>What this demonstrates</h4><div class="tags"><span class="tag">AI agent design</span><span class="tag">Self-verification loops</span><span class="tag">Cost control</span><span class="tag">Measurement design</span><span class="tag">Root-cause analysis</span><span class="tag">Production deployment</span></div></div>
-      </div>
-    </div>
+    <div class="int-head"><h2>APIs and platforms I've integrated in production</h2><p>Hover to pause</p></div>
   </div>
+  <div class="marquee"><div class="track" id="track1">
+    <span class="int"><span class="int-ic" style="background:#5E8E3E">S</span>Shopify Admin API <small>GraphQL · bulk ops · webhooks</small></span>
+    <span class="int"><span class="int-ic" style="background:#4285F4">G</span>Google Ads API <small>MCC · GAQL</small></span>
+    <span class="int"><span class="int-ic" style="background:#0866FF">M</span>Meta Marketing API</span>
+    <span class="int"><span class="int-ic" style="background:#00A4EF">MS</span>Microsoft Advertising API</span>
+    <span class="int"><span class="int-ic" style="background:#E37400">GA</span>GA4 Data API</span>
+    <span class="int"><span class="int-ic" style="background:#2563EB">C</span>Microsoft Clarity</span>
+    <span class="int"><span class="int-ic" style="background:#34A853">SC</span>Google Search Console</span>
+    <span class="int"><span class="int-ic" style="background:#EA4335">PS</span>PageSpeed Insights</span>
+    <span class="int"><span class="int-ic" style="background:#0F9D58">D</span>Google Drive API <small>OAuth 2.0</small></span>
+  </div></div>
+  <div class="marquee rev"><div class="track" id="track2">
+    <span class="int"><span class="int-ic" style="background:#E62E04">A</span>AliExpress</span>
+    <span class="int"><span class="int-ic" style="background:#E53238">e</span>eBay</span>
+    <span class="int"><span class="int-ic" style="background:#0071DC">W</span>Walmart</span>
+    <span class="int"><span class="int-ic" style="background:#B8202E">AB</span>AbeBooks</span>
+    <span class="int"><span class="int-ic" style="background:#0E3E70">C</span>Catch</span>
+    <span class="int"><span class="int-ic" style="background:#FF9900">a</span>Amazon MWS</span>
+    <span class="int"><span class="int-ic" style="background:#4D148C">F</span>FedEx</span>
+    <span class="int"><span class="int-ic" style="background:#1B1F3B">Sg</span>Signifyd</span>
+    <span class="int"><span class="int-ic" style="background:#475569">K</span>KYC APIs <small>PAN · Aadhaar · bank</small></span>
+    <span class="int"><span class="int-ic" style="background:#D97757">Cl</span>Claude API</span>
+    <span class="int"><span class="int-ic" style="background:#4F7DF3">Ge</span>Gemini API</span>
+    <span class="int"><span class="int-ic" style="background:#10A37F">AI</span>OpenAI API</span>
+    <span class="int"><span class="int-ic" style="background:#64748B">ERP</span>Internal ERP</span>
+  </div></div>
 </section>
 
-<section id="case2">
+<!-- ====================== CASE STUDIES ====================== -->
+<section id="work-case">
   <div class="wrap">
-    <div class="case-kicker">
-      <span>Case study 02</span>
-      <span class="pill">Live in production, 2026</span>
-      <span class="pill">Internal tool, company SSO</span>
-    </div>
-    <h2 class="case-title">Commerce Optimizer: one trusted view of every store, with AI that proposes and people approve.</h2>
-    <p class="case-lead">A multi-store e-commerce intelligence platform. It brings each Shopify store's sales, advertising (Google, Meta, Bing), web analytics (GA4) and on-site behaviour (Microsoft Clarity) into one dashboard, flags what changed and why, and proposes fixes that a person approves before anything changes.</p>
-
-    <div class="case-meta">
-      <div><span>My role</span><b>Designed and built the full application: architecture, back end, front end, data pipeline and AI features, working with Claude Code as an AI pair-programmer</b></div>
-      <div><span>Built for</span><b>An e-commerce company running several Shopify stores</b></div>
-      <div><span>Workflow</span><b>Task branches, UAT, then production on GitLab. A DevOps colleague handled server deployment and sign-in.</b></div>
+    <div class="s-head reveal">
+      <div><div class="eyebrow">Case studies</div><h2>Three platforms I built and shipped in 2026</h2></div>
+      <p>Each one is live in production. I designed and built them end to end, with Claude Code as my AI pair programmer, and reviewed and tested every change myself.</p>
     </div>
 
-    <div class="case-block">
-      <h3>The problem</h3>
-      <p>The team checked Shopify, three ad platforms and two analytics tools separately, and reconciled the numbers by hand. Commerce Optimizer gives one trusted view per store and across all stores, explains changes in plain language, and turns analysis into approved actions.</p>
-      <div class="case-grid c3">
-        <div class="case-cell big"><span class="label">Impact</span><b>6 sources</b><p>Shopify, Google Ads, Meta Ads, Bing Ads, GA4 and Clarity in one view, replacing manual cross-checking</p></div>
-        <div class="case-cell big"><span class="label">Impact</span><b>To the cent</b><p>Sales figures reconcile exactly with Shopify's own sales reports</p></div>
-        <div class="case-cell big"><span class="label">Impact</span><b>±20%</b><p>Cap on AI-proposed budget changes; every action is approved, logged and reversible</p></div>
-        <div class="case-cell big"><span class="label">Engineering</span><b>85% smaller</b><p>Main JavaScript bundle, from 814 kB to 123 kB, through code splitting</p></div>
-        <div class="case-cell big"><span class="label">Engineering</span><b>~0.3 s</b><p>Revisited pages appear from cache, with duplicate requests removed</p></div>
-        <div class="case-cell big"><span class="label">Engineering</span><b>65 tests</b><p>Unit tests, plus linting and responsive checks on phone, tablet and desktop</p></div>
+    <div class="tabs reveal" role="tablist" aria-label="Case studies">
+      <button class="tab" role="tab" id="t-co" aria-controls="p-co" aria-selected="true"><span class="tab-k">Case study 01</span><span class="tab-n">Commerce Optimizer</span><span class="tab-s">Multi-store analytics · 20+ stores</span></button>
+      <button class="tab" role="tab" id="t-so" aria-controls="p-so" aria-selected="false" tabindex="-1"><span class="tab-k">Case study 02</span><span class="tab-n">Search Optimizer</span><span class="tab-s">AI agent for SEO, AEO &amp; GEO</span></button>
+      <button class="tab" role="tab" id="t-zc" aria-controls="p-zc" aria-selected="false" tabindex="-1"><span class="tab-k">Case study 03</span><span class="tab-n">Zob Connect</span><span class="tab-s">Field-force HRMS · web, Android, iOS</span></button>
+    </div>
+
+    <!-- ---------- Commerce Optimizer ---------- -->
+    <div class="panel" role="tabpanel" id="p-co" aria-labelledby="t-co">
+      <div class="case-top">
+        <div>
+          <div class="chips"><span class="chip soft">Live in production</span><span class="chip">Internal product · Ergode</span><span class="chip">Company SSO</span></div>
+          <h3>Commerce Optimizer: one trusted view of every store, with AI that proposes and people approve.</h3>
+          <p class="lead">A multi-store analytics platform. It brings each Shopify store's sales, advertising (Google, Meta, Microsoft), web analytics (GA4, Search Console) and on-site behaviour (Microsoft Clarity) into one dashboard, explains what changed and why, and proposes fixes that a person approves before anything changes.</p>
+          <div class="meta">
+            <div><span>My role</span><b>Lead developer: architecture, back end, front end, data pipeline and AI features</b></div>
+            <div><span>Scale</span><b>20+ Shopify stores, 7 data sources each</b></div>
+            <div><span>Delivery</span><b>Task branches → UAT → production on GitLab</b></div>
+            <div><span>Since</span><b>Oct 2026, actively developed</b></div>
+          </div>
+        </div>
+        <div class="metrics">
+          <div class="metric"><b><span data-count="7">7</span></b><span>Data sources per store, in one view</span></div>
+          <div class="metric"><b>To the cent</b><span>Sales reconcile with Shopify's own reports</span></div>
+          <div class="metric"><b><span data-count="25">25</span></b><span>Core KPIs on one overview</span></div>
+          <div class="metric"><b>±20%</b><span>Cap on AI budget changes, each one approved</span></div>
+          <div class="metric"><b><span data-count="141">141</span></b><span>Unit tests</span></div>
+          <div class="metric"><b>814 → 123 kB</b><span>App bundle after code splitting</span></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <h4>The problem</h4>
+        <p>The team checked Shopify, three ad platforms and several analytics tools separately, and reconciled the numbers by hand. Nobody had one view they trusted.</p>
+      </div>
+
+      <div class="block">
+        <h4>What I built</h4>
+        <p>A portfolio view across all stores, and a workspace for each one.</p>
+        <div class="feat">
+          <div class="card"><span class="lbl">Overview</span><h5>Portfolio dashboard</h5><p>25 core KPIs (sales, orders, AOV, ad spend, ROAS, MER, conversion rate…) with trends, "what moved sales" and a store comparison table.</p></div>
+          <div class="card"><span class="lbl">Analytics</span><h5>Per-store deep dives</h5><p>Sales with refunds, customers, channels, discount codes and fulfilment speed; ads by campaign; traffic with the GA4 funnel and Clarity frustration signals; inventory sell-through and stock at risk.</p></div>
+          <div class="card"><span class="lbl">Advertising</span><h5>One ads dashboard</h5><p>Google Ads, Meta Ads and Microsoft Ads side by side, with campaign-level flags for spend without return.</p></div>
+          <div class="card"><span class="lbl">Health</span><h5>Ads health score</h5><p>0–100 from five data-driven checks: broken conversion tracking, wasted search terms, budget-limited winning campaigns, Meta ad fatigue, and spend without sales.</p></div>
+          <div class="card"><span class="lbl">Insights</span><h5>Alerts with evidence</h5><p>Sales and ROAS drops, refund spikes, unshipped orders, checkout abandonment and "page not found" traffic, each with the likely cause, money impact and next step.</p></div>
+          <div class="card"><span class="lbl">Reporting</span><h5>Weekly Business Review</h5><p>A review page that exports as a PDF deck and an Excel workbook, plus branded PDF, Excel and CSV exports for any period or set of stores.</p></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <h4>AI that proposes, people approve</h4>
+        <p>The AI (Claude, with Gemini as fallback) can act on live ad accounts, which is exactly why it isn't allowed to act alone.</p>
+        <div class="loop">
+          <div class="step"><h5>The AI proposes</h5><p>Pause or enable campaigns, change budgets (capped at ±20%), add negative keywords, or create discount codes.</p></div>
+          <div class="step"><h5>A person approves</h5><p>Each action is shown exactly as it will run, and approved individually.</p></div>
+          <div class="step"><h5>It's logged and reversible</h5><p>Guardrails on every action, a full audit log, one-click undo, and the effect is measured afterwards.</p></div>
+        </div>
+        <div class="callout"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Nothing touches an ad account or a store until a person approves it.</div>
+      </div>
+
+      <div class="block">
+        <h4>Engineering highlights</h4>
+        <ul class="list">
+          <li><b>Resilient sync pipeline:</b> background workers claim jobs with <code>FOR UPDATE SKIP LOCKED</code>; 180-day history through Shopify bulk operations, then incremental syncs</li>
+          <li><b>Late data handled:</b> recent ad days are re-synced because conversions keep arriving after the click</li>
+          <li><b>Financial accuracy:</b> two refund bases, one of which matches Shopify's reports to the cent; ratios computed from period totals, never averaged</li>
+          <li><b>Budgeting a tight API:</b> Clarity allows 10 requests a day, so the app uses at most 8 and keeps raw responses so data can be rebuilt</li>
+          <li><b>Affordable, reliable AI:</b> Zod-validated JSON outputs, prompt caching, reuse of identical analyses, per-request cost metering and a monthly budget cap</li>
+          <li><b>Security and privacy:</b> platform tokens encrypted with AES-256-GCM, no shopper names, emails or addresses stored, company SSO</li>
+          <li><b>Plain-language connection health:</b> when a source stops working, the store shows what happened, where to fix it, and the steps</li>
+          <li><b>Fast:</b> TanStack Query caching makes revisited pages appear in about 0.3 s</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h4>Stack</h4>
+        <div class="stack">
+          <div><h6>Back end</h6><div class="chips"><span class="chip">Node.js</span><span class="chip">TypeScript</span><span class="chip">Express</span><span class="chip">Drizzle ORM</span><span class="chip">Zod</span><span class="chip">MySQL 8 · AWS RDS</span></div></div>
+          <div><h6>Front end</h6><div class="chips"><span class="chip">React 19</span><span class="chip">Vite</span><span class="chip">Tailwind CSS 4</span><span class="chip">TanStack Query</span><span class="chip">Recharts</span></div></div>
+          <div><h6>Integrations</h6><div class="chips"><span class="chip">Shopify GraphQL</span><span class="chip">Google Ads</span><span class="chip">Meta Marketing</span><span class="chip">Microsoft Ads</span><span class="chip">GA4</span><span class="chip">Clarity</span><span class="chip">Search Console</span></div></div>
+          <div><h6>AI</h6><div class="chips"><span class="chip">Claude API</span><span class="chip">Gemini fallback</span><span class="chip">Prompt caching</span></div></div>
+          <div><h6>Quality</h6><div class="chips"><span class="chip">Node test runner</span><span class="chip">Oxlint</span><span class="chip">Prettier</span><span class="chip">Playwright (PDF)</span><span class="chip">ExcelJS</span></div></div>
+          <div><h6>Shows</h6><div class="chips"><span class="chip soft">Data pipelines</span><span class="chip soft">Human-in-the-loop AI</span><span class="chip soft">Financial accuracy</span></div></div>
+        </div>
       </div>
     </div>
 
-    <div class="case-block">
-      <h3>What the app does</h3>
-      <p>A portfolio view across all stores, and a workspace for each one.</p>
-      <div class="case-grid c3">
-        <div class="case-cell"><span class="label">Overview</span><b>Portfolio overview</b><p>KPI cards with trends (sales, orders, AOV, ad spend, ROAS, MER, conversion rate), a checkout-loss summary, an interactive trend chart, "what moved sales" and a store comparison table.</p></div>
-        <div class="case-cell"><span class="label">Analytics</span><b>Per-store analytics</b><p>Sales with refunds, customer mix, channels, discount codes and fulfilment speed; marketing with an Ads health score; traffic with the GA4 funnel and Clarity frustration signals.</p></div>
-        <div class="case-cell"><span class="label">Advertising</span><b>One ads dashboard</b><p>Google Ads, Meta Ads and Bing Ads compared on a single page, with campaign-level flags for spend without return.</p></div>
-        <div class="case-cell"><span class="label">Insights</span><b>Insights engine</b><p>Rule-based alerts with evidence, likely causes, money impact and next steps: sales and ROAS drops, refund spikes, unshipped orders, checkout abandonment, "page not found" traffic and budget-capped winning campaigns.</p></div>
-        <div class="case-cell"><span class="label">Health</span><b>Ads health checks</b><p>A 0–100 score from five data-driven checks: conversion tracking, non-converting search terms, budget-limited winning campaigns, Meta ad fatigue, and spend without sales.</p></div>
-        <div class="case-cell"><span class="label">AI</span><b>AI layer</b><p>Claude, with Gemini as fallback: root-cause analysis of any insight, weekly strategy briefs per store and across all stores, and an "Ask AI" chat grounded in the store's own data.</p></div>
+    <!-- ---------- Search Optimizer ---------- -->
+    <div class="panel" role="tabpanel" id="p-so" aria-labelledby="t-so">
+      <div class="case-top">
+        <div>
+          <div class="chips"><span class="chip soft">Live in production</span><span class="chip">Internal product · Ergode</span><span class="chip">AI agent</span></div>
+          <h3>Search Optimizer: an AI agent that fixes Shopify SEO, AEO and GEO issues, and proves each fix worked.</h3>
+          <p class="lead">It audits every store with eight tools, scores them on one comparable scale, then uses an AI agent to fix the issues in the theme and the store's content. A fix only counts when the audit tool itself confirms it.</p>
+          <div class="meta">
+            <div><span>My role</span><b>Lead developer: product decisions, full stack build and deployment</b></div>
+            <div><span>Used by</span><b>The SEO team and management</b></div>
+            <div><span>Scale</span><b>10 Shopify stores</b></div>
+            <div><span>Since</span><b>Oct 2026, actively developed</b></div>
+          </div>
+        </div>
+        <div class="metrics">
+          <div class="metric"><b><span data-count="88">88</span></b><span>Issues fixed and confirmed by audits in 30 days</span></div>
+          <div class="metric"><b>$0.40</b><span>AI cost per confirmed issue</span></div>
+          <div class="metric"><b><span data-count="95">95</span>%</b><span>Of AI input served from the prompt cache</span></div>
+          <div class="metric"><b>8 → 1</b><span>Audit tools combined into one score per store</span></div>
+        </div>
       </div>
-      <ul class="case-list" style="margin-top:12px">
-        <li><b>Date filtering everywhere:</b> presets and custom ranges up to a year, each compared with the previous period, in each store's own time zone</li>
-        <li><b>Exports:</b> branded PDF reports, Excel workbooks and CSV, for any period or set of stores</li>
-        <li><b>Store onboarding:</b> a guided "Add store" flow with automatic syncing</li>
-        <li><b>Connection health:</b> plain-language diagnosis when a data source stops working</li>
-      </ul>
+
+      <div class="block">
+        <h4>The problem</h4>
+        <div class="feat">
+          <div class="card"><h5>Fragmented audits</h5><p>Results came from many separate tools, and their scores weren't comparable.</p></div>
+          <div class="card"><h5>Manual fixing</h5><p>Fixing meant uploading audit files to a chat AI and copying the edits into Shopify by hand.</p></div>
+          <div class="card"><h5>No proof</h5><p>Nobody could tell which fixes had actually worked.</p></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <h4>What I built</h4>
+        <div class="feat">
+          <div class="card"><span class="lbl">Audit</span><h5>Unified audits</h5><p>SEOmator, PageSpeed (median of 3 runs), GEO readiness, AI citability, brand presence, rich results, a deep site crawl and Search Console, combined into Overall, SEO, AEO and GEO scores with adjustable weights.</p></div>
+          <div class="card"><span class="lbl">Fix</span><h5>AI fix agent</h5><p>Claude or Gemini with tool use edits a copy of the theme (Shopify CLI) and the store's content (Admin API): products, pages, blog posts, SEO titles, alt text.</p></div>
+          <div class="card"><span class="lbl">Trust</span><h5>Safe by design</h5><p>Preview, review the diff, publish, one-click rollback, and an automatic theme backup before every publish.</p></div>
+          <div class="card"><span class="lbl">Scale</span><h5>Fix across stores</h5><p>A fix verified on one store is reused on the others running the same theme, so each further store costs less.</p></div>
+          <div class="card"><span class="lbl">Control</span><h5>Cost control</h5><p>Spend limits per fix, cost estimates before every run, and skip or stop for single issues or batches mid-run.</p></div>
+          <div class="card"><span class="lbl">Show</span><h5>Visible progress</h5><p>Before and after for every fix, "why did the score change?", an AI track record per issue type, and a celebration for each confirmed gain.</p></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <h4>An agent that checks its own work</h4>
+        <p>The agent doesn't get to declare victory. Every fix goes through a verification loop before it counts.</p>
+        <div class="loop">
+          <div class="step"><h5>It sees the real page</h5><p>It views the rendered pages on a live preview served by Shopify CLI.</p></div>
+          <div class="step"><h5>It runs the audit's own rule</h5><p>It executes the audit tool's exact check against its own changes.</p></div>
+          <div class="step"><h5>It retries with evidence</h5><p>Issues that still fail go back to it automatically, with what the tool reported.</p></div>
+        </div>
+        <div class="callout"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>"Fixed" only counts when the audit tool agrees.</div>
+      </div>
+
+      <div class="block">
+        <h4>The bigger win: finding out why fixes looked ineffective</h4>
+        <p>Early on, only about 10% of issues were being confirmed. Root-cause analysis found four causes, and the redesign fixed all of them.</p>
+        <ul class="list">
+          <li>Scoring settings were changing mid-test, so I added <b>like-for-like comparisons</b></li>
+          <li>The AI was working blind, so it now <b>sees the rendered pages</b></li>
+          <li>Issues were routed to the wrong place, so <b>theme and content fixes now happen in one run</b></li>
+          <li>Confirmation ran before Shopify updated, so the audit now <b>waits for the store to settle</b></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h4>Stack</h4>
+        <div class="stack">
+          <div><h6>Back end</h6><div class="chips"><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">TypeScript</span><span class="chip">Drizzle ORM</span><span class="chip">MySQL · AWS RDS</span><span class="chip">Job workers</span></div></div>
+          <div><h6>Front end</h6><div class="chips"><span class="chip">React 19</span><span class="chip">Vite</span><span class="chip">Tailwind CSS 4</span><span class="chip">Light &amp; dark themes</span></div></div>
+          <div><h6>AI</h6><div class="chips"><span class="chip">Claude API</span><span class="chip">Gemini API</span><span class="chip">Tool-use agents</span><span class="chip">Prompt caching</span></div></div>
+          <div><h6>Shopify</h6><div class="chips"><span class="chip">Shopify CLI</span><span class="chip">Admin GraphQL API</span><span class="chip">Theme preview</span></div></div>
+          <div><h6>Quality</h6><div class="chips"><span class="chip">Playwright</span><span class="chip">Zod</span><span class="chip">cheerio</span><span class="chip">GitLab CI</span><span class="chip">SSO</span></div></div>
+          <div><h6>Shows</h6><div class="chips"><span class="chip soft">AI agent design</span><span class="chip soft">Self-verification</span><span class="chip soft">Cost engineering</span></div></div>
+        </div>
+      </div>
     </div>
 
-    <div class="case-block">
-      <h3>AI that proposes, people approve</h3>
-      <p>The AI can act on live ad accounts, which is exactly why it is not allowed to act alone.</p>
-      <div class="loop">
-        <div class="loop-step"><b>The AI proposes a fix</b><p>Pause or enable campaigns, change budgets (capped at ±20%), add negative keywords, or create discount codes.</p></div>
-        <div class="loop-step"><b>A person approves</b><p>Each proposed action is reviewed and approved individually before it runs.</p></div>
-        <div class="loop-step"><b>Everything is reversible</b><p>Guardrails on every action, a full audit log and one-click undo.</p></div>
+    <!-- ---------- Zob Connect ---------- -->
+    <div class="panel" role="tabpanel" id="p-zc" aria-labelledby="t-zc">
+      <div class="case-top">
+        <div>
+          <div class="chips"><span class="chip soft">Live in production</span><span class="chip">Freelance project</span><span class="chip">Team of 4</span></div>
+          <h3>Zob Connect: a field-force HRMS, from kickoff to production in two months.</h3>
+          <p class="lead">An HR platform for companies with staff in the field: a REST API, a React admin console, and React Native apps for Android and iOS. I led a team of four and owned the architecture, the integrations and the release.</p>
+          <div class="meta">
+            <div><span>My role</span><b>Freelance lead developer: requirements, architecture, integrations, deployment</b></div>
+            <div><span>Timeline</span><b>2 months, kickoff to production</b></div>
+            <div><span>Platforms</span><b>Web, Android and iOS</b></div>
+            <div><span>Live</span><b><a href="https://web.zobconnect.com" target="_blank" rel="noopener" style="color:var(--accent)">web.zobconnect.com ↗</a></b></div>
+          </div>
+        </div>
+        <div class="metrics">
+          <div class="metric"><b><span data-count="3">3</span></b><span>Apps shipped: web, Android, iOS</span></div>
+          <div class="metric"><b><span data-count="2">2</span> mo</b><span>From kickoff to production</span></div>
+          <div class="metric"><b><span data-count="10">10</span></b><span>Indian languages supported</span></div>
+          <div class="metric"><b><span data-count="4">4</span></b><span>Developers led</span></div>
+        </div>
       </div>
-      <div class="callout">Nothing runs until a person approves it.</div>
 
-      <div class="case-sub">AI cost transparency</div>
-      <ul class="case-list">
-        <li><b>Every request is stored</b> with its answer, tokens, time and cost</li>
-        <li><b>A History &amp; Costs view</b> shows spend by feature, store and day</li>
-        <li><b>Waste is visible:</b> money lost on failed requests, and savings from caching</li>
-        <li><b>Spend is controlled</b> by a monthly budget cap and free reuse of identical analyses</li>
-      </ul>
-    </div>
-
-    <div class="case-block">
-      <h3>Technical highlights</h3>
-      <p>The parts that make the numbers trustworthy and the AI affordable.</p>
-      <div class="case-grid c3">
-        <div class="case-cell"><span class="label">Data</span><b>A resilient sync pipeline</b><p>A background worker with database-level job claiming (<code>FOR UPDATE SKIP LOCKED</code>), incremental syncs from every 30 minutes to daily by source, a 180-day history import via Shopify's GraphQL bulk operations, and re-checks of recent ad days because conversions arrive late.</p></div>
-        <div class="case-cell"><span class="label">Accuracy</span><b>Two refund bases, one truth</b><p>Refund accounting supports two reporting bases: one reconciles with Shopify's reports to the cent, the other suits judging ad efficiency. Ratios are computed from period totals, never by averaging daily ratios.</p></div>
-        <div class="case-cell"><span class="label">Limits</span><b>Budgeting a tight API</b><p>Microsoft Clarity's export API allows 10 requests a day per project, so the app budgets itself to at most 8 and keeps raw responses so data can be rebuilt without new calls.</p></div>
-        <div class="case-cell"><span class="label">AI engineering</span><b>Reliable, cheap AI</b><p>Structured JSON outputs validated with Zod, prompt caching of store facts that cut follow-up costs, automatic reuse of identical analyses, retries when an answer is cut off, and per-request cost metering with AsyncLocalStorage.</p></div>
-        <div class="case-cell"><span class="label">Performance</span><b>Fast to load, fast to revisit</b><p>Code splitting took the main bundle from 814 kB to 123 kB. Data loading moved to TanStack Query, so a revisited page appears from cache in about 0.3 s, duplicate requests disappear and data refreshes in the background.</p></div>
-        <div class="case-cell"><span class="label">Security</span><b>Privacy by design</b><p>Platform tokens encrypted at rest (AES-256-GCM), no customer names, emails or addresses stored for abandoned checkouts, and company SSO with domain-restricted access.</p></div>
+      <div class="block">
+        <h4>What I built</h4>
+        <div class="feat">
+          <div class="card"><span class="lbl">Attendance</span><h5>Geofenced, face-verified</h5><p>Selfie attendance with face verification, shift-aware clock-in and clock-out rules, regularisation requests and live location tracking.</p></div>
+          <div class="card"><span class="lbl">Compliance</span><h5>KYC with an onboarding gate</h5><p>PAN, Aadhaar and bank verification APIs; the app stays locked until an employee is verified.</p></div>
+          <div class="card"><span class="lbl">Documents</span><h5>Audited document register</h5><p>Google Drive integration over OAuth 2.0, with access logs, masked ID numbers and a compliance register per employee.</p></div>
+          <div class="card"><span class="lbl">Access</span><h5>Role-based access</h5><p>Separate permissions for HR, zone, site and team managers.</p></div>
+          <div class="card"><span class="lbl">Onboarding</span><h5>Bulk import</h5><p>Bulk employee and target import, so a client can go live with its whole workforce at once.</p></div>
+          <div class="card"><span class="lbl">Release</span><h5>Ship and stabilise</h5><p>Linux with PM2 and push-to-deploy; Expo EAS builds with over-the-air updates for fixes after launch.</p></div>
+        </div>
       </div>
-      <ul class="case-list" style="margin-top:12px">
-        <li><b>Database:</b> MySQL 8 on AWS RDS, shared with another internal app through prefixed tables and a separate migration history, with composite keys and indexes designed per query</li>
-        <li><b>Quality:</b> 65 unit tests, Oxlint including the React Hooks rules, Prettier, and layouts checked in light and dark mode</li>
-      </ul>
-    </div>
 
-    <div class="case-block">
-      <h3>Tech stack</h3>
-      <div class="stack-grid" style="margin-top:22px">
-        <div><h4>Back end</h4><div class="tags"><span class="tag">Node.js 24</span><span class="tag">TypeScript</span><span class="tag">Express</span><span class="tag">Drizzle ORM</span><span class="tag">Zod</span><span class="tag">MySQL 8 on AWS RDS</span></div></div>
-        <div><h4>Front end</h4><div class="tags"><span class="tag">React 19</span><span class="tag">Vite</span><span class="tag">Tailwind CSS 4</span><span class="tag">TanStack Query</span><span class="tag">Recharts</span><span class="tag">react-day-picker</span></div></div>
-        <div><h4>Integrations</h4><div class="tags"><span class="tag">Shopify Admin GraphQL (bulk operations)</span><span class="tag">Google Ads API</span><span class="tag">Meta Marketing API</span><span class="tag">Microsoft Advertising API</span><span class="tag">GA4 Data API</span><span class="tag">Clarity Data Export API</span></div></div>
-        <div><h4>AI</h4><div class="tags"><span class="tag">Claude API (Opus for analysis, Sonnet for chat)</span><span class="tag">Gemini fallback</span><span class="tag">Prompt caching</span></div></div>
-        <div><h4>Tooling</h4><div class="tags"><span class="tag">Playwright</span><span class="tag">ExcelJS</span><span class="tag">Oxlint</span><span class="tag">Prettier</span><span class="tag">Node test runner</span><span class="tag">GitLab</span></div></div>
-        <div><h4>What this demonstrates</h4><div class="tags"><span class="tag">Data pipeline design</span><span class="tag">Human-in-the-loop AI</span><span class="tag">AI cost engineering</span><span class="tag">Financial accuracy</span><span class="tag">Performance tuning</span><span class="tag">Security and privacy</span></div></div>
+      <div class="block">
+        <h4>How we delivered it</h4>
+        <div class="loop">
+          <div class="step"><h5>Requirements with the client</h5><p>Workflows, roles and compliance rules agreed with the client up front.</p></div>
+          <div class="step"><h5>AI-first build</h5><p>Built with Claude Code for implementation, code review, tests, debugging and translation into 10 languages, all reviewed by the team.</p></div>
+          <div class="step"><h5>Launch and stabilise</h5><p>Production release, then fixes shipped as over-the-air updates, so users never had to reinstall.</p></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <h4>Stack</h4>
+        <div class="stack">
+          <div><h6>Back end</h6><div class="chips"><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">PostgreSQL</span><span class="chip">REST API</span></div></div>
+          <div><h6>Apps</h6><div class="chips"><span class="chip">React</span><span class="chip">Vite</span><span class="chip">React Native</span><span class="chip">Expo EAS</span></div></div>
+          <div><h6>Integrations &amp; ops</h6><div class="chips"><span class="chip">Google Drive API</span><span class="chip">OAuth 2.0</span><span class="chip">KYC APIs</span><span class="chip">PM2</span><span class="chip">Linux</span></div></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ====================== EXPERIENCE ====================== -->
 <section id="experience">
   <div class="wrap">
-    <div class="s-head">
-      <h2>Where I've worked</h2>
-      <p>A track record of ownership — from a single D2C vertical to a freelance product built with a team.</p>
+    <div class="s-head reveal">
+      <div><div class="eyebrow">Experience</div><h2>Where I've worked</h2></div>
+      <p>Ownership from requirements to production, on my own and leading a team.</p>
     </div>
     <div class="timeline">
-      <div class="tl-item">
-        <div class="tl-date">Aug 2026 — Present</div>
-        <div>
-          <div class="tl-role">Freelance Lead Full Stack Developer</div>
-          <div class="tl-org">Zob Connect · Field-force HRMS</div>
-          <p class="tl-desc">Leading a team of four building a Node.js/Express + PostgreSQL API, a React admin app, and a React Native mobile app for client SD Computronix. Shipped three production apps in about a month, building AI-first with Claude Code for implementation, review, and testing.</p>
+      <div class="job reveal">
+        <div class="job-card">
+          <div class="job-head"><h3>Full Stack Developer (Technical Lead, D2C E-commerce)</h3><span class="job-when">Jul 2022 – Present</span></div>
+          <div class="job-org">Ergode IT Services · Mumbai</div>
+          <p class="job-sum">Sole technical owner of the D2C e-commerce vertical in a 50-person IT organisation, from requirements gathering to deployment. Migrated the stores from OpenCart to Shopify and grew daily sales from <b>$3–4K to $40–70K</b> (about $15–20M a year) through the migration, integrations and automation.</p>
+          <div class="job-groups">
+            <div><h4>Integrations &amp; automation</h4><ul>
+              <li><b>AliExpress ↔ Shopify</b> end to end: product import and sync, order placement, fulfilment and tracking back to the store</li>
+              <li><b>eBay, Walmart, AbeBooks, Catch</b> into central databases, plus Shopify ↔ ERP middleware for real-time inventory and order sync</li>
+              <li>Shopify Admin API automation for orders, refunds, discounts and bulk updates across <b>200K–500K SKUs</b> per store</li>
+              <li>Laravel and CodeIgniter apps and scripts that cut manual effort by <b>60%</b> and errors by <b>50%</b></li>
+            </ul></div>
+            <div><h4>Delivery &amp; ownership</h4><ul>
+              <li>Built and launched <b>20+ Shopify stores</b>, with custom Online Store 2.0 themes in Liquid</li>
+              <li>Cut time-to-market by <b>40%</b>, working directly with the VP and business teams</li>
+              <li>Built a custom Shopify app for <b>bulk product and metafield</b> export and import</li>
+              <li>Technical SEO: on-page score <b>82 → 88/100</b> on morningstarshops.com</li>
+            </ul></div>
+            <div><h4>AI-driven development</h4><ul>
+              <li>Built <a href="#work-case" data-tab="t-co" style="color:var(--accent);font-weight:600">Commerce Optimizer</a> and <a href="#work-case" data-tab="t-so" style="color:var(--accent);font-weight:600">Search Optimizer</a>, both live in production (see the case studies)</li>
+              <li>ChatGPT API FAQ automation that cut support tickets by <b>30–40%</b></li>
+              <li>LLM tools for product listings and SEO content; brought AI-assisted practices to the team</li>
+              <li><b>3rd place</b>, company-wide AI Hackathon 2025</li>
+            </ul></div>
+          </div>
+          <div class="stores"><span>Some stores I've built (<a href="#storefronts" style="color:var(--accent)">see screenshots</a>):</span>
+            <a class="chip" href="https://keebleoutlets.com/" target="_blank" rel="noopener">keebleoutlets.com ↗</a>
+            <a class="chip" href="https://shalinindia.com/" target="_blank" rel="noopener">shalinindia.com ↗</a>
+            <a class="chip" href="https://selectfurniturestore.com" target="_blank" rel="noopener">selectfurniturestore.com ↗</a>
+            <a class="chip" href="https://groceryeshop.us" target="_blank" rel="noopener">groceryeshop.us ↗</a>
+            <a class="chip" href="https://cleanbottle.com" target="_blank" rel="noopener">cleanbottle.com ↗</a>
+            <a class="chip" href="https://ergodebooks.com" target="_blank" rel="noopener">ergodebooks.com ↗</a>
+            <a class="chip" href="https://morningstarshops.com" target="_blank" rel="noopener">morningstarshops.com ↗</a>
+          </div>
         </div>
       </div>
-      <div class="tl-item">
-        <div class="tl-date">Jul 2022 — Present</div>
-        <div>
-          <div class="tl-role">Technical Lead, Full Stack Applications &amp; E-commerce</div>
-          <div class="tl-org">Full Stack Developer</div>
-          <p class="tl-desc">Own technical delivery across PHP/Laravel and CodeIgniter applications alongside a D2C e-commerce vertical spanning 20+ Shopify stores, reporting to the VP. Drove daily sales from $3–4K to $40–70K through platform migration and automation, built an automation platform cutting manual ops by 60%, and integrated the ChatGPT API into support workflows, reducing tickets by 30–40%.</p>
+      <div class="job reveal">
+        <div class="job-card">
+          <div class="job-head"><h3>Freelance Lead Developer</h3><span class="job-when">2026 · 2 months</span></div>
+          <div class="job-org">Zob Connect · Field-force HRMS</div>
+          <p class="job-sum">Led a team of four to build and ship a production HRMS: a Node.js and PostgreSQL API, a React admin console, and React Native apps for Android and iOS, with KYC, geofenced attendance, Google Drive OAuth and 10 Indian languages. <a href="#work-case" data-tab="t-zc" style="color:var(--accent);font-weight:600">Read the case study →</a></p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="work">
+<!-- ====================== STOREFRONTS ====================== -->
+<section id="storefronts">
   <div class="wrap">
-    <div class="s-head">
-      <h2>Selected work</h2>
-      <p>Projects that show the range — from AI-first product builds to backend integration engineering.</p>
+    <div class="s-head reveal">
+      <div><div class="eyebrow">Storefronts</div><h2>Shopify stores I've built</h2></div>
+      <p>Live stores for D2C brands, on desktop and phone. Every card opens the real site.</p>
     </div>
-    <div class="work-grid">
-      <div class="work-card">
-        <div class="work-tag">Node.js, React, React Native, Claude Code</div>
-        <div class="work-title">Zob Connect — field-force HRMS</div>
-        <p class="work-desc">Geofenced attendance with selfie verification, KYC onboarding (PAN, Aadhaar, bank), role-based access for HR and zone managers, and localisation across 10 Indian languages.</p>
-        <div class="work-metrics"><div><b>3</b><span>Apps shipped</span></div><div><b>~1 mo</b><span>Build time</span></div></div>
-      </div>
-      <div class="work-card">
-        <div class="work-tag">PHP, Laravel, MySQL</div>
-        <div class="work-title">Order &amp; supplier management system</div>
-        <p class="work-desc">A Laravel-based internal application handling supplier orders, inventory sync, and fulfillment tracking — built from scratch to replace a manual, spreadsheet-driven process across multiple teams.</p>
-        <div class="work-metrics"><div><b>60%</b><span>Fewer manual ops</span></div><div><b>50%</b><span>Fewer errors</span></div></div>
-      </div>
-      <div class="work-card">
-        <div class="work-tag">CodeIgniter, PHP, REST APIs</div>
-        <div class="work-title">Third-party integration platform</div>
-        <p class="work-desc">A CodeIgniter application integrating 10+ external systems — Amazon MWS, FedEx, Signifyd, payment gateways, and supplier APIs — into a single operational backend.</p>
-        <div class="work-metrics"><div><b>10+</b><span>APIs integrated</span></div><div><b>PCI</b><span>Compliant payments</span></div></div>
-      </div>
-      <div class="work-card">
-        <div class="work-tag">ChatGPT API, workflow automation</div>
-        <div class="work-title">AI-assisted support triage</div>
-        <p class="work-desc">Integrated the ChatGPT API into customer support to auto-draft responses for order status, returns, and sizing queries, with escalation rules for anything the model can't resolve.</p>
-        <div class="work-metrics"><div><b>30–40%</b><span>Fewer tickets</span></div><div><b>3rd</b><span>Place, AI Hackathon</span></div></div>
-      </div>
+    <div class="gallery">
+      <a class="shop reveal featured" href="https://shalinindia.com/" target="_blank" rel="noopener" aria-label="Visit Shalin India (shalinindia.com)"><div class="shot"><div class="browser"><div class="bar"><i></i><i></i><i></i><span class="url">shalinindia.com</span></div><img src="assets/stores/shalinindia-desktop.jpg" width="1440" height="900" loading="lazy" decoding="async" alt="Shalin India storefront on desktop"></div><div class="ph"><img src="assets/stores/shalinindia-mobile.jpg" width="780" height="1560" loading="lazy" decoding="async" alt="Shalin India storefront on a phone"></div></div><div><div class="shop-info"><div><h5>Shalin India</h5><p>Indian handicrafts and heritage décor. A custom Online Store 2.0 theme built on Tinker, with 63 custom sections.</p></div></div><div class="chips"><span class="chip">Shopify</span><span class="chip">Custom theme</span><span class="chip">63 sections</span><span class="chip">Responsive</span></div><span class="btn btn-ghost btn-sm" style="margin-top:16px">Visit shalinindia.com <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div></a>
+      <a class="shop reveal" href="https://keebleoutlets.com/" target="_blank" rel="noopener" aria-label="Visit Keeble Outlets (keebleoutlets.com)"><div class="shot"><div class="browser"><div class="bar"><i></i><i></i><i></i><span class="url">keebleoutlets.com</span></div><img src="assets/stores/keebleoutlets-desktop.jpg" width="1440" height="900" loading="lazy" decoding="async" alt="Keeble Outlets storefront on desktop"></div><div class="ph"><img src="assets/stores/keebleoutlets-mobile.jpg" width="780" height="1560" loading="lazy" decoding="async" alt="Keeble Outlets storefront on a phone"></div></div><div><div class="shop-info"><div><h5>Keeble Outlets</h5><p>Commercial-grade home products for everyday use.</p></div><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div><div class="chips"><span class="chip">Shopify</span><span class="chip">Responsive</span></div></div></a>
+      <a class="shop reveal" href="https://morningstarshops.com/" target="_blank" rel="noopener" aria-label="Visit Morning Star (morningstarshops.com)"><div class="shot"><div class="browser"><div class="bar"><i></i><i></i><i></i><span class="url">morningstarshops.com</span></div><img src="assets/stores/morningstarshops-desktop.jpg" width="1440" height="900" loading="lazy" decoding="async" alt="Morning Star storefront on desktop"></div><div class="ph"><img src="assets/stores/morningstarshops-mobile.jpg" width="780" height="1560" loading="lazy" decoding="async" alt="Morning Star storefront on a phone"></div></div><div><div class="shop-info"><div><h5>Morning Star</h5><p>Kitchen appliances. Prototyped in Next.js, built as a Shopify theme; on-page SEO score raised from 82 to 88.</p></div><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div><div class="chips"><span class="chip">Shopify</span><span class="chip">Custom theme</span><span class="chip">SEO 82 → 88</span></div></div></a>
+      <a class="shop reveal" href="https://www.cleanbottle.com/" target="_blank" rel="noopener" aria-label="Visit Clean Bottle (www.cleanbottle.com)"><div class="shot"><div class="browser"><div class="bar"><i></i><i></i><i></i><span class="url">www.cleanbottle.com</span></div><img src="assets/stores/cleanbottle-desktop.jpg" width="1440" height="900" loading="lazy" decoding="async" alt="Clean Bottle storefront on desktop"></div><div class="ph"><img src="assets/stores/cleanbottle-mobile.jpg" width="780" height="1560" loading="lazy" decoding="async" alt="Clean Bottle storefront on a phone"></div></div><div><div class="shop-info"><div><h5>Clean Bottle</h5><p>Insulated drinkware, with a live offer countdown and multi-currency.</p></div><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div><div class="chips"><span class="chip">Shopify</span><span class="chip">Responsive</span></div></div></a>
+      <a class="shop reveal" href="https://selectfurniturestore.com/" target="_blank" rel="noopener" aria-label="Visit Select Furniture Store (selectfurniturestore.com)"><div class="shot"><div class="browser"><div class="bar"><i></i><i></i><i></i><span class="url">selectfurniturestore.com</span></div><img src="assets/stores/selectfurniturestore-desktop.jpg" width="1440" height="900" loading="lazy" decoding="async" alt="Select Furniture Store storefront on desktop"></div><div class="ph"><img src="assets/stores/selectfurniturestore-mobile.jpg" width="780" height="1560" loading="lazy" decoding="async" alt="Select Furniture Store storefront on a phone"></div></div><div><div class="shop-info"><div><h5>Select Furniture Store</h5><p>Furniture for every room, with a large multi-level catalogue.</p></div><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div><div class="chips"><span class="chip">Shopify</span><span class="chip">Mega menu</span></div></div></a>
+      <a class="shop reveal" href="https://groceryeshop.us/" target="_blank" rel="noopener" aria-label="Visit Groceryeshop (groceryeshop.us)"><div class="shot"><div class="browser"><div class="bar"><i></i><i></i><i></i><span class="url">groceryeshop.us</span></div><img src="assets/stores/groceryeshop-desktop.jpg" width="1440" height="900" loading="lazy" decoding="async" alt="Groceryeshop storefront on desktop"></div><div class="ph"><img src="assets/stores/groceryeshop-mobile.jpg" width="780" height="1560" loading="lazy" decoding="async" alt="Groceryeshop storefront on a phone"></div></div><div><div class="shop-info"><div><h5>Groceryeshop</h5><p>Online grocery for US shoppers, with an AI shopping assistant.</p></div><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div><div class="chips"><span class="chip">Shopify</span><span class="chip">AI assistant</span></div></div></a>
+      <a class="shop reveal" href="https://ergodebooks.com/" target="_blank" rel="noopener" aria-label="Visit Ergodebooks (ergodebooks.com)"><div class="shot"><div class="browser"><div class="bar"><i></i><i></i><i></i><span class="url">ergodebooks.com</span></div><img src="assets/stores/ergodebooks-desktop.jpg" width="1440" height="900" loading="lazy" decoding="async" alt="Ergodebooks storefront on desktop"></div><div class="ph"><img src="assets/stores/ergodebooks-mobile.jpg" width="780" height="1560" loading="lazy" decoding="async" alt="Ergodebooks storefront on a phone"></div></div><div><div class="shop-info"><div><h5>Ergodebooks</h5><p>Online bookstore with search by title, author or ISBN.</p></div><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div><div class="chips"><span class="chip">Shopify</span><span class="chip">Large catalogue</span></div></div></a>
     </div>
   </div>
 </section>
 
-<section id="d2c">
+<!-- ====================== PROJECTS ====================== -->
+<section id="projects">
   <div class="wrap">
-    <div class="s-head">
-      <h2>D2C &amp; Shopify specialisation</h2>
-      <p>Alongside general application development, I'm the sole technical owner of a full D2C e-commerce vertical — this is where I go deep.</p>
+    <div class="s-head reveal">
+      <div><div class="eyebrow">More work</div><h2>Integrations, automation and storefronts</h2></div>
+      <p>The work behind the case studies: connecting systems, automating operations, and building fast stores.</p>
     </div>
-    <div class="d2c-stats">
-      <div class="d2c-stat"><b>20+</b><span>Shopify stores managed solo</span></div>
-      <div class="d2c-stat"><b>10–20x</b><span>Revenue growth driven</span></div>
-      <div class="d2c-stat"><b>$3–4K → $40–70K</b><span>Daily sales scaled</span></div>
+    <div class="filters reveal" role="group" aria-label="Filter projects">
+      <button class="filter" aria-pressed="true" data-filter="all">All</button>
+      <button class="filter" aria-pressed="false" data-filter="integrations">Integrations</button>
+      <button class="filter" aria-pressed="false" data-filter="ecommerce">E-commerce</button>
+      <button class="filter" aria-pressed="false" data-filter="ai">AI</button>
+      <button class="filter" aria-pressed="false" data-filter="fullstack">Full stack</button>
+      <button class="filter" aria-pressed="false" data-filter="cloud">Cloud</button>
     </div>
-    <div class="d2c-list">
-      <div class="d2c-row">
-        <div class="name">Multi-store payment reconciliation</div>
-        <div class="desc">Shopify GraphQL automation pulling transaction data across 20+ stores, enriched with discount and shipping data, generating finance-ready reports — cut a days-long process to minutes.</div>
-        <div class="tag">Shopify GraphQL · AWS Lambda</div>
-      </div>
-      <div class="d2c-row">
-        <div class="name">Custom Shopify theme, built from scratch</div>
-        <div class="desc">No third-party builder — custom Liquid section architecture, mega-menu navigation, mobile-first layout, and performance tuning for fast loads on every device.</div>
-        <div class="tag">Liquid · Custom theme</div>
-      </div>
-      <div class="d2c-row">
-        <div class="name">Marketplace &amp; logistics integrations</div>
-        <div class="desc">Connected stores to Amazon MWS, FedEx, and Signifyd for fraud detection, plus PCI-compliant payment gateways — the operational backbone behind every store.</div>
-        <div class="tag">Amazon MWS · FedEx · Signifyd</div>
-      </div>
-      <div class="d2c-row">
-        <div class="name">AWS infrastructure for storefronts</div>
-        <div class="desc">Architected S3, Lambda, CloudFront and EC2 infrastructure behind the stores — 40% faster page loads and a 30% lift in transaction completion.</div>
-        <div class="tag">S3 · Lambda · CloudFront</div>
-      </div>
+    <div class="work">
+      <article class="card reveal" data-cat="integrations ecommerce"><span class="lbl">Integration</span><h5>AliExpress ↔ Shopify</h5><p>End-to-end dropshipping flow: product import and sync, then order placement, fulfilment and tracking updates back to the store.</p>
+        <div class="chips"><span class="chip">REST APIs</span><span class="chip">Shopify Admin API</span><span class="chip">Webhooks</span></div></article>
+      <article class="card reveal" data-cat="integrations"><span class="lbl">Integration</span><h5>Marketplace &amp; ERP sync</h5><p>eBay, Walmart, AbeBooks and Catch loaded into central databases, and middleware between Shopify and the internal ERP for real-time inventory and order sync.</p>
+        <div class="wm"><div><b>200K–500K</b><span>SKUs per store</span></div></div>
+        <div class="chips"><span class="chip">PHP</span><span class="chip">MySQL</span><span class="chip">Data mapping</span></div></article>
+      <article class="card reveal" data-cat="integrations fullstack"><span class="lbl">Platform</span><h5>Third-party integration platform</h5><p>A CodeIgniter application connecting 10+ external systems (Amazon MWS, FedEx, Signifyd, payment gateways and supplier APIs) into one operational back end.</p>
+        <div class="wm"><div><b>10+</b><span>APIs integrated</span></div><div><b>PCI</b><span>Compliant payments</span></div></div>
+        <div class="chips"><span class="chip">CodeIgniter</span><span class="chip">PHP</span><span class="chip">REST</span></div></article>
+      <article class="card reveal" data-cat="fullstack"><span class="lbl">Full stack</span><h5>Order &amp; supplier management</h5><p>A Laravel application for supplier orders, inventory sync and fulfilment tracking, built from scratch to replace a manual, spreadsheet-driven process across teams.</p>
+        <div class="wm"><div><b>60%</b><span>Less manual work</span></div><div><b>50%</b><span>Fewer errors</span></div></div>
+        <div class="chips"><span class="chip">Laravel</span><span class="chip">PHP</span><span class="chip">MySQL</span></div></article>
+      <article class="card reveal" data-cat="ecommerce cloud"><span class="lbl">Automation</span><h5>Multi-store payment reconciliation</h5><p>Shopify GraphQL automation that pulls transactions across 20+ stores, adds discount and shipping data, and produces finance-ready reports. A days-long job now takes minutes.</p>
+        <div class="chips"><span class="chip">Shopify GraphQL</span><span class="chip">AWS Lambda</span></div></article>
+      <article class="card reveal" data-cat="ecommerce fullstack"><span class="lbl">Shopify app</span><h5>Bulk product &amp; metafield app</h5><p>A custom Shopify app to export and import product details and metafields in bulk, replacing product-by-product edits with spreadsheet updates.</p>
+        <div class="chips"><span class="chip">Shopify Admin API</span><span class="chip">Metafields</span></div></article>
+      <article class="card reveal" data-cat="ecommerce"><span class="lbl">Storefront</span><h5>Custom Online Store 2.0 themes</h5><p>Themes built in Liquid with 54–84 custom sections each, designed first as Next.js, React and Tailwind prototypes. Mega-menus, mobile-first layouts and performance tuning.</p>
+        <div class="chips"><span class="chip">Liquid</span><span class="chip">Next.js</span><span class="chip">Tailwind CSS</span></div></article>
+      <article class="card reveal" data-cat="ecommerce"><span class="lbl">SEO</span><h5>Technical SEO, morningstarshops.com</h5><p>Structured data (JSON-LD), LCP preloading, Core Web Vitals work and AI-search readiness (llms.txt).</p>
+        <div class="wm"><div><b>82 → 88</b><span>On-page score</span></div><div><b>6 → 3</b><span>Failed checks</span></div></div>
+        <div class="chips"><span class="chip">JSON-LD</span><span class="chip">Lighthouse</span></div></article>
+      <article class="card reveal" data-cat="cloud ecommerce"><span class="lbl">Cloud</span><h5>AWS infrastructure for storefronts</h5><p>S3, Lambda, CloudFront and EC2 behind the stores, for faster pages and more completed checkouts.</p>
+        <div class="wm"><div><b>40%</b><span>Faster page loads</span></div><div><b>30%</b><span>More completed transactions</span></div></div>
+        <div class="chips"><span class="chip">S3</span><span class="chip">Lambda</span><span class="chip">CloudFront</span><span class="chip">EC2</span></div></article>
+      <article class="card reveal" data-cat="ai"><span class="lbl">AI</span><h5>AI support &amp; FAQ automation</h5><p>The ChatGPT API generates FAQs and drafts replies for order status, returns and sizing questions, with escalation rules for anything it can't resolve.</p>
+        <div class="wm"><div><b>30–40%</b><span>Fewer support tickets</span></div></div>
+        <div class="chips"><span class="chip">OpenAI API</span><span class="chip">Automation</span></div></article>
+      <article class="card reveal" data-cat="ai"><span class="lbl">Hackathon</span><h5>Ads &amp; analytics tool in 8 hours</h5><p>Built during Ergode's company-wide AI Hackathon 2025, and won 3rd place.</p>
+        <div class="wm"><div><b>3rd</b><span>Place</span></div><div><b>8 h</b><span>Build time</span></div></div>
+        <div class="chips"><span class="chip">AI</span><span class="chip">Analytics</span></div></article>
+      <article class="card reveal" data-cat="fullstack"><span class="lbl">Research</span><h5>Hardware Monitoring Suite</h5><p>CPU temperature, voltage, fan and PSU monitoring with upgrade recommendations. Published as a research paper in IJRASET.</p>
+        <div class="chips"><span class="chip">Python</span><span class="chip">Publication</span></div></article>
     </div>
   </div>
 </section>
 
+<!-- ====================== PROCESS ====================== -->
+<section id="process" style="background:var(--bg-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="wrap">
+    <div class="s-head reveal">
+      <div><div class="eyebrow">How I work</div><h2>From "can we connect this?" to numbers people trust</h2></div>
+      <p>The same five steps whether it's a marketplace, an ad platform or a client's HR system.</p>
+    </div>
+    <div class="process">
+      <div class="pstep reveal"><span class="n">01 / Understand</span><h5>Requirements</h5><p>Talk to the people who'll use it. Agree what "correct" means: which report they trust, which timezone, which definitions.</p></div>
+      <div class="pstep reveal"><span class="n">02 / Connect</span><h5>Access &amp; auth</h5><p>Apps, scopes, OAuth and tokens stored encrypted. Every connection gets a test and plain-language error messages.</p></div>
+      <div class="pstep reveal"><span class="n">03 / Build</span><h5>AI-assisted, human-reviewed</h5><p>Claude Code speeds up the build. I set the architecture, review every change and test it.</p></div>
+      <div class="pstep reveal"><span class="n">04 / Validate</span><h5>Reconcile</h5><p>Counts, totals and record-level checks against the source, until the numbers match. Then automated checks keep them matching.</p></div>
+      <div class="pstep reveal"><span class="n">05 / Ship</span><h5>Release &amp; stabilise</h5><p>Task branches, UAT, production. Then I watch real data, fix edge cases fast, and document what I learned.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== SKILLS ====================== -->
 <section id="skills">
   <div class="wrap">
-    <div class="s-head">
-      <h2>Technical toolkit</h2>
-      <p>Full-stack depth with a Shopify and AI-driven development specialisation.</p>
+    <div class="s-head reveal">
+      <div><div class="eyebrow">Skills</div><h2>Technical toolkit</h2></div>
+      <p>Full stack depth, with integrations, e-commerce and AI as my specialities.</p>
     </div>
-    <div class="skill-groups">
-      <div class="skill-group">
-        <h3>Languages &amp; frameworks</h3>
-        <div class="tags">
-          <span class="tag">PHP</span><span class="tag">Laravel</span>
-          <span class="tag">CodeIgniter</span><span class="tag">JavaScript / TypeScript</span>
-          <span class="tag">React.js</span><span class="tag">Next.js</span>
-          <span class="tag">Node.js / Express</span><span class="tag">Python</span>
-          <span class="tag">Tailwind CSS</span><span class="tag">TanStack Query</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <h3>Data, cloud &amp; infra</h3>
-        <div class="tags">
-          <span class="tag">MySQL / PostgreSQL</span><span class="tag">AWS</span>
-          <span class="tag">REST APIs</span><span class="tag">Git · GitLab CI</span>
-          <span class="tag">Shopify (Liquid, GraphQL, CLI)</span><span class="tag">Playwright</span>
-          <span class="tag">Amazon MWS · FedEx · Signifyd</span>
-          <span class="tag">Ads &amp; analytics APIs</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <h3>AI &amp; agents</h3>
-        <div class="tags">
-          <span class="tag">Claude API</span><span class="tag">Gemini API</span>
-          <span class="tag">ChatGPT API</span><span class="tag">Tool-use agents</span>
-          <span class="tag">Claude Code</span><span class="tag">Cursor</span>
-          <span class="tag">GitHub Copilot</span>
-        </div>
-      </div>
+    <div class="skills">
+      <div class="card reveal"><h5><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg></i>Languages</h5>
+        <div class="chips"><span class="chip">JavaScript (ES6+)</span><span class="chip">TypeScript</span><span class="chip">PHP</span><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">Liquid</span><span class="chip">HTML5</span><span class="chip">CSS3</span></div></div>
+      <div class="card reveal"><h5><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></i>Front end</h5>
+        <div class="chips"><span class="chip">React.js</span><span class="chip">Next.js</span><span class="chip">React Native (Expo)</span><span class="chip">Tailwind CSS</span><span class="chip">Vite</span><span class="chip">TanStack Query</span></div></div>
+      <div class="card reveal"><h5><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></i>Back end &amp; data</h5>
+        <div class="chips"><span class="chip">Node.js</span><span class="chip">Express.js</span><span class="chip">Laravel</span><span class="chip">CodeIgniter</span><span class="chip">MySQL</span><span class="chip">PostgreSQL</span><span class="chip">Drizzle ORM</span><span class="chip">Query optimisation</span></div></div>
+      <div class="card reveal"><h5><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg></i>APIs &amp; integration</h5>
+        <div class="chips"><span class="chip">REST APIs</span><span class="chip">GraphQL</span><span class="chip">Webhooks</span><span class="chip">OAuth 2.0</span><span class="chip">JWT</span><span class="chip">Postman</span><span class="chip">Data mapping</span><span class="chip">ERP integration</span></div></div>
+      <div class="card reveal"><h5><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4zM3 6h18M16 10a4 4 0 0 1-8 0"/></svg></i>E-commerce</h5>
+        <div class="chips"><span class="chip">Shopify Theme Development</span><span class="chip">Shopify Apps</span><span class="chip">Admin API</span><span class="chip">Metafields</span><span class="chip">Shopify CLI</span><span class="chip">Marketplace integration</span><span class="chip">Technical SEO</span></div></div>
+      <div class="card reveal"><h5><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 4.6L18.5 9l-4.6 1.9L12 15.5l-1.9-4.6L5.5 9l4.6-1.4z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg></i>AI</h5>
+        <div class="chips"><span class="chip">Claude API</span><span class="chip">OpenAI API</span><span class="chip">Gemini API</span><span class="chip">Tool-use agents</span><span class="chip">Prompt engineering</span><span class="chip">Claude Code</span><span class="chip">Cursor</span><span class="chip">GitHub Copilot</span></div></div>
+      <div class="card reveal"><h5><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.3A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></i>Cloud &amp; DevOps</h5>
+        <div class="chips"><span class="chip">AWS (S3, Lambda, EC2, RDS)</span><span class="chip">Linux</span><span class="chip">PM2</span><span class="chip">GitLab CI/CD</span><span class="chip">Git &amp; GitHub</span><span class="chip">Expo EAS</span></div></div>
+      <div class="card reveal"><h5><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></svg></i>Analytics &amp; ads</h5>
+        <div class="chips"><span class="chip">GA4 Data API</span><span class="chip">Google Ads API</span><span class="chip">Meta Marketing API</span><span class="chip">Microsoft Ads</span><span class="chip">Microsoft Clarity</span><span class="chip">Search Console</span></div></div>
+      <div class="card reveal"><h5><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg></i>Delivery</h5>
+        <div class="chips"><span class="chip">Requirements gathering</span><span class="chip">Client communication</span><span class="chip">Testing &amp; UAT</span><span class="chip">Code review</span><span class="chip">Team leadership</span></div></div>
     </div>
   </div>
 </section>
 
-<section id="about">
+<!-- ====================== ABOUT ====================== -->
+<section id="about" style="padding-top:24px">
   <div class="wrap">
-    <div class="about-grid">
-      <div>
-        <div class="s-head" style="margin-bottom:20px"><h2>About</h2></div>
-        <p>I'm based in Navi Mumbai, and I've built my career across PHP/Laravel applications, CodeIgniter systems, and modern React/Node.js products — with e-commerce as one area of deep specialisation, not the whole story.</p>
-        <p>Lately that means building AI-first: using tools like Claude Code to move faster while still reviewing and owning every piece of what ships.</p>
+    <div class="about">
+      <div class="reveal">
+        <div class="eyebrow">About</div>
+        <h2 style="font-size:clamp(28px,4vw,44px);line-height:1.12;letter-spacing:-.025em;font-weight:800;margin-bottom:18px">A developer who cares whether the numbers are right.</h2>
+        <p>I started with PHP, building <b>Laravel and CodeIgniter</b> systems, and grew into <b>React and Node.js</b> products. Most of my work sits where systems meet: stores, marketplaces, ERPs, ad platforms and analytics. That's where data goes missing, tokens expire and numbers stop matching.</p>
+        <p>I like owning the whole path: talking to the people who need something, connecting the systems, proving the data is correct, and staying with it after launch.</p>
+        <p>Lately I build <b>AI-first</b>: Claude Code and other AI tools make me much faster, and I still review and own every line that ships.</p>
       </div>
-      <ul class="about-facts">
-        <li><span>Location</span><span>Navi Mumbai, India (open to remote)</span></li>
-        <li><span>Education</span><span>B.E. Computer Science, CGPA 8.9/10</span></li>
-        <li><span>Certifications</span><span>AWS Fundamentals · Python Programming</span></li>
-        <li><span>Recognition</span><span>3rd place, company-wide AI Hackathon</span></li>
-        <li><span>Published</span><span>Research paper in IJRASET, hardware monitoring</span></li>
+      <ul class="facts reveal">
+        <li><span>Based in</span><span>Navi Mumbai, India · open to remote</span></li>
+        <li><span>Education</span><span>B.E. Computer Science, A.P. Shah Institute of Technology (University of Mumbai), CGPA 8.9/10</span></li>
+        <li><span>Certifications</span><span><a href="https://www.coursera.org/account/accomplishments/verify/QRAHXSHT3H8X" target="_blank" rel="noopener">AWS Fundamentals: Going Cloud-Native</a> · <a href="https://drive.google.com/file/d/1C9zzUpbN1HfKRp7qu50Dh6HQqc2n-Fdd/view" target="_blank" rel="noopener">Python Programming</a></span></li>
+        <li><span>Awards</span><span>3rd place, Ergode AI Hackathon 2025 · Top 10, IEEE APSIT Apscript Hackathon</span></li>
+        <li><span>Published</span><span>Hardware Monitoring Suite, IJRASET</span></li>
       </ul>
     </div>
   </div>
 </section>
 
-<section id="contact">
-  <div class="wrap contact-inner">
-    <h2>Let's build something that scales.</h2>
-    <p class="lead" style="margin-bottom:0">Open to Technical Lead, Team Lead, and Senior Full Stack roles — across application development, e-commerce, and AI-driven products.</p>
-    <div class="contact-links">
-      <a href="mailto:vikasprajapati.dev@gmail.com" class="clink">vikasprajapati.dev@gmail.com</a>
-      <a href="tel:+918600290199" class="clink">+91 86002 90199</a>
-      <a href="https://www.linkedin.com/in/vkasprajapati/" class="clink" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://github.com/VikasSprajapati" class="clink" target="_blank" rel="noopener">GitHub</a>
+<!-- ====================== CONTACT ====================== -->
+<section id="contact" style="padding-top:24px">
+  <div class="wrap">
+    <div class="contact reveal">
+      <div class="eyebrow">Contact</div>
+      <h2>Have systems that need connecting? <span class="grad-text">Let's talk.</span></h2>
+      <p>I'm open to Integration Engineer, Full Stack, Technical Lead and Shopify roles, especially in e-commerce, SaaS and AI products.</p>
+      <div class="contact-row">
+        <button class="btn btn-primary" id="copyEmail" data-email="vikasprajapati.dev@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          vikasprajapati.dev@gmail.com</button>
+        <a class="btn btn-ghost" href="Vikas_Prajapati_Resume.pdf" download>Download resume
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg></a>
+        <a class="btn btn-ghost" href="mailto:vikasprajapati.dev@gmail.com">Send an email</a>
+        <a class="btn btn-ghost" href="tel:+918600290199">+91 86002 90199</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/vkasprajapati/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="btn btn-ghost" href="https://github.com/VikasSprajapati" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
     </div>
   </div>
 </section>
+</main>
 
 <footer>
-  <div class="wrap" style="display:flex;justify-content:space-between;width:100%;flex-wrap:wrap;gap:8px">
-    <span>© 2026 Vikas Prajapati</span>
-    <span>Built with Claude</span>
+  <div class="wrap foot">
+    <span>© <span id="year">2026</span> Vikas Prajapati</span>
+    <span>Designed and built with care, and with Claude.</span>
   </div>
 </footer>
+
+<button class="icon-btn" id="toTop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
 (function(){
   var root = document.documentElement;
-  var btn = document.getElementById('theme-toggle');
-  var saved = null;
-  try { saved = localStorage.getItem('vp-theme'); } catch(e) {}
-  if (saved === 'light' || saved === 'dark') { root.setAttribute('data-theme', saved); }
-  function current(){
-    var attr = root.getAttribute('data-theme');
-    if (attr) return attr;
-    return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $ = function(s, c){ return (c || document).querySelector(s); };
+  var $$ = function(s, c){ return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
+
+  /* theme */
+  function isDark(){
+    var a = root.getAttribute('data-theme');
+    if (a) return a === 'dark';
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
   }
-  btn.addEventListener('click', function(){
-    var next = current() === 'dark' ? 'light' : 'dark';
+  $('#themeBtn').addEventListener('click', function(){
+    var next = isDark() ? 'light' : 'dark';
     root.setAttribute('data-theme', next);
-    btn.textContent = next === 'dark' ? '◐' : '◑';
-    try { localStorage.setItem('vp-theme', next); } catch(e) {}
+    try { localStorage.setItem('vp-theme', next); } catch(e){}
   });
-  btn.textContent = current() === 'dark' ? '◐' : '◑';
+
+  /* mobile menu */
+  var menuBtn = $('#menuBtn'), links = $('#navLinks');
+  function closeMenu(){ links.classList.remove('open'); menuBtn.setAttribute('aria-expanded','false'); }
+  menuBtn.addEventListener('click', function(){
+    var open = links.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', String(open));
+  });
+  $$('#navLinks a').forEach(function(a){ a.addEventListener('click', closeMenu); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeMenu(); });
+
+  /* nav state, progress bar, back to top */
+  var nav = $('header.nav'), bar = $('#progress'), top = $('#toTop');
+  function onScroll(){
+    var y = window.scrollY, h = document.documentElement.scrollHeight - window.innerHeight;
+    nav.classList.toggle('scrolled', y > 10);
+    bar.style.width = (h > 0 ? (y / h) * 100 : 0) + '%';
+    top.classList.toggle('show', y > 700);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+  top.addEventListener('click', function(){ window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); });
+
+  /* active nav link */
+  var navMap = {};
+  $$('#navLinks a').forEach(function(a){ navMap[a.getAttribute('href').slice(1)] = a; });
+  if ('IntersectionObserver' in window){
+    var secObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting && navMap[en.target.id]){
+          $$('#navLinks a').forEach(function(a){ a.classList.remove('active'); });
+          navMap[en.target.id].classList.add('active');
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    Object.keys(navMap).forEach(function(id){ var s = document.getElementById(id); if (s) secObs.observe(s); });
+  }
+
+  /* reveal on scroll */
+  var reveals = $$('.reveal');
+  if (!reduce && 'IntersectionObserver' in window){
+    var revObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting){ en.target.classList.add('in'); revObs.unobserve(en.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(function(el, i){ el.style.transitionDelay = (i % 3) * 70 + 'ms'; revObs.observe(el); });
+  } else {
+    reveals.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* count-up numbers */
+  function countUp(el){
+    var target = parseInt(el.getAttribute('data-count'), 10);
+    if (reduce || isNaN(target)) { el.textContent = target; return; }
+    var start = null, dur = 1200;
+    function step(ts){
+      if (!start) start = ts;
+      var p = Math.min((ts - start) / dur, 1);
+      el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+      if (p < 1) requestAnimationFrame(step);
+    }
+    el.textContent = '0';
+    requestAnimationFrame(step);
+  }
+  var counters = $$('[data-count]');
+  if ('IntersectionObserver' in window){
+    var cObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting){ countUp(en.target); cObs.unobserve(en.target); }
+      });
+    }, { threshold: 0.6 });
+    counters.forEach(function(c){ cObs.observe(c); });
+  }
+
+  /* rotating role */
+  var roles = ['Integration Engineer', 'Technical Lead', 'Shopify Developer', 'AI Product Builder', 'Data Platform Engineer'];
+  var rot = $('#rotator');
+  if (rot && !reduce){
+    var ri = 0, ci = roles[0].length, deleting = true;
+    function tick(){
+      var word = roles[ri];
+      if (deleting){
+        ci--;
+        if (ci <= 0){ deleting = false; ri = (ri + 1) % roles.length; }
+      } else {
+        ci++;
+      }
+      rot.textContent = roles[ri].slice(0, Math.max(ci, 0));
+      var delay = deleting ? 45 : 85;
+      if (!deleting && ci >= roles[ri].length){ deleting = true; delay = 1800; }
+      setTimeout(tick, delay);
+    }
+    setTimeout(tick, 2200);
+  }
+
+  /* terminal lines */
+  var lines = $$('#term .term-line');
+  function playTerm(){
+    lines.forEach(function(l){ l.classList.remove('on'); });
+    lines.forEach(function(l, i){ setTimeout(function(){ l.classList.add('on'); }, reduce ? 0 : 350 + i * 420); });
+  }
+  playTerm();
+  if (!reduce) setInterval(playTerm, 14000);
+
+  /* marquee: duplicate content for a seamless loop */
+  ['#track1', '#track2'].forEach(function(sel){
+    var t = $(sel); if (!t) return;
+    var clone = t.innerHTML;
+    t.insertAdjacentHTML('beforeend', clone);
+    $$('.int', t).slice(t.children.length / 2).forEach(function(n){ n.setAttribute('aria-hidden', 'true'); });
+  });
+
+  /* tabs */
+  var tabs = $$('[role="tab"]');
+  function selectTab(tab, focus, keepHash){
+    tabs.forEach(function(t){
+      var on = t === tab;
+      t.setAttribute('aria-selected', String(on));
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+    if (focus) tab.focus();
+    if (!keepHash){ try { history.replaceState(null, '', '#' + tab.getAttribute('aria-controls')); } catch(e){} }
+  }
+  tabs.forEach(function(t, i){
+    t.addEventListener('click', function(){ selectTab(t); });
+    t.addEventListener('keydown', function(e){
+      var n = null;
+      if (e.key === 'ArrowRight') n = tabs[(i + 1) % tabs.length];
+      if (e.key === 'ArrowLeft') n = tabs[(i - 1 + tabs.length) % tabs.length];
+      if (e.key === 'Home') n = tabs[0];
+      if (e.key === 'End') n = tabs[tabs.length - 1];
+      if (n){ e.preventDefault(); selectTab(n, true); }
+    });
+  });
+  $$('[data-tab]').forEach(function(a){
+    a.addEventListener('click', function(){ var t = document.getElementById(a.getAttribute('data-tab')); if (t) selectTab(t); });
+  });
+  var hashPanel = location.hash && document.getElementById(location.hash.slice(1));
+  if (hashPanel && hashPanel.getAttribute('role') === 'tabpanel'){
+    selectTab(document.querySelector('[aria-controls="' + hashPanel.id + '"]'), false, true);
+    setTimeout(function(){ document.getElementById('work-case').scrollIntoView(); }, 0);
+  } else if (tabs.length){
+    selectTab(tabs[0], false, true);   /* without JS, all three case studies stay visible */
+  }
+
+  /* project filters */
+  var filters = $$('.filter'), cards = $$('.work .card');
+  filters.forEach(function(f){
+    f.addEventListener('click', function(){
+      var cat = f.getAttribute('data-filter');
+      filters.forEach(function(x){ x.setAttribute('aria-pressed', String(x === f)); });
+      cards.forEach(function(c){
+        var show = cat === 'all' || (' ' + c.getAttribute('data-cat') + ' ').indexOf(' ' + cat + ' ') !== -1;
+        c.classList.toggle('hide', !show);
+        if (show) c.classList.add('in');
+      });
+    });
+  });
+
+  /* copy email */
+  var toast = $('#toast'), toastTimer;
+  function showToast(msg){
+    toast.textContent = msg; toast.classList.add('show');
+    clearTimeout(toastTimer); toastTimer = setTimeout(function(){ toast.classList.remove('show'); }, 2200);
+  }
+  $('#copyEmail').addEventListener('click', function(){
+    var email = this.getAttribute('data-email');
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(email).then(function(){ showToast('Email copied to clipboard'); },
+        function(){ location.href = 'mailto:' + email; });
+    } else { location.href = 'mailto:' + email; }
+  });
+
+  $('#year').textContent = new Date().getFullYear();
 })();
 </script>
 </body>

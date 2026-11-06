@@ -1,0 +1,35 @@
+# Vikas Prajapati: portfolio
+
+A static site: one `index.html` plus images. It has no build step and no dependencies.
+
+```
+portfolio/
+├─ index.html                    the site
+├─ Vikas_Prajapati_Resume.pdf    ADD THIS: the resume download buttons point here
+└─ assets/
+   ├─ og-image.png               social preview image (1200×630)
+   └─ stores/                    desktop and phone screenshots of each storefront
+```
+
+## Before publishing
+
+1. Compile `main.tex` in Overleaf, download the PDF, and save it in this folder as
+   **`Vikas_Prajapati_Resume.pdf`**. The three "Resume" / "Download resume" buttons link to that exact name.
+2. Open `index.html` in a browser and click through it once.
+
+## Publish on GitHub Pages
+
+1. Create a public repo named **`VikasSprajapati.github.io`**. That name makes the site live at
+   `https://vikassprajapati.github.io/`, which is the address the social preview tags use.
+2. Upload the contents of this folder (not the folder itself) to the repo root.
+3. In the repo, go to Settings → Pages → Build and deployment and set Source to "Deploy from a branch",
+   with Branch `main` and folder `/ (root)`. The site goes live within a minute or two.
+4. Check the preview card by pasting the URL into https://www.linkedin.com/post-inspector/ .
+
+If you use a different repo name (the site would then be at `https://vikassprajapati.github.io/<repo>/`) or a custom domain,
+update the URLs in the `<head>` of `index.html`: `canonical`, `og:url`, `og:image`, `twitter:image`, and the JSON-LD block.
+
+## Updating the screenshots
+
+The store screenshots were taken on 6 Nov 2026 with Playwright: desktop at 1440×900, phone at 390×780 @2x, with pop-ups
+hidden. Some show seasonal banners. Re-take them when the stores change.
