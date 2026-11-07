@@ -25,12 +25,80 @@
     if (a) return a === 'dark';
     return window.matchMedia('(prefers-color-scheme: dark)').matches;
   }
+  /* Apply a theme change with a circular reveal from the click point (Chrome/Edge),
+     or a short colour fade elsewhere. */
+  function withTransition(change, x, y) {
+    if (reduce) { change(); afterThemeChange(); return; }
+    if (document.startViewTransition) {
+      var t = document.startViewTransition(function () { change(); afterThemeChange(); });
+      t.ready.then(function () {
+        var r = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+        root.animate({ clipPath: ['circle(0px at ' + x + 'px ' + y + 'px)', 'circle(' + r + 'px at ' + x + 'px ' + y + 'px)'] },
+          { duration: 650, easing: 'cubic-bezier(.4,0,.2,1)', pseudoElement: '::view-transition-new(root)' });
+      }).catch(function () {});
+    } else {
+      root.classList.add('theme-fade');
+      change(); afterThemeChange();
+      setTimeout(function () { root.classList.remove('theme-fade'); }, 500);
+    }
+  }
+  function centre(el) { var r = el.getBoundingClientRect(); return [r.left + r.width / 2, r.top + r.height / 2]; }
+  function afterThemeChange() {
+    // browser address-bar colour follows the page background
+    var bg = getComputedStyle(root).getPropertyValue('--bg').trim();
+    $$('meta[name="theme-color"]').forEach(function (m) { m.setAttribute('content', bg); m.removeAttribute('media'); });
+    syncPaletteMenu();
+  }
+
   var themeBtn = $('#themeBtn');
-  if (themeBtn) themeBtn.addEventListener('click', function () {
-    var next = isDark() ? 'light' : 'dark';
-    root.setAttribute('data-theme', next);
-    try { localStorage.setItem('vp-theme', next); } catch (e) {}
+  if (themeBtn) themeBtn.addEventListener('click', function (e) {
+    var next = isDark() ? 'light' : 'dark', c = centre(themeBtn);
+    withTransition(function () {
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('vp-theme', next); } catch (err) {}
+    }, e.clientX || c[0], e.clientY || c[1]);
   });
+
+  /* ---------- palette switcher ---------- */
+  var palBtn = $('#paletteBtn'), palMenu = $('#palMenu');
+  function syncPaletteMenu() {
+    var cur = root.getAttribute('data-palette') || 'ink';
+    $$('.pal-opt').forEach(function (o) { o.setAttribute('aria-checked', String(o.getAttribute('data-palette') === cur)); });
+  }
+  function closePal(focusBtn) {
+    if (!palMenu || palMenu.hidden) return;
+    palMenu.hidden = true; palBtn.setAttribute('aria-expanded', 'false');
+    if (focusBtn) palBtn.focus();
+  }
+  if (palBtn && palMenu) {
+    syncPaletteMenu();
+    palBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = palMenu.hidden;
+      palMenu.hidden = !open; palBtn.setAttribute('aria-expanded', String(open));
+      if (open) { var cur = $('.pal-opt[aria-checked="true"]', palMenu) || $('.pal-opt', palMenu); cur.focus(); }
+    });
+    $$('.pal-opt', palMenu).forEach(function (o, i, all) {
+      o.addEventListener('click', function (e) {
+        var p = o.getAttribute('data-palette'), c = centre(o);
+        closePal(false);
+        if (p === root.getAttribute('data-palette')) return;
+        withTransition(function () {
+          root.setAttribute('data-palette', p);
+          try { localStorage.setItem('vp-palette', p); } catch (err) {}
+        }, e.clientX || c[0], e.clientY || c[1]);
+      });
+      o.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+          e.preventDefault();
+          all[(i + (e.key === 'ArrowDown' ? 1 : all.length - 1)) % all.length].focus();
+        }
+      });
+    });
+    document.addEventListener('click', function (e) { if (!palMenu.hidden && !palMenu.contains(e.target)) closePal(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closePal(true); });
+  }
+  afterThemeChange();
 
   /* ---------- mobile menu ---------- */
   var menuBtn = $('#menuBtn'), links = $('#navLinks');
@@ -41,6 +109,10 @@
       menuBtn.setAttribute('aria-expanded', String(open));
     });
     $$('#navLinks a').forEach(function (a) { a.addEventListener('click', closeMenu); });
+    // tap outside the open menu closes it
+    document.addEventListener('click', function (e) {
+      if (links.classList.contains('open') && !links.contains(e.target) && !menuBtn.contains(e.target)) closeMenu();
+    });
   }
 
   /* ---------- nav state, progress bar, back to top ---------- */
@@ -61,17 +133,57 @@
     var href = a.getAttribute('href') || '';
     if (href.charAt(0) === '#') navMap[href.slice(1)] = a;
   });
+  /* sliding accent underline under the active menu item */
+  var navInd = null;
+  if (links) {
+    navInd = document.createElement('li');
+    navInd.className = 'nav-ind';
+    navInd.setAttribute('aria-hidden', 'true');
+    links.appendChild(navInd);
+  }
+  function moveInd() {
+    if (!navInd) return;
+    var a = $('#navLinks a.active');
+    if (!a || getComputedStyle(navInd).display === 'none') { navInd.style.opacity = '0'; return; }
+    navInd.style.left = (a.offsetLeft + 12) + 'px';
+    navInd.style.width = Math.max(a.offsetWidth - 24, 8) + 'px';
+    navInd.style.opacity = '1';
+  }
+  moveInd();
+  window.addEventListener('resize', moveInd);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(moveInd);
+
   if ('IntersectionObserver' in window && Object.keys(navMap).length) {
     var secObs = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
         if (en.isIntersecting && navMap[en.target.id]) {
           Object.keys(navMap).forEach(function (k) { navMap[k].classList.remove('active'); });
           navMap[en.target.id].classList.add('active');
+          moveInd();
         }
       });
     }, { rootMargin: '-45% 0px -50% 0px' });
     Object.keys(navMap).forEach(function (id) { var s = document.getElementById(id); if (s) secObs.observe(s); });
+    // above the first menu section (the hero), nothing is highlighted
+    var firstSec = document.getElementById(Object.keys(navMap)[0]);
+    window.addEventListener('scroll', function () {
+      if (firstSec && window.scrollY + innerHeight * 0.5 < firstSec.offsetTop) {
+        Object.keys(navMap).forEach(function (k) { navMap[k].classList.remove('active'); });
+        moveInd();
+      }
+    }, { passive: true });
   }
+
+  /* ---------- long lists: "show all" buttons ---------- */
+  $$('.more-btn').forEach(function (btn) {
+    var grid = document.getElementById(btn.getAttribute('data-more'));
+    if (!grid) return;
+    btn.addEventListener('click', function () {
+      grid.classList.remove('collapsed');
+      grid.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+      btn.parentElement.hidden = true;
+    });
+  });
 
   /* ---------- reveal on scroll ---------- */
   var reveals = $$('.reveal');
@@ -148,6 +260,8 @@
     f.addEventListener('click', function () {
       var cat = f.getAttribute('data-filter');
       filters.forEach(function (x) { x.setAttribute('aria-pressed', String(x === f)); });
+      var pg = document.getElementById('projectGrid');
+      if (pg && cat !== 'all') { pg.classList.remove('collapsed'); var mb = document.querySelector('[data-more="projectGrid"]'); if (mb) mb.parentElement.hidden = true; }
       cards.forEach(function (c) {
         var show = cat === 'all' || (' ' + c.getAttribute('data-cat') + ' ').indexOf(' ' + cat + ' ') !== -1;
         c.classList.toggle('hide', !show);
@@ -177,15 +291,16 @@
     lb.setAttribute('role', 'dialog');
     lb.setAttribute('aria-modal', 'true');
     lb.setAttribute('aria-label', 'Screenshot');
-    lb.innerHTML = '<button class="lightbox-close" aria-label="Close">×</button><img alt=""><p class="lightbox-cap"></p>';
+    lb.innerHTML = '<button class="lightbox-close" aria-label="Close">×</button><p class="lightbox-cap"></p>';
     document.body.appendChild(lb);
-    var lbImg = $('img', lb), lbCap = $('.lightbox-cap', lb), lastFocus = null;
+    var lbImg = document.createElement('img'), lbCap = $('.lightbox-cap', lb), lastFocus = null;
     var close = function () { lb.classList.remove('open'); document.body.style.overflow = ''; if (lastFocus) lastFocus.focus(); };
     zoomables.forEach(function (img) {
       img.setAttribute('tabindex', '0');
       img.setAttribute('role', 'button');
       var open = function () {
         lastFocus = img;
+        if (!lbImg.parentNode) lb.insertBefore(lbImg, lbCap);  // added on first open, so no empty image sits in the page
         lbImg.src = img.currentSrc || img.src;
         lbImg.alt = img.alt;
         lbCap.textContent = img.getAttribute('data-zoom') || img.alt;
