@@ -201,12 +201,27 @@
   }
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
 
-  /* ---------- contact form (FormSubmit) ----------
-     Sends in the background and shows the result in place. Without JavaScript the form
-     still posts to FormSubmit normally and comes back to the site afterwards. */
+  /* ---------- contact form ----------
+     Sends in the background and shows the result in place. The delivery service is set on the
+     <form>: data-web3forms-key="…" uses Web3Forms; otherwise data-ajax (FormSubmit) is used.
+     If sending fails for any reason, the visitor gets a ready-filled email instead of a dead end. */
+  var OWNER = 'vikasprajapati.dev@gmail.com';
   $$('form.cform').forEach(function (form) {
     var status = $('.cform-status', form), btn = $('button[type="submit"]', form);
     var say = function (msg, kind) { status.textContent = msg; status.className = 'cform-status' + (kind ? ' ' + kind : ''); };
+    var fallback = function (data, reason) {
+      var body = (data.message || '') + '\n\n— ' + (data.name || '') + (data.company ? ', ' + data.company : '') + '\n' + (data.email || '');
+      var href = 'mailto:' + OWNER + '?subject=' + encodeURIComponent(data._subject || 'Message from your portfolio') + '&body=' + encodeURIComponent(body);
+      status.className = 'cform-status err';
+      status.textContent = (reason || "The form couldn't send right now.") + ' ';
+      var a = document.createElement('a');
+      a.href = href;
+      a.className = 'btn btn-ghost btn-sm';
+      a.style.marginTop = '10px';
+      a.textContent = 'Open in my email app (message filled in)';
+      status.appendChild(document.createElement('br'));
+      status.appendChild(a);
+    };
     form.addEventListener('submit', function (e) {
       if (!window.fetch || !window.FormData) return;          // fall back to a normal post
       e.preventDefault();
@@ -215,23 +230,35 @@
       var data = {};
       new FormData(form).forEach(function (v, k) { data[k] = typeof v === 'string' ? v.trim() : v; });
       data._subject = 'Portfolio: ' + (data.topic || 'Message') + ' from ' + (data.name || 'someone');
+      var key = form.getAttribute('data-web3forms-key'), url, payload;
+      if (key) {
+        url = 'https://api.web3forms.com/submit';
+        payload = { access_key: key, subject: data._subject, from_name: 'Portfolio contact form', replyto: data.email,
+                    name: data.name, email: data.email, company: data.company, topic: data.topic, message: data.message, botcheck: '' };
+      } else {
+        url = form.getAttribute('data-ajax');
+        payload = data;
+      }
       btn.disabled = true;
       say('Sending…');
-      fetch(form.getAttribute('data-ajax'), {
+      var done = false;
+      var timer = setTimeout(function () { if (!done) { done = true; btn.disabled = false; fallback(data, 'Sending is taking too long.'); } }, 15000);
+      fetch(url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(data)
+        body: JSON.stringify(payload)
       }).then(function (r) { return r.json().catch(function () { return {}; }); })
         .then(function (j) {
-          if (String(j.success) === 'true') {
+          if (done) return; done = true; clearTimeout(timer);
+          if (j.success === true || String(j.success) === 'true') {
             form.reset();
             form.classList.add('sent');
             say('');
           } else {
-            say((j.message ? j.message + ' ' : '') + 'You can also email vikasprajapati.dev@gmail.com.', 'err');
+            fallback(data, j.message ? j.message + '.' : null);
           }
         })
-        .catch(function () { say("Couldn't send right now. Please email vikasprajapati.dev@gmail.com instead.", 'err'); })
+        .catch(function () { if (done) return; done = true; clearTimeout(timer); fallback(data); })
         .then(function () { btn.disabled = false; });
     });
   });
